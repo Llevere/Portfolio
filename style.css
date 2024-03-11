@@ -463,6 +463,9 @@ picture {
 .text-neutral-900 {
   color: var(--clr-neutral-900);
 }
+.text-primary-200 {
+  color: var(--clr-primary-200);
+}
 .text-primary-300 {
   color: var(--clr-primary-300);
 }
