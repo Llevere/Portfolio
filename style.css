@@ -53,14 +53,14 @@
 }
 @keyframes starsAnimation {
   0% {
-    transform: rotate(315deg) translateX(0);
+    transform: rotate(335deg) translateX(0);
     opacity: 1;
   }
   70% {
     opacity: 1;
   }
   100% {
-    transform: rotate(315deg) translateX(-1500px);
+    transform: rotate(335deg) translateX(-1250px);
     opacity: 0;
   }
 }
@@ -175,7 +175,7 @@
 
 .area {
   background: none;
-  background-image: url("https://img.freepik.com/free-photo/snowy-mountain-peak-starry-galaxy-majesty-generative-ai_188544-9650.jpg?w=1380&t=st=1710195701~exp=1710196301~hmac=9f41ae8e90706b1b0379ccf7c3af4441a75beab9f981c213b667ae9f92198c2f");
+  background-image: url("https://www.shutterstock.com/image-vector/vector-night-sky-clouds-moonlight-600nw-760640275.jpg");
 
   background-size: cover;
   background-position: center;
