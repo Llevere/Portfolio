@@ -163,10 +163,16 @@ html {
 }
 
 .nav-list a {
-  color: white;
+  color: #333;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: none;
+  transition: color 0.2s ease-in;
+}
+
+.nav-list a:hover {
+  color: #fff;
+  /* text-decoration: underline solid; */
 }
 
 /* general styling */
