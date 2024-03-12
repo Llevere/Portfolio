@@ -196,8 +196,14 @@
   -o-background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
-  background-size: 100% 100%;
+  background-size: 100% auto;
   background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+  .area {
+    background-size: contain;
+  }
 }
 
 .circles {
@@ -390,7 +396,8 @@ html {
   --clr-neutral-200: hsl(36, 24%, 96%);
   --clr-neutral-100: hsl(0, 0%, 100%);
 
-  --clr-primary-200: hsl(213, 43%, 79%);
+  /* --clr-primary-200: hsl(213, 43%, 79%); */
+  --clr-primary-200: #fff;
   /* --clr-primary-300: hsl(190, 84%, 50%); */
   /* --clr-primary-300: #00e1ff; */
   --clr-primary-300: #775d9c;
