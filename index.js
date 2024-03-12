@@ -10,17 +10,17 @@ document.documentElement.style.setProperty(
 const toggleButton = document.getElementById("toggleAnimation");
 
 toggleButton.addEventListener("click", function () {
-  document.documentElement.class.toggle("reduce-motion");
+  document.documentElement.classList.toggle("reduce-motion");
 });
 
 let isScrolling;
 
 function addScrollingClass() {
-  document.body.class.add("scrolling");
+  document.body.classList.add("scrolling");
 }
 
 function removeScrollingClass() {
-  document.body.class.remove("scrolling");
+  document.body.classList.remove("scrolling");
 }
 
 window.addEventListener(

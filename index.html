@@ -18,7 +18,7 @@
                 <span></span>
                 <span></span>
                 <span></span>
-                <span></span>
+                <span ></span>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -49,7 +49,7 @@
         </ul>
         
     </nav>
-    <div style="display: flex; flex-direction:column; align-items:center; justify-content:center">
+    <div id="toggleInput">
         <label for="rangeInput" class="text-primary-400">Generate Dots 150-2,000</label>
 
         <input type="range" id="rangeInput" name="rangeInput" min="100" max="2000" value="150">
@@ -57,7 +57,7 @@
         <span id="rangeValue" class="text-primary-400">150</span>
         <button onclick="resetDotCount()" id="resetDots" style="cursor: pointer;">Reset Dots</button>
         <div class="dropdown text-primary-400">
-            <span style="border: 1px #ff6c03 solid; margin: 1%; display:inline-block; text-align:center; font-weight:bold; font-size:1rem" onclick="toggleDropdown()">Let's Have Some Fun</span>
+            <span style="border: 1px #ff6c03 solid; margin: 1%; display:inline-block; text-align:center; font-weight:bold; font-size:.8rem" onclick="toggleDropdown()">Let's Have Some Fun</span>
             <div class="dropdown-content">
                 <label for="rangeInputDropdown" class="text-primary-400"><p style="text-align: center;">Generate Dots  2000-20,000</p></label>
                 <input type="range" id="rangeInputDropdown" name="rangeInputDropdown" min="2000" max="40000" value="2000">
@@ -78,14 +78,31 @@
         <section id="projects" class="padding-block-600 text-primary-200">
             <div class="container flow">
                 <h2 class="fs-800">Projects</h2>
-                <p>List projects</p>
+                <div id="SocialNetowrking">
+                    
+                    <a href="https://www.mattlevere.ca/" target="_blank"><img src="SocialNetworking.png" alt="SocialNetworking Img" />
+                        <p>Social Networking</p></a>
+                </div>
+                
+                <div id="SortingAlgorithm">
+                    
+                    <a href="https://sorting-algorithm.onrender.com/" target="_blank"><img src="SortingAlgorithmVisualizer.png" alt="Sorting Algorithm Visualizer Img" />
+                        <p>Sorting Algorithm Visualizer</p></a>
+                </div>
+                <div id="ChessGame">
+                    
+                    <a href="https://chess-board-game.onrender.com/" target="_blank"><img src="ChessGame.png" alt="Chess Game Img" />
+                        <p>Chess Game</p></a>
+                </div>
+                
+                
                
             </div>
         </section>
         <section id="about" class="padding-block-600 surface-neutral-900 text-primary-200">
             <div class="container flow">
                 <h2 class="fs-800">About Me</h2>
-              <p>About me</p>
+              <p></p>
             </div>
         </section>
         <section id="contact" class="padding-block-600 text-primary-200">
