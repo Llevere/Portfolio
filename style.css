@@ -202,7 +202,13 @@
 
 @media screen and (max-width: 768px) {
   .area {
-    image-rendering: crisp-edges;
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .area {
+    background-size: contain;
   }
 }
 
