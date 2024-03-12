@@ -737,14 +737,12 @@ h2 {
 
 /* Set the color of the thumb slider */
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
   background-color: #ff0000; /* Change to your desired color */
   cursor: pointer;
 }
 
 /* For Firefox */
 input[type="range"]::-moz-range-thumb {
-  -moz-appearance: none;
   background-color: #ff0000; /* Change to your desired color */
   cursor: pointer;
 }
