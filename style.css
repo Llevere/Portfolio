@@ -13,10 +13,10 @@
   height: 100vh; /* Change height to viewport height */
   /* background: url("https://i.postimg.cc/c1Q3njM0/bg2.jpg");
   background-size: cover; */
-  animation: animateBg 50s linear infinite;
+  animation: animateStars linear infinite;
 }
 
-@keyframes animateBg {
+@keyframes animateStars {
   0%,
   100% {
     transform: scale(1);

@@ -86,14 +86,35 @@ function Dot() {
   this.alpha = Math.random() * 360 + 1;
   this.speed = Math.random() * 100 < 50 ? 1 : -1;
   this.speed *= 0.05;
-  this.size = Math.random() * 5 + 1;
-  this.color = Math.floor(Math.random() * 256);
+  this.size = Math.random() * 5;
+  this.color = Math.floor(Math.random() * 256); // Range 0-255 for regular colors
 }
 
 // Draw function for the dot
 Dot.prototype.draw = function () {
-  context.fillStyle = `rgb(${this.color}, ${this.color}, ${this.color}`;
-  context.fillRect(this.x, this.y, this.size, this.size);
+  if (this.size < 2) {
+    context.beginPath();
+    context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2); // Change here
+    context.fillStyle = "#FF4433";
+    context.fill();
+  } else if (this.size < 3) {
+    context.beginPath();
+    context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2); // Change here
+    context.fillStyle = "#ffaa33";
+    context.fill();
+  } else if (this.size < 4) {
+    context.beginPath();
+    context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2); // Change here
+    context.fillStyle = "#fff896";
+    context.fill();
+  } else {
+    // context.fillStyle = `rgb(${this.color}, ${this.color}, ${this.color}`;
+    // context.fillRect(this.x, this.y, this.size, this.size);
+    context.beginPath();
+    context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2); // Change here
+    context.fillStyle = `rgb(${this.color}, ${this.color}, ${this.color})`;
+    context.fill();
+  }
 };
 
 // Move function for the dot
