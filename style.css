@@ -738,12 +738,12 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
 }
 
-@media (min-width: 50em) {
+/* @media (min-width: 50em) {
   .grid-auto-flow {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
   }
-}
+} */
 
 .grid-stack {
   display: grid;
