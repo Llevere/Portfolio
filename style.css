@@ -190,7 +190,6 @@
   /* background-image: url("https://t4.ftcdn.net/jpg/02/50/48/93/360_F_250489323_AvnwytTa9rlfQVNNpM8XIBR6POYOB3nC.jpg"); */
   background-image: url("CartoonNight.png");
 
-  background-attachment: fixed;
   -o-background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
