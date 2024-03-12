@@ -193,16 +193,16 @@
   background-attachment: fixed;
   background-position: center;
   background-attachment: fixed;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
+  -o-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -webkit-background-size: 100% auto;
   background-size: 100% auto;
   background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 768px) {
   .area {
-    background-size: contain;
+    image-rendering: crisp-edges;
   }
 }
 
