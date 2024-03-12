@@ -718,6 +718,7 @@ h2 {
 .dropdown {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
 .dropdown-content {
@@ -752,6 +753,11 @@ input[type="range"]::-moz-range-thumb {
 input[type="range"]::-ms-thumb {
   background-color: #ff0000; /* Change to your desired color */
   cursor: pointer;
+}
+
+input[type="range"] {
+  background-color: #ff0000;
+  color: #ff0000;
 }
 
 @media screen and (max-width: 750px) {

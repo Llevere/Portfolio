@@ -49,21 +49,23 @@
         </ul>
         
     </nav>
-    <div style="display: flex; flex-direction:column; align-items:center; justify-content:center"><label for="rangeInput" class="text-primary-400">Generate Dots 150-2,000</label>
+    <div style="display: flex; flex-direction:column; align-items:center; justify-content:center">
+        <label for="rangeInput" class="text-primary-400">Generate Dots 150-2,000</label>
 
-<input type="range" id="rangeInput" name="rangeInput" min="100" max="2000" value="150">
-<!-- Display the value -->
-<span id="rangeValue" class="text-primary-400">150</span>
-<button onclick="resetDotCount()" id="resetDots" style="cursor: pointer;">Reset Dots</button>
-<div class="dropdown text-primary-400">
-    <span style="border: 1px #ff6c03 solid; margin: 1%; display:inline-block; text-align:center; font-weight:bold; font-size:1rem">Lets Have Some Fun</span>
-    <div class="dropdown-content">
-        <label for="rangeInputDropdown" class="text-primary-400"><p style="text-align: center;">Generate Dots  2000-20,000</p></label>
-        <input type="range" id="rangeInputDropdown" name="rangeInputDropdown" min="2000" max="40000" value="2000">
+        <input type="range" id="rangeInput" name="rangeInput" min="100" max="2000" value="150">
         <!-- Display the value -->
-        <span id="rangeValueDropdown" class="text-primary-400">2000</span>
-    </div>
-</div></div>
+        <span id="rangeValue" class="text-primary-400">150</span>
+        <button onclick="resetDotCount()" id="resetDots" style="cursor: pointer;">Reset Dots</button>
+        <div class="dropdown text-primary-400">
+            <span style="border: 1px #ff6c03 solid; margin: 1%; display:inline-block; text-align:center; font-weight:bold; font-size:1rem" onclick="toggleDropdown()">Lets Have Some Fun</span>
+            <div class="dropdown-content">
+                <label for="rangeInputDropdown" class="text-primary-400"><p style="text-align: center;">Generate Dots  2000-20,000</p></label>
+                <input type="range" id="rangeInputDropdown" name="rangeInputDropdown" min="2000" max="40000" value="2000">
+                <!-- Display the value -->
+                <span id="rangeValueDropdown" class="text-primary-400">2000</span>
+            </div>
+        </div>
+</div>
 
     <main>
         <section id="home" class="padding-block-600 surface-neutral-900 text-primary-200">
