@@ -270,7 +270,7 @@
   z-index: -10;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .area {
     background-size: cover;
   }
@@ -283,7 +283,7 @@
     -webkit-background-size: contain;
     background-size: contain;
   }
-}
+} */
 
 .circles {
   position: fixed;
