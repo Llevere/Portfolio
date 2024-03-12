@@ -7,6 +7,37 @@ document.documentElement.style.setProperty(
   navigationHeight + "px"
 );
 
+let isScrolling;
+
+// Function to add scrolling class to body
+function addScrollingClass() {
+  document.body.classList.add("scrolling");
+}
+
+// Function to remove scrolling class from body
+function removeScrollingClass() {
+  document.body.classList.remove("scrolling");
+}
+
+// Event listener for scroll start
+window.addEventListener(
+  "scroll",
+  function () {
+    // Clear the timeout if scrolling
+    window.clearTimeout(isScrolling);
+
+    // Add scrolling class when scrolling starts
+    addScrollingClass();
+
+    // Set a timeout to check if scrolling has stopped
+    isScrolling = setTimeout(function () {
+      // If scrolling has stopped, remove scrolling class
+      removeScrollingClass();
+    }, 200); // Adjust this value as needed for your application
+  },
+  false
+);
+
 // Create the canvas element
 const canvas = document.createElement("canvas");
 canvas.style.position = "fixed";
@@ -80,6 +111,7 @@ Dot.prototype.move = function () {
 
 // Start the animation
 render();
+
 // // init
 // var maxx = document.body.clientWidth;
 // var maxy = document.body.clientHeight;

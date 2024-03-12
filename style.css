@@ -51,6 +51,16 @@
   background: linear-gradient(90deg, #fff, transparent);
   z-index: -1000;
 }
+
+.stars,
+.circles li {
+  animation-play-state: running; /* Initially set the animation state to running */
+}
+
+.scrolling .stars span,
+.scrolling .circles li {
+  animation-play-state: paused; /* When scrolling, pause the animation */
+}
 @keyframes starsAnimation {
   0% {
     transform: rotate(335deg) translateX(0);
@@ -176,7 +186,8 @@
 .area {
   background: none;
   /* background-image: url("https://www.shutterstock.com/image-vector/vector-night-sky-clouds-moonlight-600nw-760640275.jpg"); */
-  background-image: url("https://i.pinimg.com/736x/60/ab/dd/60abdd9b95395a55eeca67f78bacfb4f.jpg");
+  /* background-image: url("https://i.pinimg.com/736x/60/ab/dd/60abdd9b95395a55eeca67f78bacfb4f.jpg"); */
+  background-image: url("https://t4.ftcdn.net/jpg/02/50/48/93/360_F_250489323_AvnwytTa9rlfQVNNpM8XIBR6POYOB3nC.jpg");
   background-size: cover;
   background-position: center;
   width: 100%;
