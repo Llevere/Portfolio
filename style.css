@@ -208,6 +208,9 @@
 
 @media screen and (max-width: 500px) {
   .area {
+    -o-background-size: contain;
+    -moz-background-size: contain;
+    -webkit-background-size: contain;
     background-size: contain;
   }
 }
