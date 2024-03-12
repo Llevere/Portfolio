@@ -21,7 +21,7 @@ document.body.appendChild(canvas);
 const context = canvas.getContext("2d");
 
 // Adjust dotCount based on your preference
-const dotCount = 300;
+const dotCount = window.innerWidth <= 500 ? 75 : 150;
 const dots = [];
 
 // Create dots and push them to the dots array
@@ -74,8 +74,8 @@ Dot.prototype.move = function () {
   }
 
   // Update dot position
-  this.x += Math.cos(this.alpha) * 0.8;
-  this.y += Math.sin(this.alpha) * 1.5;
+  this.x += Math.cos(this.alpha) * 0.35;
+  this.y += Math.sin(this.alpha) * 0.35;
 };
 
 // Start the animation

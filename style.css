@@ -39,7 +39,7 @@
   border-radius: 50%;
   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
     0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.1);
-  animation: starsAnimation 3s linear infinite;
+  animation: starsAnimation linear infinite;
   z-index: -1000;
 }
 .stars span::before {
@@ -369,8 +369,10 @@ html {
   --clr-neutral-100: hsl(0, 0%, 100%);
 
   --clr-primary-200: hsl(213, 43%, 79%);
-  --clr-primary-300: hsl(190, 84%, 50%);
-  --clr-primary-400: hsl(217, 100%, 50%);
+  /* --clr-primary-300: hsl(190, 84%, 50%); */
+  --clr-primary-300: #00e1ff;
+  /* --clr-primary-400: #0062ff; */
+  --clr-primary-400: #ff6c03;
   --clr-primary-600: #333333;
   --clr-primary-500: hsl(190, 100%, 28%);
 }
@@ -670,5 +672,79 @@ h2 {
 
   .nav-list a {
     font-size: 1rem;
+  }
+
+  .stars span:nth-child(1) {
+    animation-duration: 1.5s;
+  }
+  .stars span:nth-child(2) {
+    animation-duration: 4s;
+  }
+  .stars span:nth-child(3) {
+    animation-duration: 3s;
+  }
+  .stars span:nth-child(4) {
+    animation-duration: 2s;
+  }
+  .stars span:nth-child(5) {
+    animation-duration: 3s;
+  }
+  .stars span:nth-child(6) {
+    animation-duration: 3.5s;
+  }
+  .stars span:nth-child(7) {
+    animation-duration: 2.25s;
+  }
+  .stars span:nth-child(8) {
+    animation-duration: 1.75s;
+  }
+  .stars span:nth-child(9) {
+    animation-duration: 2.75s;
+  }
+  .stars span:nth-child(9) {
+    animation-duration: 3.5s;
+  }
+
+  .stars span:nth-child(10) {
+    animation-duration: 3.5s;
+  }
+
+  .circles li:nth-child(1) {
+    width: 45px;
+    height: 45px;
+  }
+
+  .circles li:nth-child(2) {
+    width: 15px;
+    height: 15px;
+  }
+
+  .circles li:nth-child(3) {
+    width: 15px;
+    height: 15px;
+  }
+
+  .circles li:nth-child(4) {
+    width: 40px;
+    height: 40px;
+  }
+
+  .circles li:nth-child(5) {
+    width: 10px;
+    height: 10px;
+  }
+
+  .circles li:nth-child(6) {
+    width: 70px;
+    height: 70px;
+  }
+
+  .circles li:nth-child(7) {
+    width: 90px;
+    height: 90px;
+  }
+  .circles li:nth-child(10) {
+    width: 100px;
+    height: 100px;
   }
 }
