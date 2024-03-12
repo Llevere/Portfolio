@@ -63,7 +63,7 @@
 }
 @keyframes starsAnimation {
   0% {
-    transform: rotate(335deg) translateX(0);
+    transform: rotate(335deg) translateX(-50px);
     opacity: 1;
   }
   70% {
@@ -187,7 +187,8 @@
   background: none;
   /* background-image: url("https://www.shutterstock.com/image-vector/vector-night-sky-clouds-moonlight-600nw-760640275.jpg"); */
   /* background-image: url("https://i.pinimg.com/736x/60/ab/dd/60abdd9b95395a55eeca67f78bacfb4f.jpg"); */
-  background-image: url("https://t4.ftcdn.net/jpg/02/50/48/93/360_F_250489323_AvnwytTa9rlfQVNNpM8XIBR6POYOB3nC.jpg");
+  /* background-image: url("https://t4.ftcdn.net/jpg/02/50/48/93/360_F_250489323_AvnwytTa9rlfQVNNpM8XIBR6POYOB3nC.jpg"); */
+  background-image: url("CartoonNight.jpg");
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -453,6 +454,14 @@ picture {
   }
 }
 
+/* Add styles for reduced motion */
+.reduce-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
 /* Utilities */
 
 .fs-900 {
@@ -675,7 +684,25 @@ h2 {
   font-weight: 900;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 750px) {
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .primary-navigation {
+    font-size: 0.75rem;
+  }
+
+  .nav-list {
+    gap: 2.25rem;
+  }
+
+  .nav-list a {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
   h2 {
     font-size: 1rem;
   }
@@ -779,4 +806,8 @@ h2 {
       opacity: 0;
     }
   }
+
+  /* .area {
+    background-size: contain;
+  } */
 }

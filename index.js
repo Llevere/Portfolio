@@ -7,6 +7,15 @@ document.documentElement.style.setProperty(
   navigationHeight + "px"
 );
 
+// Get the button element
+const toggleButton = document.getElementById("toggleAnimation");
+
+// Add event listener to the button
+toggleButton.addEventListener("click", function () {
+  // Toggle a class on the html element
+  document.documentElement.classList.toggle("reduce-motion");
+});
+
 let isScrolling;
 
 // Function to add scrolling class to body
