@@ -377,10 +377,6 @@ html {
   /* text-decoration: underline solid; */
 }
 
-.nav-list a:active {
-  color: var(--clr-primary-300);
-}
-
 /* general styling */
 
 *,
@@ -717,6 +713,45 @@ p {
 h2 {
   font-size: 3rem !important;
   font-weight: 900;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Set the color of the thumb slider */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #ff0000; /* Change to your desired color */
+  cursor: pointer;
+}
+
+/* For Firefox */
+input[type="range"]::-moz-range-thumb {
+  -moz-appearance: none;
+  background-color: #ff0000; /* Change to your desired color */
+  cursor: pointer;
+}
+
+/* For Edge */
+input[type="range"]::-ms-thumb {
+  background-color: #ff0000; /* Change to your desired color */
+  cursor: pointer;
 }
 
 @media screen and (max-width: 750px) {

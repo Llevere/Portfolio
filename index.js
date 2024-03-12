@@ -7,69 +7,95 @@ document.documentElement.style.setProperty(
   navigationHeight + "px"
 );
 
-// Get the button element
 const toggleButton = document.getElementById("toggleAnimation");
 
-// Add event listener to the button
 toggleButton.addEventListener("click", function () {
-  // Toggle a class on the html element
   document.documentElement.classList.toggle("reduce-motion");
 });
 
 let isScrolling;
 
-// Function to add scrolling class to body
 function addScrollingClass() {
   document.body.classList.add("scrolling");
 }
 
-// Function to remove scrolling class from body
 function removeScrollingClass() {
   document.body.classList.remove("scrolling");
 }
 
-// Event listener for scroll start
 window.addEventListener(
   "scroll",
   function () {
-    // Clear the timeout if scrolling
     window.clearTimeout(isScrolling);
 
-    // Add scrolling class when scrolling starts
     addScrollingClass();
 
-    // Set a timeout to check if scrolling has stopped
     isScrolling = setTimeout(function () {
-      // If scrolling has stopped, remove scrolling class
       removeScrollingClass();
-    }, 200); // Adjust this value as needed for your application
+    }, 200);
   },
   false
 );
 
-// Create the canvas element
+// Get the range input element
+const rangeInput = document.getElementById("rangeInput");
+// Get the span element to display the value
+const rangeValue = document.getElementById("rangeValue");
+
+const rangeInputDropdown = document.getElementById("rangeInputDropdown");
+const rangeValueDropdown = document.getElementById("rangeValueDropdown");
+// Add an event listener to the range input
+rangeInput.addEventListener("input", function () {
+  rangeValue.textContent = rangeInput.value;
+
+  rangeInputDropdown.value = rangeInput.value;
+  rangeValue.textContent = rangeInput.value;
+  dotCount = parseInt(rangeInput.value);
+  resetDots();
+});
+
+rangeInputDropdown.addEventListener("input", function () {
+  rangeValueDropdown.textContent = rangeInputDropdown.value;
+  dotCount = parseInt(rangeInputDropdown.value);
+  resetDots();
+});
+
+document.getElementById("resetDots").addEventListener("click", () => {
+  rangeInput.value = 150;
+  rangeValue.textContent = 150;
+  rangeInputDropdown.value = 2000;
+  rangeValueDropdown.textContent = 2000;
+  dotCount = 150;
+  // Clear and redraw dots based on the new dotCount
+  resetDots();
+});
+
 const canvas = document.createElement("canvas");
 canvas.style.position = "fixed";
 canvas.style.top = "0";
 canvas.style.left = "0";
-canvas.style.zIndex = -10; // Set z-index to make it a background element
+canvas.style.zIndex = -10;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 document.body.appendChild(canvas);
 
-// Set up the canvas context
 const context = canvas.getContext("2d");
 
-// Adjust dotCount based on your preference
-const dotCount = window.innerWidth <= 500 ? 75 : 150;
+// let dotCount = window.innerWidth <= 500 ? 75 : 150;
+let dotCount = parseInt(rangeInput.value);
 const dots = [];
 
-// Create dots and push them to the dots array
+function resetDots() {
+  dots.length = 0; // Clear the dots array
+  for (let i = 0; i < dotCount; i++) {
+    dots.push(new Dot());
+  }
+}
+
 for (let i = 0; i < dotCount; i++) {
   dots.push(new Dot());
 }
 
-// Function to draw and animate the dots
 function render() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   for (let i = 0; i < dotCount; i++) {
@@ -79,7 +105,6 @@ function render() {
   requestAnimationFrame(render);
 }
 
-// Dot class constructor
 function Dot() {
   this.x = Math.random() * canvas.width;
   this.y = Math.random() * canvas.height;
@@ -87,34 +112,23 @@ function Dot() {
   this.speed = Math.random() * 100 < 50 ? 1 : -1;
   this.speed *= 0.05;
   this.size = Math.random() * 5;
-  this.color = Math.floor(Math.random() * 256); // Range 0-255 for regular colors
+  this.color = Math.floor(Math.random() * 256);
 }
 
 // Draw function for the dot
 Dot.prototype.draw = function () {
+  context.beginPath();
+  context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2);
   if (this.size < 2) {
-    context.beginPath();
-    context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2); // Change here
     context.fillStyle = "#FF4433";
-    context.fill();
   } else if (this.size < 3) {
-    context.beginPath();
-    context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2); // Change here
     context.fillStyle = "#ffaa33";
-    context.fill();
   } else if (this.size < 4) {
-    context.beginPath();
-    context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2); // Change here
     context.fillStyle = "#fff896";
-    context.fill();
   } else {
-    // context.fillStyle = `rgb(${this.color}, ${this.color}, ${this.color}`;
-    // context.fillRect(this.x, this.y, this.size, this.size);
-    context.beginPath();
-    context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2); // Change here
     context.fillStyle = `rgb(${this.color}, ${this.color}, ${this.color})`;
-    context.fill();
   }
+  context.fill();
 };
 
 // Move function for the dot
