@@ -1,45 +1,5 @@
-// document
-//   .getElementById("contact-form")
-//   .addEventListener("submit", async function (event) {
-//     event.preventDefault(); // Prevent default form submission
-
-//     const formData = new FormData(event.target);
-//     const name = formData.get("name");
-//     const email = formData.get("email");
-//     const body = formData.get("message");
-//     // Make POST request to backend
-//     await fetch("http://localhost:5000/sendEmail", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ name, email, body }),
-//     })
-//       .then((response) => response.json())
-//       .then((data) => {
-//         console.log(data);
-//         if (data.success) {
-//           alert("Email sent successfully");
-//         } else {
-//           alert("Error sending email");
-//         }
-//       })
-//       .catch((error) => {
-//         console.error("Error:", error);
-//         alert("Error sending email");
-//       });
-//   });
-
-function submitForm() {
-  const name = document.getElementById("contact-form-name").value;
-  const email = document.getElementById("contact-form-email").value;
-  const message = document.getElementById("contact-form-message").value;
-
-  // Construct the mailto link with the form data
-  const mailtoLink = `mailto:mattlevere@hotmail.com?subject=Portfolio%20Contact%20Form%20Submission&body=Name:%20${name}%0D%0AMessage:%20${message}`;
-
-  // Open the default email client with the mailto link
-  window.location.href = mailtoLink;
+function viewProjectDemo(pageRef) {
+  window.open(pageRef, "_blank");
 }
 
 const navigation = document.querySelector(".primary-navigation");
