@@ -46,12 +46,16 @@ video.center {
   margin-right: 10px;
   font-size: 2rem;
 }
+.projectTechStack {
+  margin-top: 5%;
+}
 
 .icons {
   display: flex;
   /* background-color: white; */
   border-radius: 10px;
   width: 100%;
+  margin: 2%;
 }
 .icons a {
   margin-right: 30px;
@@ -188,6 +192,7 @@ video.center {
   color: white;
   padding: 2px;
   border-radius: 5px;
+  margin: 2px;
 }
 
 .viewProject a:hover {
@@ -195,21 +200,37 @@ video.center {
   color: white;
 }
 
+@keyframes illuminate {
+  0% {
+    box-shadow: 0 4px 8px 0 #fbc23b, 0 6px 20px 2px #131729;
+  }
+  50% {
+    box-shadow: 0 4px 8px 5px #fbc23b, 0 6px 20px 5px #131729;
+  }
+  100% {
+    box-shadow: 0 4px 8px 0 #fbc23b, 0 6px 20px 2px #131729;
+  }
+}
+
 #SortingAlgorithm,
-#SocialNetowrking,
+#SocialNetworking,
 #ChessGame {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease-in-out, border-radius 0.2s ease-in-out;
-  border: 2px white solid;
+  width: 50%;
+  transition: transform 0.3s ease-in-out, border-radius 0.2s ease-in-out,
+    background-color 0.4s ease-in-out, border-color 0.4s ease-in-out,
+    box-shadow 0.5s ease-in-out;
+  border: 2px rgba(19, 23, 41, 0.5) solid;
   border-radius: 10px;
   padding: 2%;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 #SortingAlgorithm .projectImg,
-#SocialNetowrking .projectImg,
+#SocialNetworking .projectImg,
 #ChessGame .projectImg {
   /* height: 30vh; */
   width: 30vw;
@@ -219,7 +240,7 @@ video.center {
 }
 
 #SortingAlgorithm a img,
-#SocialNetowrking a img,
+#SocialNetworking a img,
 #ChessGame a img {
   text-align: center;
   object-fit: contain;
@@ -227,20 +248,62 @@ video.center {
 }
 
 #SortingAlgorithm:hover,
-#SocialNetowrking:hover,
+#SocialNetworking:hover,
 #ChessGame:hover {
-  box-shadow: 0 4px 8px 0 #ff6c03, 0 6px 20px 0 #aaaaaa;
+  box-shadow: 0 4px 8px 0 #fbc23b, 0 6px 20px 0 #f9f9f9;
   text-align: center;
   transform: scale(1.05);
   border-radius: 25px;
+  background-color: rgba(9, 13, 32, 255);
+  border: 2px white solid;
+  animation: illuminate 3s infinite;
 }
 
-#SortingAlgorithm a p,
-#SocialNetowrking a p,
-#ChessGame a p {
+#ChessGame:hover p,
+#SocialNetworking:hover p,
+#SortingAlgorithm:hover p {
   font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
+}
+
+#ChessGame .projectDescription ul li,
+#SocialNetworking .projectDescription ul li,
+#SortingAlgorithm .projectDescription ul li {
+  color: black;
+  font-weight: 600;
+  transition: color 0.4s ease-in-out;
+}
+
+#ChessGame:hover .projectDescription ul li,
+#SocialNetworking:hover .projectDescription ul li,
+#SortingAlgorithm:hover .projectDescription ul li {
+  color: #fff;
+}
+
+#SortingAlgorithm p,
+#SocialNetworking p,
+#ChessGame p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+  transition: color 0.4s ease-in-out;
+}
+
+.projectDescription {
+  width: 100%;
+}
+.projectDescription p {
+  text-align: center;
+}
+
+.projectDescription ul {
+  list-style: none;
+}
+
+.projectDescription ul li {
+  color: black;
+  font-weight: bold;
 }
 
 #projects div div a {
@@ -632,12 +695,31 @@ html {
 @media screen and (max-width: 550px) {
   .home-title {
     font-size: 4rem;
+    text-align: center;
   }
   .home-subTitle {
     font-size: 1.5rem;
+    text-align: center;
   }
   .home-miniTitle {
     font-size: 1rem;
+  }
+
+  .projectTechStack div a {
+    height: 40px;
+    width: 40px;
+  }
+
+  #SortingAlgorithm,
+  #SocialNetworking,
+  #ChessGame {
+    width: 75%;
+  }
+
+  #SortingAlgorithm .projectImg,
+  #SocialNetworking .projectImg,
+  #ChessGame .projectImg {
+    width: 100%;
   }
 }
 
@@ -993,7 +1075,7 @@ input[type="range"] {
 
 @media screen and (max-width: 550px) {
   #SortingAlgorithm img,
-  #SocialNetowrking img,
+  #SocialNetworking img,
   #ChessGame img {
     height: 45vh;
     width: 45vw;
