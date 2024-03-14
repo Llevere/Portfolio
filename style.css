@@ -689,7 +689,14 @@ html {
   font-weight: 500;
 }
 .home-miniTitle {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  margin-left: 5px;
+}
+
+.home-title,
+.home-subTitle,
+.home-miniTitle {
+  width: 100%;
 }
 
 @media screen and (max-width: 550px) {
@@ -702,7 +709,9 @@ html {
     text-align: center;
   }
   .home-miniTitle {
+    margin-left: 70px;
     font-size: 1rem;
+    text-align: center;
   }
 
   .projectTechStack div a {
@@ -1074,13 +1083,6 @@ input[type="range"] {
 }
 
 @media screen and (max-width: 550px) {
-  #SortingAlgorithm img,
-  #SocialNetworking img,
-  #ChessGame img {
-    height: 45vh;
-    width: 45vw;
-  }
-
   h2 {
     font-size: 1rem;
   }

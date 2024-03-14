@@ -41,7 +41,7 @@ window.addEventListener(
   false
 );
 function toggleDropdown() {
-  var dropdownContent = document.getElementById("dropdownContent");
+  let dropdownContent = document.getElementsByClassName("dropdown-content")[0];
   dropdownContent.classList.toggle("show");
 }
 
@@ -141,14 +141,16 @@ function Dot() {
 Dot.prototype.draw = function () {
   context.beginPath();
   context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2);
-  if (this.size < 2) {
+  if (this.size < 1) this.size += 1.0;
+  else if (this.size < 2) {
     context.fillStyle = "#FF4433";
   } else if (this.size < 3) {
     context.fillStyle = "#ffaa33";
   } else if (this.size < 4) {
-    context.fillStyle = "#fff896";
+    context.fillStyle = "#347532";
   } else {
-    context.fillStyle = `rgb(${this.color}, ${this.color}, ${this.color})`;
+    context.fillStyle =
+      /*`rgb(${this.color}, ${this.color}, ${this.color})`;*/ "#fff896";
   }
   context.fill();
 };
