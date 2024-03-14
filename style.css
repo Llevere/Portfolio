@@ -4,15 +4,59 @@
   position: relative;
   z-index: 10;
 }
+.techStack {
+  border-radius: 5px;
+}
 
+.techStack .techStack-title {
+  color: White;
+  text-align: center;
+  font-size: 2rem;
+  margin: 2%;
+  margin-top: 20%;
+}
+
+.techStack .languages {
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.techStack .languages a {
+  margin: auto;
+  padding: 5px;
+}
+.frontend,
+.backend {
+  display: flex;
+  align-items: center;
+  margin: 5%;
+}
+
+.frontend span,
+.backend span {
+  margin-right: 10px;
+  font-size: 2rem;
+}
+
+.icons {
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+}
+.icons a {
+  margin-right: 30px;
+  margin: auto;
+  padding: 5px;
+}
 .stars {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; /* Change width to viewport width */
-  height: 100vh; /* Change height to viewport height */
-  /* background: url("https://i.postimg.cc/c1Q3njM0/bg2.jpg");
-  background-size: cover; */
+  width: 100vw;
+  height: 100vh;
   animation: animateStars linear infinite;
 }
 
