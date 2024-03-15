@@ -35,37 +35,72 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><img src="Shooting Star.png" id="toggleAnimation" alt="Shooting Star" title="Toggle Animation"
+                onclick="toggleAnimation()" style="opacity: 1;"></li>
+            <li style="display:inline;">
+        </li> 
+            
             
         </ul>
         
     </nav>
-    <div id="toggleInput">
-        <button id="toggleAnimation">Toggle Animation</button>
-        <label for="rangeInput" class="text-primary-400">Generate Dots 100-2,000</label>
-
-        <input type="range" id="rangeInput" name="rangeInput" min="100" max="2000" value="150">
-        <!-- Display the value -->
-        <span id="rangeValue" class="text-primary-400">150</span>
-        <button onclick="resetDots()" id="resetDots">Reset Dots</button>
-        <div class="dropdown text-primary-400">
-            <span style="border: 1px #ff6c03 solid; margin: 1%; display:inline-block; text-align:center; font-weight:bold; font-size:.8rem" onclick="toggleDropdown()">Let's Have Some Fun</span>
-            <div class="dropdown-content">
-                <label for="rangeInputDropdown" class="text-primary-400"><p style="text-align: center;">Generate Dots  2000-40,000</p></label>
-                <input type="range" id="rangeInputDropdown" name="rangeInputDropdown" min="2000" max="40000" value="2000">
-                <!-- Display the value -->
-                <span id="rangeValueDropdown" class="text-primary-400">2000</span>
-            </div>
-        </div>
-</div>
+ 
 
     <main>
+        <div id="socialNetworkModal" class="modal" style="display: none;">
+        
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Social Networking</h1>
+                <p>Why this project?</p>
+                <p>Why tech stack?</p>
+                <p>Challenges</p>
+                <p>What I would add</p>
+            </div>
+        
+        </div>
+        <div id="sortingAlgorithmModal" class="modal" style="display: none;">
+        
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Sorting Algorithm Visualizer</h1>
+                <p>Why this project?</p>
+                <p>Why tech stack?</p>
+                <p>Challenges</p>
+                <p>What I would add</p>
+            </div>
+        
+        </div>
+        <div id="chessGameModal" class="modal" style="display: none;">
+        
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Chess Game</h1>
+                <p>Why this project?</p>
+                <p>Why tech stack?</p>
+                <p>Challenges</p>
+                <p>What I would add</p>
+            </div>
+        
+        </div>
         <section id="home" class="padding-block-600 surface-neutral-900 text-primary-200">
             <div id="home-container">
                 <div class="home-title-container">
                     <span class="home-miniTitle">Hi, I'm</span>
                     <p class="home-title">Matt Levere</p>
                     <p class="home-subTitle">Web Developer</p>
-                    <p class="home-subText">Final year Computer Science student. </p>
+                    <div id="toggleInput-container">
+                        <button id="generateDots">Generate Dots</button>
+                        <div id="toggleInput" style="display: none;">
+                            <label for="rangeInput" class="text-primary-400">Generate Dots 100-40,000</label>
+                            <input type="range" id="rangeInput" name="rangeInput" min="100" max="40000" value="150">
+                            <span id="rangeValue" class="text-primary-400">150</span>
+                            <button onclick="resetDots()" id="resetDots">Reset Dots</button>
+                        </div>
+                    </div>
+                    
+                        
+                    <p class="home-subText">Final year Computer Science student.<br />Striving to do and be better than yesterday.</p>
                 </div>
                 
                 <div class="techStack" >
@@ -82,15 +117,14 @@
                      
                     </div>  
                 </div>
-                
+                 
             </div>
         </section>
         <section id="projects" class="padding-block-600 text-primary-200">
             <div class="container flow">
                 <h2 class="fs-800">Projects</h2>
                 <div id="SocialNetworking">
-                    
-                    <p>Social Networking</p><img src="SocialNetworking.png" class="projectImg" alt="SocialNetworking Img" />
+                    <p>Social Networking <p style="font-size: medium; color:#775d9c;">Can Register with random user info.<br/>Shown in the video demo.</p>    </p><img src="SocialNetworking.png" class="projectImg" alt="SocialNetworking Img" />
                     <div class="techStack projectTechStack">
                         <!-- <div class="writtenIn">Written In</div> -->
                         <div class="languages">
@@ -105,10 +139,11 @@
                                     width="50" height="50" style="background-color: white; padding: 5px" title="Express" /></a>
                             <a href="https://www.mongodb.com/" target="_blank"><img src="Languages/mongodb-icon.svg" alt="Icon Description"
                                     width="50" height="50" title="Mongo Db" /></a>
-                        
-                    
                         </div>
-                        </div>  
+                        </div> 
+                        <button id="storyBehindSocialNetworking"
+                        class="storyBehindProject" title="The Story Behind The Project">Story Behind</button>
+                        
                         <div class="projectDescription">
                             <p>
                             <ul>
@@ -119,18 +154,14 @@
                                 <li>Upload Images</li>
                                 <li>Add/Delete Friends</li>
                                 <li>Personal Profile Page</li>
+                                <li>Login/Register</li>
                             </ul>
                             </p>
                         </div>
                     <div class="viewProject">
-                    <a href="https://www.mattlevere.ca/" target="_blank" class="viewLive">View Live </a>
-                    <a href="VideoDemo/socialNetworkingDemo.html" target="_blank">View Video Demo</a></div>
-            
-                
-               
-                
-                
-                    
+                        <a href="https://www.mattlevere.ca/" target="_blank" class="viewLive">View Live </a>
+                        <a href="VideoDemo/socialNetworkingDemo.html" target="_blank">View Video Demo</a>
+                    </div>
                 </div>
                 
                 <div id="SortingAlgorithm">
@@ -146,6 +177,8 @@
                     
                         </div>
                         </div>  
+                        <button id="storyBehindSortingAlgorithm"
+                        class="storyBehindProject" title="The Story Behind The Project">Story Behind</button>
                         <div class="projectDescription">
                             <p>
                             <ul>
@@ -169,16 +202,18 @@
                         <div class="techStack projectTechStack">
                             <!-- <div class="writtenIn">Written in</div> -->
                             <div class="languages">
-                                <a href="https://www.javascript.com/" target="_blank"><img src="Languages/js.svg" alt="Javascript" width="50"
-                                        height="50" title="Javascript" /></a>
                                 <a href="#" target="_blank"><img src="Languages/html-5.svg" alt="HTML"
                                         width="50" height="50" title="HTML" /></a>
                                 
                                 <a href="#" target="_blank"><img src="Languages/css-3.svg" alt="CSS"
                                         width="50" height="50" title="CSS" /></a>
+                                <a href="https://www.javascript.com/" target="_blank"><img src="Languages/js.svg" alt="Javascript" width="50"
+                                        height="50" title="Javascript" /></a>
                         
                             </div>
                             </div>  
+                            <button id="storyBehindChessGame"
+                            class="storyBehindProject" title="The Story Behind The Project">Story Behind</button>
                             <div class="projectDescription">
                                 <p>
                                 <ul>
@@ -193,16 +228,13 @@
                                 <a href="https://chess-board-game.onrender.com/" target="_blank" class="viewLive">View Live</a>
                                 <a href="VideoDemo/chessGameDemo.html" target="_blank">View Video Demo</a>
                             </div> 
-                        
-                
-                
-               
             </div>
+           
         </section>
         <section id="about" class="padding-block-600 surface-neutral-900 text-primary-200">
             <div class="container flow">
                 <h2 class="fs-800">About Me</h2>
-                <p></p>
+                <p>No idea what to write here </p>
             </div>
         </section>
          <section id="contact" class="padding-block-600 text-primary-200">
@@ -217,7 +249,6 @@
    
     </main></div>
     
-
     <script src="index.js"></script ript>
 
 </body>

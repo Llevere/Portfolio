@@ -2,6 +2,57 @@ function viewProjectDemo(pageRef) {
   window.open(pageRef, "_blank");
 }
 
+let modal;
+
+var closeButtons = document.querySelectorAll(".close");
+
+// Add click event listener to each close button
+closeButtons.forEach(function (closeButton) {
+  closeButton.addEventListener("click", function () {
+    // Close the modal
+    modal.style.display = "none";
+  });
+});
+document
+  .getElementById("storyBehindChessGame")
+  .addEventListener("click", () => {
+    modal = document.getElementById("chessGameModal");
+    modal.style.display = "block";
+  });
+document
+  .getElementById("storyBehindSortingAlgorithm")
+  .addEventListener("click", () => {
+    modal = document.getElementById("sortingAlgorithmModal");
+    modal.style.display = "block";
+  });
+document
+  .getElementById("storyBehindSocialNetworking")
+  .addEventListener("click", () => {
+    modal = document.getElementById("socialNetworkModal");
+    modal.style.display = "block";
+  });
+
+document.addEventListener("click", (event) => {
+  const toggleInput = document.getElementById("toggleInput");
+  const generateDotsButton = document.getElementById("generateDots");
+
+  if (
+    !toggleInput.contains(event.target) &&
+    event.target !== generateDotsButton
+  ) {
+    toggleInput.style.display = "none";
+  }
+
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
+
+document.getElementById("generateDots").addEventListener("click", () => {
+  document.getElementById("toggleInput").style.display =
+    toggleInput.style.display === "none" ? "flex" : "none";
+});
+
 const navigation = document.querySelector(".primary-navigation");
 
 const navigationHeight = navigation.offsetHeight;
@@ -10,6 +61,12 @@ document.documentElement.style.setProperty(
   "--scroll-padding",
   navigationHeight + "px"
 );
+
+function toggleAnimation() {
+  const img = document.getElementById("toggleAnimation");
+
+  img.style.opacity = img.style.opacity < 0.5 ? 1 : 0.2;
+}
 
 const toggleButton = document.getElementById("toggleAnimation");
 
@@ -40,53 +97,52 @@ window.addEventListener(
   },
   false
 );
-function toggleDropdown() {
-  let dropdownContent = document.getElementsByClassName("dropdown-content")[0];
-  dropdownContent.classList.toggle("show");
-}
+// function toggleDropdown() {
+//   let dropdownContent = document.getElementsByClassName("dropdown-content")[0];
+//   dropdownContent.classList.toggle("show");
+// }
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function (event) {
-  if (!event.target.matches(".dropdown-content")) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-      }
-    }
-  }
-};
+// // Close the dropdown menu if the user clicks outside of it
+// window.onclick = function (event) {
+//   if (!event.target.matches(".dropdown-content")) {
+//     var dropdowns = document.getElementsByClassName("dropdown-content");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains("show")) {
+//         openDropdown.classList.remove("show");
+//       }
+//     }
+//   }
+// };
 
 // Get the range input element
 const rangeInput = document.getElementById("rangeInput");
 // Get the span element to display the value
 const rangeValue = document.getElementById("rangeValue");
 
-const rangeInputDropdown = document.getElementById("rangeInputDropdown");
-const rangeValueDropdown = document.getElementById("rangeValueDropdown");
+//const rangeInputDropdown = document.getElementById("rangeInputDropdown");
+//const rangeValueDropdown = document.getElementById("rangeValueDropdown");
 // Add an event listener to the range input
 rangeInput.addEventListener("input", function () {
   rangeValue.textContent = rangeInput.value;
 
-  rangeInputDropdown.value = rangeInput.value;
-  rangeValue.textContent = rangeInput.value;
+  //rangeInputDropdown.value = rangeInput.value;
   dotCount = parseInt(rangeInput.value);
   resetDots();
 });
 
-rangeInputDropdown.addEventListener("input", function () {
-  rangeValueDropdown.textContent = rangeInputDropdown.value;
-  dotCount = parseInt(rangeInputDropdown.value);
-  resetDots();
-});
+// rangeInputDropdown.addEventListener("input", function () {
+//   rangeValueDropdown.textContent = rangeInputDropdown.value;
+//   dotCount = parseInt(rangeInputDropdown.value);
+//   resetDots();
+// });
 
 document.getElementById("resetDots").addEventListener("click", () => {
   rangeInput.value = 150;
   rangeValue.textContent = 150;
-  rangeInputDropdown.value = 2000;
-  rangeValueDropdown.textContent = 2000;
+  //rangeInputDropdown.value = 2000;
+  //rangeValueDropdown.textContent = 2000;
   dotCount = 150;
   // Clear and redraw dots based on the new dotCount
   resetDots();
