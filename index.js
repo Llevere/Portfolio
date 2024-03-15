@@ -189,7 +189,7 @@ function Dot() {
   this.alpha = Math.random() * 360 + 1;
   this.speed = Math.random() * 100 < 50 ? 1 : -1;
   this.speed *= 0.05;
-  this.size = Math.random() * 5;
+  this.size = Math.random() * (window.innerWidth <= 550 ? 4 : 5);
   this.color = Math.floor(Math.random() * 256);
 }
 
