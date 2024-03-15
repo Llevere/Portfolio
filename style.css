@@ -56,23 +56,6 @@ body {
   cursor: pointer;
 }
 
-.storyBehindProject {
-  background-color: #62438c;
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
-  margin-top: 10px;
-  transition: transform 0.2s ease-in, background-color 0.2s ease-in-out,
-    border-radius 0.2s ease-in-out;
-}
-
-.storyBehindProject:hover {
-  background-color: #4e3579;
-  color: white;
-  border-radius: 7.5px;
-  transform: scale(1.05);
-}
-
 .content-container {
   position: relative;
   z-index: 10;
@@ -321,7 +304,7 @@ body {
   padding: 2%;
   /* background-color: rgba(19, 23, 41, 1); */
   background-color: rgba(18, 17, 24, 0.85);
-  box-shadow: 0 4px 6px 0 #121118, 0 6px 15px 0 #f9f9f9;
+  box-shadow: 0 4px 6px 0 #121118, 0 6px 15px 0 #4e3579;
 }
 
 #SortingAlgorithm .projectImg,
@@ -353,6 +336,62 @@ body {
   border: 2px white solid;
   animation: illuminate 3s infinite;
 }
+
+#SortingAlgorithm .storyBehindProject,
+#SocialNetworking .storyBehindProject,
+#ChessGame .storyBehindProject {
+  background-color: #62438c;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-weight: 600;
+  border: none;
+  transition: transform 0.3s ease-in, background-color 0.3s ease-in-out,
+    border-radius 0.3s ease-in-out;
+}
+
+/* #SortingAlgorithm:hover .storyBehindProject:hover,
+#SocialNetworking:hover .storyBehindProject:hover,
+#ChessGame:hover .storyBehindProject:hover {
+  background-color: #4e3579;
+  color: white;
+  border-radius: 7.5px;
+  transform: scale(1.05);
+} */
+
+#SortingAlgorithm:hover .storyBehindProject,
+#SocialNetworking:hover .storyBehindProject,
+#ChessGame:hover .storyBehindProject {
+  background-color: #fbc84f;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-weight: 600;
+  border: none;
+  transition: transform 0.2s ease-in, background-color 0.2s ease-in-out,
+    border-radius 0.2s ease-in-out;
+}
+
+#SortingAlgorithm:hover .storyBehindProject:hover,
+#SocialNetworking:hover .storyBehindProject:hover,
+#ChessGame:hover .storyBehindProject:hover {
+  background-color: #fbc23b;
+  color: white;
+  border-radius: 7.5px;
+  transform: scale(1.05);
+}
+
+/* .storyBehindProject {
+  background-color: #fbc84f;
+
+} */
+
+/* .storyBehindProject:hover {
+  background-color: #fbc23b;
+  color: black;
+} */
 
 #ChessGame:hover p,
 #SocialNetworking:hover p,
