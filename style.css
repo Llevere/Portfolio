@@ -853,6 +853,7 @@ html {
 .home-subText {
   text-align: center;
   margin: 10px;
+  font-weight: 600;
 }
 
 .home-title,
