@@ -112,6 +112,18 @@ body {
   padding: 5px;
 }
 
+.modal-content {
+  text-align: center;
+}
+
+.modal-content h1 {
+  margin-bottom: 5%;
+}
+
+.modal-content .modal-info {
+  font-weight: bold;
+}
+
 .stars {
   position: fixed;
   top: 0;
