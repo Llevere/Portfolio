@@ -37,15 +37,21 @@
             <li><a href="#contact">Contact</a></li>
             <li><img src="Shooting Star.png" id="toggleAnimation" alt="Shooting Star" title="Toggle Animation"
                 onclick="toggleAnimation()" style="opacity: 1;"></li>
-            <li style="display:inline;">
-        </li> 
-            
-            
         </ul>
-        
-    </nav>
+        <button class="hamburger">
+            <div class="bar"></div>
+        </button>
+        </nav>
+        <nav class="mobile-nav">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+       <a href="#contact">Contact</a>
+       <div><p style="color: #ff6c03; text-align: center;"><span>Toggle Star Animation Icon </span></p><img src="Shooting Star.png" class="toggleAnimation" alt="Shooting Star" title="Toggle Animation"
+                onclick="toggleAnimation()" style="opacity: 1;"></div>
+       
+        </nav>
  
-
     <main>
         <div id="socialNetworkModal" class="modal" style="display: none;">
         
@@ -72,9 +78,9 @@
         
         </div>
         <div id="chessGameModal" class="modal" style="display: none;">
-        
+            <span class="close">&times;</span>
             <div class="modal-content">
-                <span class="close">&times;</span>
+                
                 <h1>Chess Game</h1>
                 <p>Why this project?</p>
                 <p>Why tech stack?</p>
@@ -92,15 +98,15 @@
                     <div id="toggleInput-container">
                         <button id="generateDots">Generate Dots</button>
                         <div id="toggleInput" style="display: none;">
-                            <label for="rangeInput" class="text-primary-400">Generate Dots 100-40,000</label>
-                            <input type="range" id="rangeInput" name="rangeInput" min="100" max="40000" value="150">
+                            <label for="rangeInput" class="text-primary-400">Generate Dots 75-40,000</label>
+                            <input type="range" id="rangeInput" name="rangeInput" min="75" max="40000" value="150">
                             <span id="rangeValue" class="text-primary-400">150</span>
                             <button onclick="resetDots()" id="resetDots">Reset Dots</button>
                         </div>
                     </div>
                     
                         
-                    <p class="home-subText">Final year Computer Science student.<br />Striving to do and be better than yesterday.</p>
+                    <p class="home-subText">Final year Computer Science student.<br /></p>
                 </div>
                 
                 <div class="techStack" >
@@ -109,7 +115,7 @@
                         <a href="https://react.dev/" target="_blank"><img src="Languages/react.svg" alt="React" width="50" height="50" title="React"/></a>
                         <a href="https://www.javascript.com/" target="_blank"><img src="Languages/js.svg" alt="Javascript" width="50" height="50" title="Javascript" /></a>
                         <a href="https://mui.com/material-ui/" target="_blank"><img src="Languages/material-ui.svg" alt="Material UI" width="50" height="50" title="Material UI" /></a>
-                        <a href="https://expressjs.com/" target="_blank"><img src="Languages/expressjs-icon.svg" alt="Express" width="50" height="50" style="background-color: white; padding: 5px" title="Express" /></a>
+                        <a href="https://expressjs.com/" target="_blank"><img src="Languages/expressjs-icon.svg" alt="Express" width="50" height="50" style="background-color: white; padding: 5px; max-height: 60px" title="Express" /></a>
                         <a href="https://nodejs.org/en" target="_blank"><img src="Languages/nodejs-icon.svg" alt="Node.js" width="50" height="50" title="Nodejs" /></a>
                         <a href="https://dotnet.microsoft.com/en-us/" target="_blank"><img src="Languages/dotnet.svg" alt="DotNet" width="50" height="50" title="Dot Net" /></a>
                         <a href="https://www.mongodb.com/" target="_blank"><img src="Languages/mongodb-icon.svg" alt="Icon Description" width="50" height="50" title="Mongo Db" /></a>
@@ -202,10 +208,10 @@
                         <div class="techStack projectTechStack">
                             <!-- <div class="writtenIn">Written in</div> -->
                             <div class="languages">
-                                <a href="#" target="_blank"><img src="Languages/html-5.svg" alt="HTML"
+                                <a href="javascript:void(0)" target="_blank"><img src="Languages/html-5.svg" alt="HTML"
                                         width="50" height="50" title="HTML" /></a>
                                 
-                                <a href="#" target="_blank"><img src="Languages/css-3.svg" alt="CSS"
+                                <a href="javascript:void(0)" target="_blank"><img src="Languages/css-3.svg" alt="CSS"
                                         width="50" height="50" title="CSS" /></a>
                                 <a href="https://www.javascript.com/" target="_blank"><img src="Languages/js.svg" alt="Javascript" width="50"
                                         height="50" title="Javascript" /></a>
@@ -252,4 +258,4 @@
     <script src="index.js"></script ript>
 
 </body>
-</html>
+</html>`

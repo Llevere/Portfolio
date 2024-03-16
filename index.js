@@ -1,5 +1,52 @@
+window.addEventListener("DOMContentLoaded", () => {
+  const rangeInput = document.getElementById("rangeValue");
+  rangeInput.innerHTML = window.innerWidth <= 600 ? "75" : "150";
+
+  const toggleButton = document.querySelector(".toggleAnimation");
+  toggleButton.addEventListener("click", function () {
+    document.documentElement.classList.toggle("reduce-motion");
+    toggleButton.style.opacity = toggleButton.style.opacity <= 0.5 ? 1 : 0.5;
+  });
+
+  window.addEventListener("resize", () => {
+    if (canvas) resetDots();
+  });
+});
+
+window.onload = () => {
+  const menuBtn = document.querySelector(".hamburger");
+  const mobileMenu = document.querySelector(".mobile-nav");
+  menuBtn.addEventListener("click", () => {
+    menuBtn.classList.toggle("is-active");
+    mobileMenu.classList.toggle("is-active");
+  });
+
+  // mobileMenu.addEventListener("click", () => {
+  //   menuBtn.classList.toggle("is-active");
+  //   mobileMenu.classList.toggle("is-active");
+  // });
+  mobileMenu.addEventListener("click", (event) => {
+    const clickedElement = event.target;
+    if (clickedElement.tagName === "A") {
+      console.log(clickedElement.tagName);
+      menuBtn.classList.toggle("is-active");
+      mobileMenu.classList.toggle("is-active");
+    }
+  });
+};
+
 function viewProjectDemo(pageRef) {
   window.open(pageRef, "_blank");
+}
+
+function handleNav() {
+  const mobileNav = document.getElementById("mobile-list");
+  const outsideIcon = document.getElementById("nav-outside-menu");
+  const insideIcon = document.getElementById("nav-inside-menu");
+
+  mobileNav.classList.toggle("hide");
+  mobileNav.classList.toggle("show");
+  outsideIcon.classList.toggle("hide");
 }
 
 let modal;
@@ -68,11 +115,13 @@ function toggleAnimation() {
   img.style.opacity = img.style.opacity < 0.5 ? 1 : 0.2;
 }
 
-const toggleButton = document.getElementById("toggleAnimation");
+// const toggleAnimationImg =
+//   document.getElementsByClassName(".toggleAnimation")[0];
 
-toggleButton.addEventListener("click", function () {
-  document.documentElement.classList.toggle("reduce-motion");
-});
+// toggleAnimationImg.addEventListener("click", function () {
+//   console.log("Clicking image");
+//   document.documentElement.classList.toggle("reduce-motion");
+// });
 
 let isScrolling;
 
@@ -148,7 +197,7 @@ document.getElementById("resetDots").addEventListener("click", () => {
   resetDots();
 });
 
-const canvas = document.createElement("canvas");
+let canvas = document.createElement("canvas");
 canvas.style.position = "fixed";
 canvas.style.top = "0";
 canvas.style.left = "0";
@@ -158,9 +207,8 @@ canvas.height = window.innerHeight;
 document.body.appendChild(canvas);
 
 const context = canvas.getContext("2d");
-
-// let dotCount = window.innerWidth <= 500 ? 75 : 150;
-let dotCount = parseInt(rangeInput.value);
+let dotCount = window.innerWidth <= 500 ? 75 : 150;
+//let dotCount = parseInt(rangeInput.value);
 const dots = [];
 
 function resetDots() {
@@ -189,7 +237,7 @@ function Dot() {
   this.alpha = Math.random() * 360 + 1;
   this.speed = Math.random() * 100 < 50 ? 1 : -1;
   this.speed *= 0.05;
-  this.size = Math.random() * (window.innerWidth <= 550 ? 4 : 5);
+  this.size = Math.random() * (window.innerWidth <= 600 ? 4 : 5);
   this.color = Math.floor(Math.random() * 256);
 }
 
@@ -235,74 +283,3 @@ Dot.prototype.move = function () {
 
 // Start the animation
 render();
-
-// // init
-// var maxx = document.body.clientWidth;
-// var maxy = document.body.clientHeight;
-// var halfx = maxx / 2;
-// var halfy = maxy / 2;
-// var canvas = document.createElement("canvas");
-// canvas.style.zIndex = -500;
-// document.body.appendChild(canvas);
-// canvas.width = maxx;
-// canvas.height = maxy;
-// var context = canvas.getContext("2d");
-// var dotCount = 200;
-// var dots = [];
-// // create dots
-// for (var i = 0; i < dotCount; i++) {
-//   dots.push(new dot());
-// }
-
-// // dots animation
-// function render() {
-//   context.fillRect(0, 0, maxx, maxy);
-//   for (var i = 0; i < dotCount; i++) {
-//     dots[i].draw();
-//     dots[i].move();
-//   }
-//   requestAnimationFrame(render);
-// }
-
-// // dots class
-// // @constructor
-// function dot() {
-//   this.rad_x = 2 * Math.random() * halfx + 1;
-//   this.rad_y = 1.2 * Math.random() * halfy + 1;
-//   this.alpha = Math.random() * 360 + 1;
-//   this.speed = Math.random() * 100 < 50 ? 1 : -1;
-//   this.speed *= 0.1;
-//   this.size = Math.random() * 5 + 1;
-//   this.color = Math.floor(Math.random() * 256);
-// }
-
-// // drawing dot
-// dot.prototype.draw = function () {
-//   // calc polar coord to decart
-//   var dx = halfx + this.rad_x * Math.cos((this.alpha / 180) * Math.PI);
-//   var dy = halfy + this.rad_y * Math.sin((this.alpha / 180) * Math.PI);
-//   // set color
-//   context.fillStyle =
-//     "rgb(" + this.color + "," + this.color + "," + this.color + ")";
-//   // draw dot
-//   context.fillRect(dx, dy, this.size, this.size);
-// };
-
-// // calc new position in polar coord
-// dot.prototype.move = function () {
-//   this.alpha += this.speed;
-//   // change color
-//   if (Math.random() * 100 < 50) {
-//     this.color += 1;
-//   } else {
-//     this.color -= 1;
-//   }
-// };
-
-// // start animation
-// render();
-
-// /*
-// Background Gradients From --
-// https://uigradients.com
-// */
