@@ -13,13 +13,17 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-/* Modal */
+.no-scroll {
+  height: 100%;
+  overflow: hidden;
+}
+
 .socialNetworkModal,
 .sortingAlgorithmModal,
 .chessGameModal {
+  overflow: hidden;
 }
 
-/* Modal content */
 .modal-content {
   background-color: #fefefe;
   text-align: left;
@@ -38,14 +42,13 @@ body {
   text-align: center;
 }
 
-/* Close button */
 .close {
-  color: #aaaaaa;
+  color: #aaa;
   font-size: 28px;
   font-weight: bold;
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 20px;
   cursor: pointer;
 }
 
@@ -1281,6 +1284,28 @@ input[type="range"] {
 }
 
 @media screen and (max-width: 600px) {
+  .socialNetworkModal,
+  .sortingAlgorithmModal,
+  .chessGameModal {
+  }
+
+  .modal-content {
+    font-size: 0.6rem;
+  }
+
+  .modal-content .close {
+    font-size: 7vw;
+  }
+
+  .modal-content h1 {
+    margin-top: 10%;
+    font-size: 1.5rem;
+  }
+
+  .modal-content .modal-info {
+    font-size: 0.75rem;
+  }
+
   .hamburger {
     position: relative;
     display: block;

@@ -35,6 +35,19 @@ window.onload = () => {
   });
 };
 
+function isClickedOutsideModal(event) {
+  if (!modal.contains(event.target)) {
+    return true;
+  }
+  return false;
+}
+function handleClickOutsideModal(event) {
+  if (isClickedOutsideModal(event)) {
+    document.body.classList.remove("no-scroll");
+    modal.style.display = "none";
+  }
+}
+
 function viewProjectDemo(pageRef) {
   window.open(pageRef, "_blank");
 }
@@ -49,6 +62,13 @@ function handleNav() {
   outsideIcon.classList.toggle("hide");
 }
 
+let modalContent = document.querySelectorAll(".storyBehindProject");
+modalContent.forEach((modal) => {
+  modal.addEventListener("click", () => {
+    document.body.classList.add("no-scroll");
+  });
+});
+
 let modal;
 
 var closeButtons = document.querySelectorAll(".close");
@@ -56,7 +76,7 @@ var closeButtons = document.querySelectorAll(".close");
 // Add click event listener to each close button
 closeButtons.forEach(function (closeButton) {
   closeButton.addEventListener("click", function () {
-    // Close the modal
+    document.body.classList.remove("no-scroll");
     modal.style.display = "none";
   });
 });
@@ -91,6 +111,7 @@ document.addEventListener("click", (event) => {
   }
 
   if (event.target == modal) {
+    document.body.classList.remove("no-scroll");
     modal.style.display = "none";
   }
 });
@@ -146,46 +167,16 @@ window.addEventListener(
   },
   false
 );
-// function toggleDropdown() {
-//   let dropdownContent = document.getElementsByClassName("dropdown-content")[0];
-//   dropdownContent.classList.toggle("show");
-// }
-
-// // Close the dropdown menu if the user clicks outside of it
-// window.onclick = function (event) {
-//   if (!event.target.matches(".dropdown-content")) {
-//     var dropdowns = document.getElementsByClassName("dropdown-content");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains("show")) {
-//         openDropdown.classList.remove("show");
-//       }
-//     }
-//   }
-// };
-
-// Get the range input element
 const rangeInput = document.getElementById("rangeInput");
-// Get the span element to display the value
+
 const rangeValue = document.getElementById("rangeValue");
 
-//const rangeInputDropdown = document.getElementById("rangeInputDropdown");
-//const rangeValueDropdown = document.getElementById("rangeValueDropdown");
-// Add an event listener to the range input
 rangeInput.addEventListener("input", function () {
   rangeValue.textContent = rangeInput.value;
 
-  //rangeInputDropdown.value = rangeInput.value;
   dotCount = parseInt(rangeInput.value);
   resetDots();
 });
-
-// rangeInputDropdown.addEventListener("input", function () {
-//   rangeValueDropdown.textContent = rangeInputDropdown.value;
-//   dotCount = parseInt(rangeInputDropdown.value);
-//   resetDots();
-// });
 
 document.getElementById("resetDots").addEventListener("click", () => {
   rangeInput.value = 150;
