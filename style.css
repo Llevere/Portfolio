@@ -12,7 +12,6 @@ video.center {
 body {
   font-family: "Lato", sans-serif;
 }
-
 .no-scroll {
   height: 100%;
   overflow: hidden;
@@ -791,6 +790,7 @@ html {
 .nav-list a:hover,
 .nav-list button:hover {
   color: #fff;
+  text-decoration: none;
   /* text-decoration: underline solid; */
 }
 
@@ -827,6 +827,22 @@ html {
   text-align: center;
 }
 
+#about {
+  padding: 2%;
+  margin: 0 auto;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: rgba(18, 17, 24, 0.5);
+}
+
+#about-content {
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+}
 #home {
   min-height: 80vh;
   display: flex;
@@ -1283,10 +1299,15 @@ input[type="range"] {
   display: none;
 }
 
+.modal-content {
+  background-color: rgba(18, 17, 24, 0.5);
+}
+
 @media screen and (max-width: 600px) {
-  .socialNetworkModal,
-  .sortingAlgorithmModal,
-  .chessGameModal {
+  #socialNetworkModal,
+  #sortingAlgorithmModal,
+  #chessGameModal {
+    background-color: rgba(18, 17, 24, 0.5);
   }
 
   .modal-content {
@@ -1294,7 +1315,7 @@ input[type="range"] {
   }
 
   .modal-content .close {
-    font-size: 7vw;
+    font-size: 30px;
   }
 
   .modal-content h1 {
