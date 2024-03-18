@@ -8,6 +8,13 @@ window.addEventListener("DOMContentLoaded", () => {
     toggleButton.style.opacity = toggleButton.style.opacity <= 0.5 ? 1 : 0.5;
   });
 
+  const toggleDesktiopAnimationButton =
+    document.getElementById("toggleAnimation");
+  toggleDesktiopAnimationButton.addEventListener("click", function () {
+    document.documentElement.classList.toggle("reduce-motion");
+    toggleButton.style.opacity = toggleButton.style.opacity <= 0.5 ? 1 : 0.5;
+  });
+
   window.addEventListener("resize", () => {
     if (canvas) resetDots();
   });
@@ -135,14 +142,6 @@ function toggleAnimation() {
 
   img.style.opacity = img.style.opacity < 0.5 ? 1 : 0.2;
 }
-
-// const toggleAnimationImg =
-//   document.getElementsByClassName(".toggleAnimation")[0];
-
-// toggleAnimationImg.addEventListener("click", function () {
-//   console.log("Clicking image");
-//   document.documentElement.classList.toggle("reduce-motion");
-// });
 
 let isScrolling;
 
