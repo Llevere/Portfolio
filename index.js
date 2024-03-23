@@ -35,7 +35,6 @@ window.onload = () => {
   mobileMenu.addEventListener("click", (event) => {
     const clickedElement = event.target;
     if (clickedElement.tagName === "A") {
-      console.log(clickedElement.tagName);
       menuBtn.classList.toggle("is-active");
       mobileMenu.classList.toggle("is-active");
     }

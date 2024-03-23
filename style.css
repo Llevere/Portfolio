@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Exo:400,700");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 video.center {
   display: block;
 
@@ -15,6 +16,14 @@ body {
 .no-scroll {
   height: 100%;
   overflow: hidden;
+}
+
+nav .resume img,
+nav .resume img {
+  border-radius: 10px;
+  padding: 2px 1px 2px 1px;
+  background-color: white;
+  border: 2px black solid;
 }
 
 .socialNetworkModal,
@@ -572,40 +581,7 @@ body {
   font-size: 50px;
 }
 
-/* .background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  transition: opacity 0.5s ease;
-}
-
-.sunset {
-  background-image: url("https://img.freepik.com/free-vector/summer-background-videocalls_23-2148969180.jpg?size=626&ext=jpg&ga=GA1.2.97695349.1710195315&semt=ais");
-}
-
-.night {
-  background-image: url("https://img.freepik.com/free-photo/snowy-mountain-peak-starry-galaxy-majesty-generative-ai_188544-9650.jpg?w=1380&t=st=1710195701~exp=1710196301~hmac=9f41ae8e90706b1b0379ccf7c3af4441a75beab9f981c213b667ae9f92198c2f");
-} */
-
 .area {
-  /* background-image: url("https://www.shutterstock.com/image-vector/vector-night-sky-clouds-moonlight-600nw-760640275.jpg"); */
-  /* background-image: url("https://i.pinimg.com/736x/60/ab/dd/60abdd9b95395a55eeca67f78bacfb4f.jpg"); */
-  /* background-image: url("https://t4.ftcdn.net/jpg/02/50/48/93/360_F_250489323_AvnwytTa9rlfQVNNpM8XIBR6POYOB3nC.jpg"); */
-  /* background-image: url("BG.png");
-  background-color: #000000;
-  background-attachment: fixed;
-  background-position: center;
-  background-attachment: fixed;
-  -o-background-size: 100% auto;
-  -moz-background-size: 100% auto;
-  -webkit-background-size: 100% auto;
-  background-size: 100% auto;
-  background-repeat: no-repeat; 
-  background: none;
-  */
   margin: 0;
   padding: 0;
   position: relative;
@@ -620,21 +596,6 @@ body {
   object-position: center;
   z-index: -10;
 }
-
-/* @media screen and (max-width: 768px) {
-  .area {
-    background-size: cover;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .area {
-    -o-background-size: contain;
-    -moz-background-size: contain;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-} */
 
 .hide {
   display: none;
@@ -956,22 +917,6 @@ picture {
   display: block;
 }
 
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-} */
-
 /* Add styles for reduced motion */
 .reduce-motion * {
   animation-duration: 0.01ms !important;
@@ -1170,13 +1115,6 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
 }
 
-/* @media (min-width: 50em) {
-  .grid-auto-flow {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-  }
-} */
-
 .grid-stack {
   display: grid;
   place-items: center;
@@ -1260,6 +1198,16 @@ input[type="range"] {
   }
 }
 
+@media screen and (max-width: 900px) {
+  .nav-list {
+    gap: 2.25rem;
+  }
+
+  .nav-list a {
+    font-size: 1.25rem;
+  }
+}
+
 @media screen and (max-width: 750px) {
   @keyframes starsAnimation {
     0% {
@@ -1282,11 +1230,11 @@ input[type="range"] {
   }
 
   .nav-list {
-    gap: 2.25rem;
+    gap: 2rem;
   }
 
   .nav-list a {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 }
 
