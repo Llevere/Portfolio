@@ -16,7 +16,10 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   window.addEventListener("resize", () => {
-    if (canvas) resetDots();
+    if (canvas) {resetDots();
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
   });
 });
 
@@ -144,27 +147,27 @@ function toggleAnimation() {
 
 let isScrolling;
 
-function addScrollingClass() {
-  document.body.classList.add("scrolling");
-}
+// function addScrollingClass() {
+//   document.body.classList.add("scrolling");
+// }
 
-function removeScrollingClass() {
-  document.body.classList.remove("scrolling");
-}
+// function removeScrollingClass() {
+//   document.body.classList.remove("scrolling");
+// }
 
-window.addEventListener(
-  "scroll",
-  function () {
-    window.clearTimeout(isScrolling);
+// window.addEventListener(
+//   "scroll",
+//   function () {
+//     window.clearTimeout(isScrolling);
 
-    addScrollingClass();
+//     addScrollingClass();
 
-    isScrolling = setTimeout(function () {
-      removeScrollingClass();
-    }, 200);
-  },
-  false
-);
+//     isScrolling = setTimeout(function () {
+//       removeScrollingClass();
+//     }, 200);
+//   },
+//   false
+// );
 const rangeInput = document.getElementById("rangeInput");
 
 const rangeValue = document.getElementById("rangeValue");
