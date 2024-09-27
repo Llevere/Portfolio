@@ -58,6 +58,26 @@
         </nav>
  
     <main>
+        <div id="mutliplayerChessModal" class="modal" style="display: none;">
+        
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Multiplayer Chess Game</h1>
+                <p class="modal-info">Why this project?
+                <p>To learn more about how web sockets work and harden my skills in MySQL</p>
+                </p>
+                <p class="modal-info">Why tech stack?
+                <p>To harden my knowledge in the stack while using the socket.io library.</p>
+                </p>
+                <p class="modal-info">Challenge:
+                <p>How to store and use web sockets effectively. </p>
+                </p>
+                <p class="modal-info">What I would add:
+                <p>A better bot system and a better structure chess system to make the development of the "AI bot" algorithm easier/advanced.</p>
+                </p>
+            </div>
+        
+        </div>
         <div id="socialNetworkModal" class="modal" style="display: none;">
         
             <div class="modal-content">
@@ -137,6 +157,40 @@
         <section id="projects" class="padding-block-400 text-primary-200">
             <div class="container flow">
                 <h2 class="fs-800">Projects</h2>
+                <div id="SocialNetworking">
+                    <p>Multiplayer Chess Game
+                        <p style="font-size: medium; color:#775d9c;">Player random players or against a bot using socket.io<br />Shown in the video demo.</p>
+                    </p>
+                    <img src="MultiChess.png" class="projectImg" alt="SocialNetworking Img" />
+                    <div class="techStack projectTechStack">
+                        <div class="languages">
+                            <a href="https://react.dev/" target="_blank"><img src="Languages/react.svg" alt="React" width="50"
+                                    height="50" title="React" /></a>
+                            <a href="https://nodejs.org/en" target="_blank"><img src="Languages/nodejs-icon.svg" alt="Node.js"
+                                    width="50" height="50" title="Nodejs" /></a>
+                            <a href="https://expressjs.com/" target="_blank"><img src="Languages/expressjs-icon.svg" alt="Express"
+                                    width="50" height="50" style="background-color: white; padding: 5px" title="Express" /></a>
+                            <a href="https://www.mysql.com/" target="_blank"><img src="Languages/mysql.svg"
+                                    alt="Icon Description" width="50" height="50" title="MySQL" /></a>
+                        </div>
+                    </div>
+                    <button id="storyBehindMultiChess" class="storyBehindProject" title="The Story Behind The Project">Story
+                        Behind</button>
+                
+                    <div class="projectDescription">
+                        <br />
+                        <ul>
+                            <li>Create/Join rooms with an alias</li>
+                            <li>Chat with the opponent via chat box</li>
+                            <li>Play against a bot that picks valid moves at random</li>
+                            <li>See what moves were made in the Chess Moves section</li>
+                        </ul>
+                    </div>
+                    <div class="viewProject">
+                        <a href="https://multi-chess-client.onrender.com/" target="_blank" class="viewLive">View Live </a>
+                        <a href="VideoDemo/multiChessGameDemo.html" target="_blank">View Video Demo</a>
+                    </div>
+                </div>
                 <div id="SocialNetworking">
                     <p>Social Networking <p style="font-size: medium; color:#775d9c;">Can Register with random user info.<br/>Shown in the video demo.</p>    </p><img src="SocialNetworking.png" class="projectImg" alt="SocialNetworking Img" />
                     <div class="techStack projectTechStack">

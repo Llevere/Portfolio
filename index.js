@@ -16,7 +16,8 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   window.addEventListener("resize", () => {
-    if (canvas) {resetDots();
+    if (canvas) {
+      resetDots();
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
@@ -105,6 +106,13 @@ document
   .getElementById("storyBehindSocialNetworking")
   .addEventListener("click", () => {
     modal = document.getElementById("socialNetworkModal");
+    modal.style.display = "block";
+  });
+
+document
+  .getElementById("storyBehindMultiChess")
+  .addEventListener("click", () => {
+    modal = document.getElementById("mutliplayerChessModal");
     modal.style.display = "block";
   });
 
