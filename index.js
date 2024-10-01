@@ -155,27 +155,6 @@ function toggleAnimation() {
 
 let isScrolling;
 
-// function addScrollingClass() {
-//   document.body.classList.add("scrolling");
-// }
-
-// function removeScrollingClass() {
-//   document.body.classList.remove("scrolling");
-// }
-
-// window.addEventListener(
-//   "scroll",
-//   function () {
-//     window.clearTimeout(isScrolling);
-
-//     addScrollingClass();
-
-//     isScrolling = setTimeout(function () {
-//       removeScrollingClass();
-//     }, 200);
-//   },
-//   false
-// );
 const rangeInput = document.getElementById("rangeInput");
 
 const rangeValue = document.getElementById("rangeValue");
@@ -208,11 +187,11 @@ document.body.appendChild(canvas);
 
 const context = canvas.getContext("2d");
 let dotCount = window.innerWidth <= 500 ? 75 : 150;
-//let dotCount = parseInt(rangeInput.value);
+
 const dots = [];
 
 function resetDots() {
-  dots.length = 0; // Clear the dots array
+  dots.length = 0;
   for (let i = 0; i < dotCount; i++) {
     dots.push(new Dot());
   }
@@ -231,55 +210,56 @@ function render() {
   requestAnimationFrame(render);
 }
 
-function Dot() {
-  this.x = Math.random() * canvas.width;
-  this.y = Math.random() * canvas.height;
-  this.alpha = Math.random() * 360 + 1;
-  this.speed = Math.random() * 100 < 50 ? 1 : -1;
-  this.speed *= 0.05;
-  this.size = Math.random() * (window.innerWidth <= 600 ? 4 : 5);
-  this.color = Math.floor(Math.random() * 256);
+class Dot {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.alpha = Math.random() * 360 + 1;
+    this.speed = Math.random() * 100 < 50 ? 1 : -1;
+    this.speed *= 0.05;
+    this.size = Math.random() * (window.innerWidth <= 600 ? 4 : 5);
+    this.color = Math.floor(Math.random() * 256);
+  }
+  // Draw function for the dot
+  draw() {
+    context.beginPath();
+    context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2);
+
+    if (this.size < 1) this.size += 1.0;
+    //Different colours based on size
+    else if (this.size < 2) {
+      context.fillStyle = "#FF4433";
+    } else if (this.size < 3) {
+      context.fillStyle = "#ffaa33";
+    } else if (this.size < 4) {
+      context.fillStyle = "#347532";
+    } else {
+      context.fillStyle = "#fff896";
+    }
+    context.fill();
+  }
+  // Move function for the dot
+  move() {
+    this.alpha += this.speed;
+    if (Math.random() * 100 < 50) {
+      this.color += 1;
+    } else {
+      this.color -= 1;
+    }
+
+    // Ensure dots remain within canvas bounds
+    if (this.x < 0 || this.x > canvas.width) {
+      this.speed *= -1;
+    }
+    if (this.y < 0 || this.y > canvas.height) {
+      this.speed *= -1;
+    }
+
+    // Move the dot in a cirlce
+    this.x += Math.cos(this.alpha) * 0.35;
+    this.y += Math.sin(this.alpha) * 0.35;
+  }
 }
 
-// Draw function for the dot
-Dot.prototype.draw = function () {
-  context.beginPath();
-  context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2);
-  if (this.size < 1) this.size += 1.0;
-  else if (this.size < 2) {
-    context.fillStyle = "#FF4433";
-  } else if (this.size < 3) {
-    context.fillStyle = "#ffaa33";
-  } else if (this.size < 4) {
-    context.fillStyle = "#347532";
-  } else {
-    context.fillStyle =
-      /*`rgb(${this.color}, ${this.color}, ${this.color})`;*/ "#fff896";
-  }
-  context.fill();
-};
-
-// Move function for the dot
-Dot.prototype.move = function () {
-  this.alpha += this.speed;
-  if (Math.random() * 100 < 50) {
-    this.color += 1;
-  } else {
-    this.color -= 1;
-  }
-
-  // Ensure dots remain within canvas bounds
-  if (this.x < 0 || this.x > canvas.width) {
-    this.speed *= -1;
-  }
-  if (this.y < 0 || this.y > canvas.height) {
-    this.speed *= -1;
-  }
-
-  // Update dot position
-  this.x += Math.cos(this.alpha) * 0.35;
-  this.y += Math.sin(this.alpha) * 0.35;
-};
-
-// Start the animation
+//Animation for the dots (fireflies)
 render();
