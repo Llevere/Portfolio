@@ -16,7 +16,8 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   window.addEventListener("resize", () => {
-    if (canvas) {resetDots();
+    if (canvas) {
+      resetDots();
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
@@ -108,6 +109,13 @@ document
     modal.style.display = "block";
   });
 
+document
+  .getElementById("storyBehindMultiChess")
+  .addEventListener("click", () => {
+    modal = document.getElementById("mutliplayerChessModal");
+    modal.style.display = "block";
+  });
+
 document.addEventListener("click", (event) => {
   const toggleInput = document.getElementById("toggleInput");
   const generateDotsButton = document.getElementById("generateDots");
@@ -147,27 +155,6 @@ function toggleAnimation() {
 
 let isScrolling;
 
-// function addScrollingClass() {
-//   document.body.classList.add("scrolling");
-// }
-
-// function removeScrollingClass() {
-//   document.body.classList.remove("scrolling");
-// }
-
-// window.addEventListener(
-//   "scroll",
-//   function () {
-//     window.clearTimeout(isScrolling);
-
-//     addScrollingClass();
-
-//     isScrolling = setTimeout(function () {
-//       removeScrollingClass();
-//     }, 200);
-//   },
-//   false
-// );
 const rangeInput = document.getElementById("rangeInput");
 
 const rangeValue = document.getElementById("rangeValue");
@@ -180,11 +167,11 @@ rangeInput.addEventListener("input", function () {
 });
 
 document.getElementById("resetDots").addEventListener("click", () => {
-  rangeInput.value = 150;
-  rangeValue.textContent = 150;
+  rangeInput.value = 75;
+  rangeValue.textContent = 75;
   //rangeInputDropdown.value = 2000;
   //rangeValueDropdown.textContent = 2000;
-  dotCount = 150;
+  dotCount = 75;
   // Clear and redraw dots based on the new dotCount
   resetDots();
 });
@@ -200,11 +187,53 @@ document.body.appendChild(canvas);
 
 const context = canvas.getContext("2d");
 let dotCount = window.innerWidth <= 500 ? 75 : 150;
-//let dotCount = parseInt(rangeInput.value);
+
 const dots = [];
 
+class Dot {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.alpha = Math.random() * 360 + 1;
+    this.speed = Math.random() * 100 < 50 ? 1 : -1;
+    this.speed *= 0.05;
+    this.size = Math.random() * (window.innerWidth <= 600 ? 4 : 5);
+    this.color = Math.floor(Math.random() * 256);
+  }
+
+  draw() {
+    context.beginPath();
+    context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2);
+    if (this.size < 1) this.size += 1.0;
+    context.fillStyle =
+      this.size < 2
+        ? "#FF4433"
+        : this.size < 3
+        ? "#ffaa33"
+        : this.size < 4
+        ? "#347532"
+        : "#fff896";
+    context.fill();
+  }
+
+  move() {
+    this.alpha += this.speed;
+    this.color += Math.random() * 100 < 50 ? 1 : -1;
+
+    if (this.x < 0 || this.x > canvas.width) {
+      this.speed *= -1;
+    }
+    if (this.y < 0 || this.y > canvas.height) {
+      this.speed *= -1;
+    }
+
+    this.x += Math.cos(this.alpha) * 0.35;
+    this.y += Math.sin(this.alpha) * 0.35;
+  }
+}
+
 function resetDots() {
-  dots.length = 0; // Clear the dots array
+  dots.length = 0;
   for (let i = 0; i < dotCount; i++) {
     dots.push(new Dot());
   }
@@ -223,55 +252,5 @@ function render() {
   requestAnimationFrame(render);
 }
 
-function Dot() {
-  this.x = Math.random() * canvas.width;
-  this.y = Math.random() * canvas.height;
-  this.alpha = Math.random() * 360 + 1;
-  this.speed = Math.random() * 100 < 50 ? 1 : -1;
-  this.speed *= 0.05;
-  this.size = Math.random() * (window.innerWidth <= 600 ? 4 : 5);
-  this.color = Math.floor(Math.random() * 256);
-}
-
-// Draw function for the dot
-Dot.prototype.draw = function () {
-  context.beginPath();
-  context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2);
-  if (this.size < 1) this.size += 1.0;
-  else if (this.size < 2) {
-    context.fillStyle = "#FF4433";
-  } else if (this.size < 3) {
-    context.fillStyle = "#ffaa33";
-  } else if (this.size < 4) {
-    context.fillStyle = "#347532";
-  } else {
-    context.fillStyle =
-      /*`rgb(${this.color}, ${this.color}, ${this.color})`;*/ "#fff896";
-  }
-  context.fill();
-};
-
-// Move function for the dot
-Dot.prototype.move = function () {
-  this.alpha += this.speed;
-  if (Math.random() * 100 < 50) {
-    this.color += 1;
-  } else {
-    this.color -= 1;
-  }
-
-  // Ensure dots remain within canvas bounds
-  if (this.x < 0 || this.x > canvas.width) {
-    this.speed *= -1;
-  }
-  if (this.y < 0 || this.y > canvas.height) {
-    this.speed *= -1;
-  }
-
-  // Update dot position
-  this.x += Math.cos(this.alpha) * 0.35;
-  this.y += Math.sin(this.alpha) * 0.35;
-};
-
-// Start the animation
+//Animation for the dots (fireflies)
 render();
