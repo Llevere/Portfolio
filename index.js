@@ -116,6 +116,13 @@ document
     modal.style.display = "block";
   });
 
+document
+  .getElementById("storyBehindPortfolio")
+  .addEventListener("click", () => {
+    modal = document.getElementById("portfolioModal");
+    modal.style.display = "block";
+  });
+
 document.addEventListener("click", (event) => {
   const toggleInput = document.getElementById("toggleInput");
   const generateDotsButton = document.getElementById("generateDots");
@@ -254,3 +261,40 @@ function render() {
 
 //Animation for the dots (fireflies)
 render();
+
+function getBackgroundColor(element) {
+  while (element) {
+    let bgColor = window.getComputedStyle(element).backgroundColor;
+
+    if (bgColor !== "rgba(0, 0, 0, 0)" && bgColor !== "transparent") {
+      return bgColor; // Found a valid background color
+    }
+
+    element = element.parentElement; // Move up the DOM tree
+  }
+  return "rgb(255, 255, 255)"; // Default to white if no background is found
+}
+
+function getLuminance(r, g, b) {
+  return 0.299 * r + 0.587 * g + 0.114 * b; // YIQ formula
+}
+
+function adjustNavbarLinks() {
+  document.querySelectorAll(".nav-list li a").forEach((link) => {
+    let bgColor = getBackgroundColor(link.parentElement); // Get the parent's background color
+    let rgb = bgColor.match(/\d+/g).map(Number);
+    let luminance = getLuminance(rgb[0], rgb[1], rgb[2]);
+
+    if (luminance < 128) {
+      link.style.color = "rgba(255, 255, 255, 0.8)"; // Light text for dark backgrounds
+    } else {
+      link.style.color = "#62438c"; // Dark text for light backgrounds
+    }
+
+    link.style.transition = "color 0.5s ease-in-out";
+  });
+}
+
+// Run on load and when scrolling
+window.addEventListener("load", adjustNavbarLinks);
+window.addEventListener("scroll", adjustNavbarLinks);

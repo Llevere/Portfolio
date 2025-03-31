@@ -58,6 +58,26 @@
         </nav>
  
     <main>
+        <div id="portfolioModal" class="modal" style="display: none;">
+        
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Portfolio</h1>
+                <p class="modal-info">Why this project?
+                <p>To showcase my experise and skills in what I've learned in and outside of school.</p>
+                </p>
+                <p class="modal-info">Why the tech stack?
+                <p>Faster initial load time, no external dependencies, to deepen my knowledge in web developement fundamentals, and to have full control.</p>
+                </p>
+                <p class="modal-info">Challenge:
+                <p>Adding in animations with css and javascript. Learning more about canvas usage was really fun.</p>
+                </p>
+                <p class="modal-info">What I would add:
+                <p>My next project is to create a 3d portfolio, but allow the user to toggle between 2d and 3d.</p>
+                </p>
+            </div>
+        </div>
+
         <div id="mutliplayerChessModal" class="modal" style="display: none;">
         
             <div class="modal-content">
@@ -66,7 +86,7 @@
                 <p class="modal-info">Why this project?
                 <p>To learn more about how web sockets work and harden my skills in MySQL</p>
                 </p>
-                <p class="modal-info">Why tech stack?
+                <p class="modal-info">Why the tech stack?
                 <p>To harden my knowledge in the stack while using the socket.io library.</p>
                 </p>
                 <p class="modal-info">Challenge:
@@ -84,7 +104,7 @@
                 <span class="close">&times;</span>
                 <h1 >Social Networking</h1>
                 <p class="modal-info">Why this project? <p>To prepare myself for the upcoming school term.</p></p>
-                <p class="modal-info">Why tech stack? <p>In my upcoming school term, we were going to use this stack.</p></p>
+                <p class="modal-info">Why the tech stack? <p>In my upcoming school term, we were going to use this stack.</p></p>
                 <p class="modal-info">Challenge: <p>Since every language was new to me, it was learning all of them individually and also how they work together. After playing with each language, 
                     they all became one of my favourite for its use (React:Front-end, Node.js:Backend)</p></p>  
                 <p class="modal-info">What I would add: <p>Socket.io, so the users can message/chat with other users.</p></p>
@@ -97,7 +117,7 @@
                 <span class="close">&times;</span>
                 <h1>Sorting Algorithm Visualizer</h1>
                 <p class="modal-info">Why this project? <p>To improve my data structure and algorithm knowledge. Was also a gateway into my next project so I can improve best move calculation speed.</p></p>
-                <p class="modal-info">Why tech stack? <p>After spending time with the Social Networking project, I was familar with react. I grew a liking to the framework and wanted to apply what I learned.</p></p>
+                <p class="modal-info">Why the tech stack? <p>After spending time with the Social Networking project, I was familar with react. I grew a liking to the framework and wanted to apply what I learned.</p></p>
                 <p class="modal-info">Challenges <p>Learning new algorithms, as well as timing the intervals with each interval. The biggest challenge was displaying the sorting in a timely matter. 
                     This allowed me to learn more about the inner workings of the algorithms.</p></p>
                 <p class="modal-info">What I would add <p>Colour any bar that the algorithm is looking at and colour the bars that are already sorted. As well as being able to sort other data sets than just integers.</p></p>
@@ -111,7 +131,7 @@
                 <p class="modal-info">Why this project?<p>At first, it was to test my vanilla javascript skills and make a game at the same time. Quickly into making the project, I thought about adding socket.io for players to play against eachother,
                     as well as an AI the player can play against in either easy,medium, or hard mode. Found out very quickly I suck at chess.
                 </p></p>
-                <p class="modal-info">Why tech stack?<p>To test my vanilla javascript knowledge since my previous two projects were written with React.</p></p>
+                <p class="modal-info">Why the tech stack?<p>To test my vanilla javascript knowledge since my previous two projects were written with React.</p></p>
                 <p class="modal-info">Challenges<p>Learning chess. The more I learned about chess the more complex the project became.</p></p>
                 <p class="modal-info" >What I would add<p>Socket.io so two players can play against eachother. As well as a system that allows the user to gain points with each match they play, so they can earn enough points to purchase
                      a chess set that they can play with. There are currently four chess sets for both black and white.
@@ -124,7 +144,7 @@
                 <div class="home-title-container">
                     <span class="home-miniTitle">Hi, I'm</span>
                     <p class="home-title">Matt Levere</p>
-                    <p class="home-subTitle">Web Developer</p>
+                    <p class="home-subTitle">Computer and Programming Analysis graduate</p>
                     <div id="toggleInput-container">
                         <button id="generateDots">Generate Dots</button>
                         <div id="toggleInput" style="display: none;">
@@ -137,6 +157,8 @@
                     
                         
                     <p class="home-subText">Computer Programming and Analysis graduate.<br />Skilled, dare I say <span style="font-weight: bold; font-style:italic;">savy</span>, in lifting weights up and down.</p>
+                    <br />
+                    <p class="home-subText"><b>No templates used; All projects are match from scratch.</b></p>
                 </div>
                 
                 <div class="techStack" >
@@ -157,11 +179,31 @@
         <section id="projects" class="padding-block-400 text-primary-200">
             <div class="container flow">
                 <h2 class="fs-800">Projects</h2>
+
+                <div id="SocialNetworking">
+                    <p>Portfolio
+                        <p style="font-size: medium; color:#775d9c;">The portfolio you're seeing right now</p>
+                    </p>
+                    <img src="Portfolio.png" class="projectImg" alt="Portfolio Img" />
+                    <div class="techStack projectTechStack">
+                        <div class="languages">
+                            <a href="https://www.w3schools.com/html/" target="_blank"><img src="Languages/html-5.svg" alt="HTML5"
+                                    width="50" height="50" title="HTML" style="background-color: white;" /></a>
+                            <a href="https://www.w3schools.com/css/" target="_blank"><img src="Languages/css-3.svg" alt="CSS"
+                                    width="50" height="50" style="background-color: white;" title="CSS" /></a>
+                            <a href="https://www.w3schools.com/js/" target="_blank"><img src="Languages/js.svg" alt="Javascript" width="50"
+                                    height="50" title="Javascript" /></a>
+                        </div>
+                    </div>
+                    <button id="storyBehindPortfolio" class="storyBehindProject" title="The Story Behind The Project">Story
+                        Behind</button>
+                </div>
+
                 <div id="SocialNetworking">
                     <p>Multiplayer Chess Game
                         <p style="font-size: medium; color:#775d9c;">Play random players by entering room name or against a bot using socket.io<br />Shown in the video demo.</p>
                     </p>
-                    <img src="MultiChess.png" class="projectImg" alt="SocialNetworking Img" />
+                    <img src="MultiChess.png" class="projectImg" alt="Multiplater Chess Img" />
                     <div class="techStack projectTechStack">
                         <div class="languages">
                             <a href="https://react.dev/" target="_blank"><img src="Languages/react.svg" alt="React" width="50"
@@ -270,11 +312,10 @@
                         <div class="techStack projectTechStack">
                             <!-- <div class="writtenIn">Written in</div> -->
                             <div class="languages">
-                                <a href="javascript:void(0)" target="_blank"><img src="Languages/html-5.svg" alt="HTML"
-                                        width="50" height="50" title="HTML" /></a>
-                                
-                                <a href="javascript:void(0)" target="_blank"><img src="Languages/css-3.svg" alt="CSS"
-                                        width="50" height="50" title="CSS" /></a>
+                                <a href="https://www.w3schools.com/html/" target="_blank"><img src="Languages/html-5.svg" alt="HTML5"
+                                    width="50" height="50" title="HTML" style="background-color: white;" /></a>
+                                <a href="https://www.w3schools.com/css/" target="_blank"><img src="Languages/css-3.svg" alt="CSS"
+                                    width="50" height="50" style="background-color: white;" title="CSS" /></a>
                                 <a href="https://www.javascript.com/" target="_blank"><img src="Languages/js.svg" alt="Javascript" width="50"
                                         height="50" title="Javascript" /></a>
                         
@@ -302,12 +343,11 @@
         <section id="about" class="padding-block-600 surface-neutral-900 text-primary-200">
             <div class="container flow">
                 <h2 class="fs-800">About Me</h2>
-                <p id="about-content">This sounds cliché, but my journey started when I first printed "Hello World!" to a screen. I'm someone 
-                    who is obsessed with anything that is endlessly progressive. Whether that be in video games, sports, or real life,
-                     if there is a way to progress without a limit, I'm game. When I watched "Hello World!" print on my screen, I imagined a 
-                      virtually limitless world, this is when I knew this profession is for me. <br/><br />My hobbies are coding, programming, software development, and the occasional six hour gym session when I can't figure out a bug.
+                <p id="about-content">This sounds cliché, but my journey started when I first printed "Hello,  World!" to a screen. I'm someone 
+                    who is obsessed with anything that is endlessly progressive. Whether in video games, sports, or real life,
+                     if there is a way to progress without limit, I'm game. When I watched "Hello World!" print on my screen, I imagined a 
+                      virtually limitless world, that was when I knew this profession is for me. <br/><br />My hobbies include coding, gaming, working out, and thinking about project ideas that never start.
                       I tinker with robotics, Arduino in particular, as I also see a limitless journey in the world of robotics.
-                      
                 </p>
             </div>
         </section>

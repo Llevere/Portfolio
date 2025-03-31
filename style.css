@@ -28,7 +28,9 @@ nav .resume img {
 
 .socialNetworkModal,
 .sortingAlgorithmModal,
-.chessGameModal {
+.chessGameModal,
+.mutliplayerChessModal,
+.portfolioModal {
   overflow: hidden;
 }
 
@@ -421,7 +423,9 @@ nav .resume img {
 
 #ChessGame:hover p,
 #SocialNetworking:hover p,
-#SortingAlgorithm:hover p {
+#SortingAlgorithm:hover p,
+#MultiplayerChess:hover p,
+#Portfolio:hover p {
   font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
@@ -435,15 +439,11 @@ nav .resume img {
   transition: color 0.4s ease-in-out;
 }
 
-#ChessGame:hover .projectDescription ul li,
-#SocialNetworking:hover .projectDescription ul li,
-#SortingAlgorithm:hover .projectDescription ul li {
-  color: #fff;
-}
-
 #SortingAlgorithm p,
 #SocialNetworking p,
-#ChessGame p {
+#ChessGame p,
+#MultiplayerChess p,
+#Portfolio p {
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
@@ -787,6 +787,15 @@ html {
 #about {
   text-align: center;
 }
+#contact {
+    color: #fff;
+    border-radius: 25px;
+    background-color: rgba(18, 17, 24, 0.5);
+      padding: 2%;
+        margin: 0 auto;
+        width: 50%;
+        margin-top: 1%;
+}
 
 #about {
   padding: 2%;
@@ -822,7 +831,7 @@ html {
   line-height: 85%;
 }
 .home-subTitle {
-  font-size: 2rem;
+  font-size: 1.25rem;
   text-align: center;
   font-weight: 500;
 }
@@ -864,13 +873,17 @@ html {
 
   #SortingAlgorithm,
   #SocialNetworking,
-  #ChessGame {
+  #ChessGame,
+  #MultiplayerChess,
+  #Portfolio {
     width: 75%;
   }
 
   #SortingAlgorithm .projectImg,
   #SocialNetworking .projectImg,
-  #ChessGame .projectImg {
+  #ChessGame .projectImg,
+  #MultiplayerChess .projectImg,
+  #Portfolio .projectImg{
     width: 100%;
   }
 }
@@ -1254,7 +1267,10 @@ input[type="range"] {
 @media screen and (max-width: 600px) {
   #socialNetworkModal,
   #sortingAlgorithmModal,
-  #chessGameModal {
+  #chessGameModal,
+  #storyBehindMultiChess,
+  #mutliplayerChessModal,
+  #PortfolioModal {
     background-color: rgba(18, 17, 24, 0.5);
   }
 
