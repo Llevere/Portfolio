@@ -34,11 +34,17 @@ export class Dot {
   }
 
   getX(canvas) {
-    return this.xRatio * canvas.width;
+    return (
+      this.xRatio *
+      (canvas.logicalWidth || canvas.width / (window.devicePixelRatio || 1))
+    );
   }
 
   getY(canvas) {
-    return this.yRatio * canvas.height;
+    return (
+      this.yRatio *
+      (canvas.logicalHeight || canvas.height / (window.devicePixelRatio || 1))
+    );
   }
 
   move(mouseX, mouseY, totalDots, canvas) {
@@ -68,14 +74,14 @@ export class Dot {
     this.vx *= 0.97;
     this.vy *= 0.97;
 
-    if (!isMobile) {
-      this.trail.push({
-        x: this.getX(canvas),
-        y: this.getY(canvas),
-        time: performance.now(),
-      });
-      if (this.trail.length > this.maxTrailLength) this.trail.shift();
-    }
+    // if (!isMobile) {
+    //   this.trail.push({
+    //     x: this.getX(canvas),
+    //     y: this.getY(canvas),
+    //     time: performance.now(),
+    //   });
+    //   if (this.trail.length > this.maxTrailLength) this.trail.shift();
+    // }
   }
 
   draw(context, canvas) {

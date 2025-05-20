@@ -11,7 +11,7 @@ let mouseY = 0;
 let lastDropTime = 0;
 
 export function maxFireflies() {
-  return isMobile ? 300 : isTablet ? 600 : cores >= 12 ? 2500 : 1000;
+  return isMobile ? 750 : isTablet ? 1500 : cores >= 12 ? 2500 : 1000;
 }
 
 window.addEventListener("mousemove", (e) => {
@@ -22,10 +22,29 @@ window.addEventListener("mousemove", (e) => {
   }
 });
 
-export function resetDots() {
+export function resetDots(isMounting = false) {
   const rangeInput = document.getElementById("rangeInput");
+  if (isMounting && rangeInput) {
+    setTimeout(() => {
+      rangeInput.value = "150";
+      console.log("Setting range input (delayed)", rangeInput.value);
+
+      const userLimit = parseInt(rangeInput.value || "150", 10);
+      const clampedLimit = Math.min(userLimit, maxFireflies());
+      console.log("Clamped limit (delayed):", userLimit, clampedLimit);
+      renderer?.updateDots(clampedLimit);
+    }, 0);
+    return;
+  }
   const userLimit = parseInt(rangeInput?.value || "150", 10);
   const clampedLimit = Math.min(userLimit, maxFireflies());
+  console.log(
+    "Clamped limit:",
+    userLimit,
+    clampedLimit,
+    rangeInput.value,
+    isMounting
+  );
   renderer?.updateDots(clampedLimit);
 }
 
@@ -41,7 +60,7 @@ export function initCanvas() {
   setTimeout(() => controller.resize(), 0);
 
   setupBatteryAwareness();
-  resetDots();
+  resetDots(true);
   renderLoop();
 
   startFPSMonitor(

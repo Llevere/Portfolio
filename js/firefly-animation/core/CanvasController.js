@@ -1,5 +1,3 @@
-import { isMobile } from "../../utils";
-
 export class CanvasController {
   constructor() {
     this.canvas = document.createElement("canvas");
@@ -9,8 +7,8 @@ export class CanvasController {
       position: "fixed",
       top: "0",
       left: "0",
-      width: "100%",
-      height: "100%",
+      width: "100vw",
+      height: "100vh",
       zIndex: -10,
       pointerEvents: "none",
       backgroundColor: "transparent",
@@ -18,33 +16,26 @@ export class CanvasController {
 
     document.body.appendChild(this.canvas);
     this.resize();
-
     window.addEventListener("resize", () => this.resize());
   }
 
   resize() {
-    const dpr = isMobile ? 1 : window.devicePixelRatio || 1;
+    // Dynamically recalculate scale on each resize
+    const dpr = window.devicePixelRatio || 1;
+    this.scale = dpr;
+
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    // Set actual resolution
-    this.canvas.width = width * dpr;
-    this.canvas.height = height * dpr;
+    this.canvas.width = Math.floor(width * dpr);
+    this.canvas.height = Math.floor(height * dpr);
 
-    // Match on-screen size
     this.canvas.style.width = `${width}px`;
     this.canvas.style.height = `${height}px`;
 
-    // Reset transform + scale
-    this.context.setTransform(1, 0, 0, 1, 0, 0);
+    this.context.setTransform(1, 0, 0, 1, 0, 0); // reset transform
     this.context.scale(dpr, dpr);
 
-    console.log(
-      "Canvas size:",
-      this.canvas.width,
-      width,
-      this.canvas.height,
-      height
-    );
+    console.log("Canvas resized to", width, height, "with dpr:", dpr);
   }
 }

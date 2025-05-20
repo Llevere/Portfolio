@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.toggleAnimation = toggleAnimation;
   window.resetDots = resetDots;
 
-  // 🌟 FIX: Move the DOM setup for dot controls here
   const generateBtn = document.getElementById("generateDots");
   const toggleInput = document.getElementById("toggleInput");
   const rangeInput = document.getElementById("rangeInput");
@@ -34,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleInput.style.display === "none" ? "flex" : "none";
   });
 
+  rangeInput.value = 150;
   rangeInput?.addEventListener(
     "input",
     debounce(() => {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       resetDots();
     }, 150)
   );
-
+  console.log("Range input: " + rangeInput.value);
   resetBtn?.addEventListener("click", () => {
     rangeInput.value = 150;
     rangeValue.textContent = 150;
