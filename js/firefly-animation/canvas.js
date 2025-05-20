@@ -57,7 +57,15 @@ export function initCanvas() {
   controller = new CanvasController();
   renderer = new Canvas2DRenderer(controller.canvas);
 
-  setTimeout(() => controller.resize(), 0);
+  window.addEventListener("resize", () => {
+    controller.resize();
+    renderer?.resize();
+  });
+
+  setTimeout(() => {
+    controller.resize();
+    renderer?.resize();
+  }, 100);
 
   setupBatteryAwareness();
   resetDots(true);

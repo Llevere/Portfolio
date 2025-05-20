@@ -16,11 +16,15 @@ export class CanvasController {
 
     document.body.appendChild(this.canvas);
     this.resize();
-    window.addEventListener("resize", () => this.resize());
+    new ResizeObserver(() => this.resize()).observe(document.documentElement);
+
+    window.addEventListener("orientationchange", () =>
+      setTimeout(() => this.resize(), 250)
+    );
   }
 
   resize() {
-    // Dynamically recalculate scale on each resize
+    document.body.offsetHeight;
     const dpr = window.devicePixelRatio || 1;
     this.scale = dpr;
 
@@ -33,9 +37,7 @@ export class CanvasController {
     this.canvas.style.width = `${width}px`;
     this.canvas.style.height = `${height}px`;
 
-    this.context.setTransform(1, 0, 0, 1, 0, 0); // reset transform
+    this.context.setTransform(1, 0, 0, 1, 0, 0);
     this.context.scale(dpr, dpr);
-
-    console.log("Canvas resized to", width, height, "with dpr:", dpr);
   }
 }

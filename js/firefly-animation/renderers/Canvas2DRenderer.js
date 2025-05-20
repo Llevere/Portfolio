@@ -12,8 +12,8 @@ export class Canvas2DRenderer {
     this.bursts = [];
     this.particles = [];
 
-    //this.resize();
-    //window.addEventListener("resize", () => this.resize());
+    this.resize();
+    window.addEventListener("resize", () => this.resize());
 
     window.addEventListener("click", (e) => {
       const x = e.clientX;
@@ -39,17 +39,16 @@ export class Canvas2DRenderer {
     });
   }
 
-  // resize() {
-  //   const width = document.documentElement.clientWidth;
-  //   const height = document.documentElement.clientHeight;
+  resize() {
+    const width = this.canvas.width / window.devicePixelRatio;
+    const height = this.canvas.height / window.devicePixelRatio;
 
-  //   this.canvas.width = width * this.scale;
-  //   this.canvas.height = height * this.scale;
-  //   this.canvas.style.width = `${width}px`;
-  //   this.canvas.style.height = `${height}px`;
+    this.canvas.style.width = `${width}px`;
+    this.canvas.style.height = `${height}px`;
 
-  //   this.context.setTransform(this.scale, 0, 0, this.scale, 0, 0);
-  // }
+    this.context.setTransform(1, 0, 0, 1, 0, 0);
+    this.context.scale(window.devicePixelRatio, window.devicePixelRatio);
+  }
 
   updateDots(targetCount) {
     const currentCount = this.dots.length;
