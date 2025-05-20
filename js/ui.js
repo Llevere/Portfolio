@@ -1,42 +1,32 @@
-// ui.js
-export function setupEventListeners() {
-  const rangeInput = document.getElementById("rangeValue");
-  rangeInput.innerHTML = window.innerWidth <= 600 ? "75" : "150";
+export function initModals() {
+  const buttons = document.querySelectorAll(".storyBehindProject");
+  const modals = document.querySelectorAll(".modal");
+  const closeButtons = document.querySelectorAll(".close");
 
-  const toggleButton = document.querySelector(".toggleAnimation");
-  toggleButton.addEventListener("click", function () {
-    document.documentElement.classList.toggle("reduce-motion");
-    toggleButton.style.opacity = toggleButton.style.opacity <= 0.5 ? 1 : 0.5;
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const modalId =
+        button.id.replace("storyBehind", "").toLowerCase() + "Modal";
+      document.getElementById(modalId).style.display = "block";
+    });
   });
 
-  window.addEventListener("resize", () => {
-    if (canvas) {
-      resetDots();
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+  closeButtons.forEach((close) => {
+    close.addEventListener("click", () => {
+      modals.forEach((modal) => (modal.style.display = "none"));
+    });
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target.classList.contains("modal")) {
+      e.target.style.display = "none";
     }
   });
+}
 
-  const generateDotsButton = document.getElementById("generateDots");
-  generateDotsButton.addEventListener("click", () => {
-    const toggleInput = document.getElementById("toggleInput");
-    toggleInput.style.display =
-      toggleInput.style.display === "none" ? "flex" : "none";
-  });
-
-  const rangeInputEl = document.getElementById("rangeInput");
-  const rangeValue = document.getElementById("rangeValue");
-
-  rangeInputEl.addEventListener("input", function () {
-    rangeValue.textContent = rangeInputEl.value;
-    dotCount = parseInt(rangeInputEl.value);
-    resetDots();
-  });
-
-  document.getElementById("resetDots").addEventListener("click", () => {
-    rangeInputEl.value = 150;
-    rangeValue.textContent = 150;
-    dotCount = 150;
-    resetDots();
+export function toggleAnimation() {
+  const stars = document.querySelectorAll(".stars span");
+  stars.forEach((star) => {
+    star.classList.toggle("paused");
   });
 }
