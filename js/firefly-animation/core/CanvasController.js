@@ -1,3 +1,5 @@
+import { isMobile } from "../../utils";
+
 export class CanvasController {
   constructor() {
     this.canvas = document.createElement("canvas");
@@ -21,7 +23,7 @@ export class CanvasController {
   }
 
   resize() {
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = isMobile ? 1 : window.devicePixelRatio || 1;
     const width = window.innerWidth;
     const height = window.innerHeight;
 
