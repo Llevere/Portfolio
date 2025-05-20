@@ -68,7 +68,7 @@ export class Dot {
     this.vx *= 0.97;
     this.vy *= 0.97;
 
-    if (isMobile) {
+    if (!isMobile) {
       this.trail.push({
         x: this.getX(canvas),
         y: this.getY(canvas),
