@@ -25,8 +25,7 @@ export function initModals() {
 }
 
 export function toggleAnimation() {
-  const stars = document.querySelectorAll(".stars span");
-  stars.forEach((star) => {
-    star.classList.toggle("paused");
-  });
+  document.documentElement.classList.toggle("reduce-motion");
+  const toggleButton = document.getElementById("toggleAnimation");
+  toggleButton.style.opacity = toggleButton.style.opacity <= 0.5 ? 1 : 0.5;
 }
