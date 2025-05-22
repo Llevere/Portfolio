@@ -33,7 +33,6 @@ export class CanvasController {
 
     this.canvas.width = Math.floor(width * dpr);
     this.canvas.height = Math.floor(height * dpr);
-
     this.canvas.style.width = `${width}px`;
     this.canvas.style.height = `${height}px`;
 

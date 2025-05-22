@@ -63,7 +63,27 @@
         </nav>
  
     <main>
-        <div id="portfolioModal" class="modal" style="display: none;">
+        <div id="invoiceGeneratorModal" class="modal projectModal" style="display: none;">
+        
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Invoice Generator</h1>
+                <p class="modal-info">Why this project?
+                <p>My brother started his electrician company and wanted his own invoice generator.</p>
+                </p>
+                <p class="modal-info">Why the tech stack?
+                <p>My brother plans on having employees in the future, where they could have android or ios phones. React Native deploys to both, and I'm also comfortable using React already.</p>
+                </p>
+                <p class="modal-info">Challenge:
+                <p>Learning react native at a deeper level as I only learned the superficial layer of it in school. As well as using a UI library and several 3rd party dependencies.</p>
+                </p>
+                <p class="modal-info">What I would add:
+                <p>Job scheduler, different tiers of quotes, an improved website for the client to view the quotes, role based auth as his employees should only have access to certain endpoints.</p>
+                </p>
+            </div>
+        </div>
+
+        <div id="portfolioModal" class="modal projectModal" style="display: none;">
         
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -83,7 +103,7 @@
             </div>
         </div>
 
-        <div id="mutliplayerChessModal" class="modal" style="display: none;">
+        <div id="mutliplayerChessModal" class="modal projectModal" style="display: none;">
         
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -103,7 +123,7 @@
             </div>
         
         </div>
-        <div id="socialNetworkModal" class="modal" style="display: none;">
+        <div id="socialNetworkModal" class="modal projectModal" style="display: none;">
         
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -116,7 +136,7 @@
             </div>
         
         </div>
-        <div id="sortingAlgorithmModal" class="modal" style="display: none;">
+        <div id="sortingAlgorithmModal" class="modal projectModal" style="display: none;">
         
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -129,7 +149,7 @@
             </div>
         
         </div>
-        <div id="chessGameModal" class="modal" style="display: none;">
+        <div id="chessGameModal" class="modal projectModal" style="display: none;">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h1>Chess Game</h1>
@@ -151,7 +171,11 @@
                     <p class="home-title">Matt Levere</p>
                     <p class="home-subTitle">Computer and Programming Analysis graduate</p>
                     <div id="toggleInput-container">
-                        <button id="generateDots">Generate Fireflies</button>
+                        <div id="dot-button-container">
+                            <p>Fireflies are clickable!</p>
+                            <button id="generateDots">Generate Fireflies</button>
+                        </div>
+                        
                         <div id="toggleInput" style="display: none;">
                             <label for="rangeInput" class="text-primary-400">Generate Fireflies 75-2,500</label>
                             <input type="range" id="rangeInput" name="rangeInput" min="75" max="2,500" value="150">
@@ -161,7 +185,7 @@
                     </div>
                     
                         
-                    <p class="home-subText">Computer Programming and Analysis graduate.<br />Skilled, dare I say <span style="font-weight: bold; font-style:italic;">savy</span>, in lifting weights up and down.</p>
+                    <p class="home-subText">Hobby: <br />Skilled, dare I say <span style="font-weight: bold; font-style:italic;">savy</span>, in lifting weights up and down.</p>
                     <br />
                     <p class="home-subText"><b>No templates used; All projects are made from scratch. No school projects included.</b></p>
                 </div>
@@ -170,13 +194,14 @@
                     <div class="techStack-title">Tech Stack</div>
                     <div class="languages">
                         <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React" width="50" height="50" title="React"/></a>
+                        <a href="https://reactnative.dev" target="_blank"><img src="assets/LanguageIcon/react-native.svg" alt="React Native" width="50" height="50" title="React Native" /></a>
                         <a href="https://www.javascript.com/" target="_blank"><img src="assets/LanguageIcon/js.svg" alt="Javascript" width="50" height="50" title="Javascript" /></a>
                         <a href="https://mui.com/material-ui/" target="_blank"><img src="assets/LanguageIcon/material-ui.svg" alt="Material UI" width="50" height="50" title="Material UI" /></a>
+                        <a href="https://dotnet.microsoft.com/en-us/" target="_blank"><img src="assets/LanguageIcon/dotnet.svg" alt="DotNet" width="50" height="50" title="Dot Net" /></a>
                         <a href="https://expressjs.com/" target="_blank"><img src="assets/LanguageIcon/expressjs-icon.svg" alt="Express" width="50" height="50" style="background-color: white; padding: 5px; max-height: 60px" title="Express" /></a>
                         <a href="https://nodejs.org/en" target="_blank"><img src="assets/LanguageIcon/nodejs-icon.svg" alt="Node.js" width="50" height="50" title="Nodejs" /></a>
-                        <a href="https://dotnet.microsoft.com/en-us/" target="_blank"><img src="assets/LanguageIcon/dotnet.svg" alt="DotNet" width="50" height="50" title="Dot Net" /></a>
-                        <a href="https://www.mongodb.com/" target="_blank"><img src="assets/LanguageIcon/mongodb-icon.svg" alt="Icon Description" width="50" height="50" title="Mongo Db" /></a>
-                        <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg" alt="Icon Description" width="50" height="50" title="MySQL" /></a>
+                        <a href="https://www.mongodb.com/" target="_blank"><img src="assets/LanguageIcon/mongodb-icon.svg" alt="MongoDB" width="50" height="50" title="Mongo Db" /></a>
+                        <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg" alt="MySql" width="50" height="50" title="MySQL" /></a>
                     </div>  
                 </div>
             </div>
@@ -185,7 +210,42 @@
             <div class="container flow">
                 <h2 class="fs-800">Projects</h2>
 
-                <div id="SocialNetworking">
+                <div id="SocialNetworking" class="project">
+                    <p>Invoice Generator
+                        <p style="font-size: medium; color:#775d9c;">Invoice Fly clone, fully functional</p>
+                        <a href="https://app.invoicefly.com/" target="_blank" >Invoice Fly website</a>
+                    </p>
+                    <img src="assets/Invoice_Generator.png" class="projectImg invoiceGenImg" alt="Invoice Generator Img" />
+                    <div class="techStack projectTechStack">
+                        <div class="languages">
+                            <a href="https://reactnative.dev" target="_blank"><img src="assets/LanguageIcon/react-native.svg" alt="React Native" width="50" height="50" title="React Native" /></a>
+                            <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React" width="50" height="50" title="React"/></a>
+                            <a href="https://dotnet.microsoft.com/en-us/" target="_blank"><img src="assets/LanguageIcon/dotnet.svg" alt="DotNet" width="50" height="50" title="Dot Net" /></a>
+                            <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg" alt="Icon Description" width="50" height="50" title="MySQL" /></a>
+                            <a href="https://azure.microsoft.com/en-us/products/storage/blobs" target="_blank"><img src="assets/azure-blob-storage.svg" alt="Azure Blob Storage" width="50" height="50" title="Azure Blob Storage" /></a>
+                        </div>
+                    </div>
+                    <button id="storyBehindInvoiceGenerator" class="storyBehindProject" title="The Story Behind The Project">Story
+                        Behind</button>
+
+                        <div class="projectDescription">
+                            <br />
+                            <ul>
+                                <li>Login/Register</li>
+                                <li>JWT Authentication</li>
+                                <li>Invoice and Estimate creation <span style="color: lightgray;">(option to edit after created)</span></li>
+                                <li>Client creation <span style="color: lightgray;">(option to edit after created)</span></li>
+                                <li>Service Items creation <span style="color: lightgray;">(option to edit after created)</span></li>
+                                <li>Pdf generation using QuestPDF in backend and stored in cloud with azure blob storage <span style="color: lightgray;">(option to edit after created)</span></li>
+                                <li>Email service - When the quote is sent to the clients email, attached is the PDF as well as a link to a react website to view the quote. Only estimate require clients to "Approve" or "Decline" the quote.</li>
+                            </ul>
+                        </div>
+                        <div class="viewProject">
+                            <a href="VideoDemo/invoiceGenerator.html" target="_blank">View Video Demo</a>
+                        </div>
+                </div>
+
+                <div id="SocialNetworking" class="project">
                     <p>Portfolio
                         <p style="font-size: medium; color:#775d9c;">The portfolio you're seeing right now</p>
                     </p>
@@ -204,7 +264,7 @@
                         Behind</button>
                 </div>
 
-                <div id="SocialNetworking">
+                <div id="SocialNetworking" class="project">
                     <p>Multiplayer Chess Game
                         <p style="font-size: medium; color:#775d9c;">Play random players by entering room name or against a bot using socket.io<br />Shown in the video demo.</p>
                     </p>
@@ -238,7 +298,7 @@
                         <a href="VideoDemo/multiChessGameDemo.html" target="_blank">View Video Demo</a>
                     </div>
                 </div>
-                <div id="SocialNetworking">
+                <div id="SocialNetworking" class="project">
                     <p>Social Networking <p style="font-size: medium; color:#775d9c;">Can Register with random user info.<br/>Shown in the video demo.</p>    </p>
                     <img src="assets/SocialNetworking.png" class="projectImg" alt="SocialNetworking Img" />
                     <div class="techStack projectTechStack">
@@ -280,7 +340,7 @@
                     </div>
                 </div>
                 
-                <div id="SortingAlgorithm">
+                <div id="SortingAlgorithm" class="project">
                     
                     <p>Sorting Algorithm Visualizer</p><img src="assets/SortingAlgorithmVisualizer.png" class="projectImg" alt="Sorting Algorithm Visualizer Img" />
                     <div class="techStack projectTechStack">
@@ -311,7 +371,7 @@
                        
                    
                 </div>
-                <div id="ChessGame">
+                <div id="ChessGame" class="project">
                     
                     <p>Chess Game</p>
                     <img src="assets/ChessGame.png" alt="Chess Game Img" class="projectImg"/>

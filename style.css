@@ -11,6 +11,40 @@ body {
   height: 100%;
 }
 
+#dot-button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#dot-button-container p {
+  margin: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: #ff8a2c;
+
+  text-shadow:
+    0 0 2px rgba(255, 108, 3, 0.4),
+    0 0 4px rgba(255, 108, 3, 0.2);
+
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    text-shadow:
+      0 0 2px rgba(255, 108, 3, 0.4),
+      0 0 4px rgba(255, 108, 3, 0.2);
+  }
+
+  50% {
+    text-shadow:
+      0 0 3px rgba(255, 108, 3, 0.3),
+      0 0 6px rgba(255, 108, 3, 0.1);
+  }
+}
+
 canvas {
   display: block;
   width: 100vw;
@@ -79,11 +113,7 @@ nav .resume img {
   border: 2px black solid;
 }
 
-.socialNetworkModal,
-.sortingAlgorithmModal,
-.chessGameModal,
-.mutliplayerChessModal,
-.portfolioModal {
+.projectModal {
   overflow: hidden;
 }
 
@@ -370,9 +400,7 @@ nav .resume img {
   }
 }
 
-#SortingAlgorithm,
-#SocialNetworking,
-#ChessGame {
+.project {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -389,27 +417,21 @@ nav .resume img {
   box-shadow: 0 4px 6px 0 #121118, 0 6px 15px 0 #4e3579;
 }
 
-#SortingAlgorithm .projectImg,
-#SocialNetworking .projectImg,
-#ChessGame .projectImg {
-  /* height: 30vh; */
+.project .projectImg {
+  height: 30vh;
   width: 30vw;
   border-radius: 10px;
   text-align: center;
-  object-fit: cover;
+  object-fit:fill;
 }
 
-#SortingAlgorithm a img,
-#SocialNetworking a img,
-#ChessGame a img {
+.project a img{
   text-align: center;
   object-fit: contain;
   padding: 5px;
 }
 
-#SortingAlgorithm:hover,
-#SocialNetworking:hover,
-#ChessGame:hover {
+.project:hover {
   box-shadow: 0 4px 8px 0 #fbc23b, 0 6px 20px 0 #f9f9f9;
   text-align: center;
   transform: scale(1.05);
@@ -419,9 +441,7 @@ nav .resume img {
   animation: illuminate 3s infinite;
 }
 
-#SortingAlgorithm .storyBehindProject,
-#SocialNetworking .storyBehindProject,
-#ChessGame .storyBehindProject {
+.project .storyBehindProject {
   background-color: #62438c;
   color: white;
   padding: 5px;
@@ -442,9 +462,7 @@ nav .resume img {
   transform: scale(1.05);
 } */
 
-#SortingAlgorithm:hover .storyBehindProject,
-#SocialNetworking:hover .storyBehindProject,
-#ChessGame:hover .storyBehindProject {
+.project:hover .storyBehindProject {
   background-color: #fbc84f;
   color: black;
   padding: 5px;
@@ -456,9 +474,7 @@ nav .resume img {
     border-radius 0.2s ease-in-out;
 }
 
-#SortingAlgorithm:hover .storyBehindProject:hover,
-#SocialNetworking:hover .storyBehindProject:hover,
-#ChessGame:hover .storyBehindProject:hover {
+.project:hover .storyBehindProject:hover {
   background-color: #fbc23b;
   color: white;
   border-radius: 7.5px;
@@ -475,29 +491,57 @@ nav .resume img {
   color: black;
 } */
 
-#ChessGame:hover p,
-#SocialNetworking:hover p,
-#SortingAlgorithm:hover p,
-#MultiplayerChess:hover p,
-#Portfolio:hover p {
+.project:hover p{
   font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
 }
 
-#ChessGame .projectDescription ul li,
-#SocialNetworking .projectDescription ul li,
-#SortingAlgorithm .projectDescription ul li {
+/* .project .projectDescription ul li {
   color: white;
   font-weight: 600;
   transition: color 0.4s ease-in-out;
+} */
+.projectDescription {
+  width: 100%;
+  text-align: left;
+  padding-left: 1rem;
 }
 
-#SortingAlgorithm p,
-#SocialNetworking p,
-#ChessGame p,
-#MultiplayerChess p,
-#Portfolio p {
+.projectDescription ul {
+  list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.projectDescription ul li {
+  color: white;
+  font-weight: 500;
+  line-height: 1.5;
+    margin-bottom: 6px;
+    padding-left: 0;
+}
+
+.projectDescription ul li::marker {
+  color: #ff6c03;
+}
+
+.projectDescription ul li span {
+  font-weight: 400;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+.projectDescription ul ul {
+  list-style-type: circle;
+  padding-left: 1.25rem;
+  margin-top: 4px;
+}
+
+.projectDescription span {
+}
+
+/* .project p {
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
@@ -518,7 +562,7 @@ nav .resume img {
 .projectDescription ul li {
   color: white;
   font-weight: bold;
-}
+} */
 
 #projects div div a {
   display: flex;
@@ -925,19 +969,11 @@ html {
     width: 40px;
   }
 
-  #SortingAlgorithm,
-  #SocialNetworking,
-  #ChessGame,
-  #MultiplayerChess,
-  #Portfolio {
+    .project {
     width: 75%;
   }
 
-  #SortingAlgorithm .projectImg,
-  #SocialNetworking .projectImg,
-  #ChessGame .projectImg,
-  #MultiplayerChess .projectImg,
-  #Portfolio .projectImg{
+    .project .projectImg{
     width: 100%;
   }
 }
@@ -977,14 +1013,12 @@ code {
   font-family: monospace;
 }
 
-/* Make images easier to work with */
 img,
 picture {
   max-width: 100%;
   display: block;
 }
 
-/* Add styles for reduced motion */
 .reduce-motion * {
   animation-duration: 0.01ms !important;
   animation-iteration-count: 1 !important;
@@ -1163,14 +1197,11 @@ picture {
   margin-inline: auto;
 }
 
-/* general styling */
-
 body {
   font-family: system-ui, sans-serif;
   font-size: var(--fs-400);
   line-height: 1.4;
   color: var(--clr-neutral-900);
-  /* background-color: var(--clr-neutral-200); */
 }
 
 [class*="grid-"] {
@@ -1228,21 +1259,20 @@ h2 {
   display: block;
 }
 
-/* Set the color of the thumb slider */
 input[type="range"]::-webkit-slider-thumb {
-  background-color: #ff6c03; /* Change to your desired color */
+  background-color: #ff6c03; 
   cursor: pointer;
 }
 
 /* For Firefox */
 input[type="range"]::-moz-range-thumb {
-  background-color: #ff6c03; /* Change to your desired color */
+  background-color: #ff6c03; 
   cursor: pointer;
 }
 
 /* For Edge */
 input[type="range"]::-ms-thumb {
-  background-color: #ff6c03; /* Change to your desired color */
+  background-color: #ff6c03; 
   cursor: pointer;
 }
 
@@ -1319,12 +1349,7 @@ input[type="range"] {
 }
 
 @media screen and (max-width: 600px) {
-  #socialNetworkModal,
-  #sortingAlgorithmModal,
-  #chessGameModal,
-  #storyBehindMultiChess,
-  #mutliplayerChessModal,
-  #PortfolioModal {
+.projectModal {
     background-color: rgba(18, 17, 24, 0.5);
   }
 

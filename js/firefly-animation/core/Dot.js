@@ -34,11 +34,13 @@ export class Dot {
   }
 
   getX(canvas) {
-    return this.xRatio * (canvas.width / window.devicePixelRatio);
+    const rect = canvas.getBoundingClientRect();
+    return this.xRatio * rect.width;
   }
 
   getY(canvas) {
-    return this.yRatio * (canvas.height / window.devicePixelRatio);
+    const rect = canvas.getBoundingClientRect();
+    return this.yRatio * rect.height;
   }
 
   move(mouseX, mouseY, totalDots, canvas) {
