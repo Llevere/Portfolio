@@ -197,26 +197,43 @@ nav .resume img {
 }
 .techStack {
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px solid rgba(119, 93, 156, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
+
+  margin: 20% auto;
+
+  padding: 2.5%;
+  width: 75%;
 }
 
 .techStack .techStack-title {
   color: White;
   text-align: center;
   font-size: 2rem;
-  margin: 2%;
-  margin-top: 20%;
+  margin-bottom: 5%
 }
 
 .techStack .languages {
-  /* background-color: #fff; */
   border-radius: 10px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .techStack .languages a {
-  margin: auto;
   padding: 5px;
+
+  img {
+    border-radius: 5px;
+  }
 }
 .frontend,
 .backend {
@@ -441,6 +458,7 @@ nav .resume img {
 
 .project {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -478,6 +496,10 @@ nav .resume img {
   background-color: rgba(9, 13, 32, 255);
   border: 2px white solid;
   animation: illuminate 3s infinite;
+
+  .dsa-title {
+
+  }
 }
 
 .project .storyBehindProject {
@@ -575,9 +597,6 @@ nav .resume img {
   list-style-type: circle;
   padding-left: 1.25rem;
   margin-top: 4px;
-}
-
-.projectDescription span {
 }
 
 /* .project p {
@@ -954,6 +973,7 @@ html {
   min-height: 80vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 #home-container {
