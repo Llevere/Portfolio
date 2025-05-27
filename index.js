@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
       resetDots();
     }, 150)
   );
-  console.log("Range input: " + rangeInput.value);
   resetBtn?.addEventListener("click", () => {
     rangeInput.value = 150;
     rangeValue.textContent = 150;

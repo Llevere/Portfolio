@@ -27,11 +27,9 @@ export function resetDots(isMounting = false) {
   if (isMounting && rangeInput) {
     setTimeout(() => {
       rangeInput.value = "150";
-      console.log("Setting range input (delayed)", rangeInput.value);
 
       const userLimit = parseInt(rangeInput.value || "150", 10);
       const clampedLimit = Math.min(userLimit, maxFireflies());
-      console.log("Clamped limit (delayed):", userLimit, clampedLimit);
       renderer?.updateDots(clampedLimit);
     }, 0);
     return;

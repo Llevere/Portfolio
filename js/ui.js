@@ -7,7 +7,8 @@ export function initModals() {
     button.addEventListener("click", () => {
       const modalId =
         button.id.replace("storyBehind", "").toLowerCase() + "Modal";
-      document.getElementById(modalId).style.display = "block";
+      const doc = document.getElementById(modalId);
+      if (doc) doc.style.display = "block";
     });
   });
 

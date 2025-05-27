@@ -11,6 +11,45 @@ body {
   height: 100%;
 }
 
+.icon {
+  background-color: white;
+  padding: 5px;
+  max-height: 50px;
+}
+
+.dsa-title {
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 #fbc23b, 0 6px 20px 0 #f9f9f9;
+  text-align: center;
+  transform: scale(1.05);
+  background-color: rgba(9, 13, 32, 255);
+  border: 2px white solid;
+  animation: smallIlluminate 3s infinite;
+  width: 75%;
+}
+
+@keyframes smallIlluminate {
+  0% {
+    box-shadow:
+      0 4px 6px 0 rgba(251, 194, 59, 0.4),
+      0 6px 15px 1px rgba(19, 23, 41, 0.2);
+  }
+
+  50% {
+    box-shadow:
+      0 4px 8px 2px rgba(251, 194, 59, 0.5),
+      0 6px 18px 3px rgba(19, 23, 41, 0.25);
+  }
+
+  100% {
+    box-shadow:
+      0 4px 6px 0 rgba(251, 194, 59, 0.4),
+      0 6px 15px 1px rgba(19, 23, 41, 0.2);
+  }
+}
+
 #dot-button-container {
   display: flex;
   flex-direction: column;
