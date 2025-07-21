@@ -8,19 +8,24 @@ export function initModals() {
       const modalId =
         button.id.replace("storyBehind", "").toLowerCase() + "Modal";
       const doc = document.getElementById(modalId);
-      if (doc) doc.style.display = "block";
+      if (doc) {
+        doc.style.display = "block";
+        // document.body.classList.add("no-scroll");
+      }
     });
   });
 
   closeButtons.forEach((close) => {
     close.addEventListener("click", () => {
       modals.forEach((modal) => (modal.style.display = "none"));
+      //document.body.classList.remove("no-scroll");
     });
   });
 
   window.addEventListener("click", (e) => {
     if (e.target.classList.contains("modal")) {
       e.target.style.display = "none";
+      document.body.classList.remove("no-scroll");
     }
   });
 }

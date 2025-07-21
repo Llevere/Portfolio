@@ -1,498 +1,646 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="HandheldFriendly" content="true">
-    <title>Matt Levere</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preload" href="assets/BG.png" as="image">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="true">
+  <title>Matt Levere</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="assets/BG.png" as="image">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body >
-    <div id="debugOverlay"></div>
-    <div id="toast">
-        <span id="toastMessage"></span>
-        <button id="toastClose">&times;</button>
-      </div>      
-    
-<img class="backgroundImage" src="assets/BG.png" alt="Background Img" />
-    <div class="content-container">  
-            <section class="stars">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </section>
-        
-        <nav class="primary-navigation">
-            
-        <ul class="nav-list">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a class="resume" href="assets/Resume.pdf" target="_blank" title="Resume"><img  height="50" width="50" src="assets/ResumeSVG.svg" alt="Resume"></a></li>
-            <li><img src="assets/Shooting Star.png" id="toggleAnimation" alt="Shooting Star" title="Toggle Animation"
-                onclick="toggleAnimation()" style="opacity: 1;"></li>
-                
-                
-        </ul>
-        <button class="hamburger">
-            <div class="bar"></div>
-        </button>
-        </nav>
-        <nav class="mobile-nav">
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-       <a href="#contact">Contact</a>
-        <a class="resume" href="assets/Resume.pdf" target="_blank" title="Resume"><img height="50" width="50" src="assets/ResumeSVG.svg" alt="Resume"></a>
-       <div><p style="color: #ff6c03; text-align: center;"><span>Toggle Star Animation Icon </span></p><img src="assets/Shooting Star.png" class="toggleAnimation" alt="Shooting Star" title="Toggle Animation"
-                onclick="toggleAnimation()" style="opacity: 1;"></div>
-       
-        </nav>
- 
+<body>
+  <div id="debugOverlay"></div>
+  <div id="toast">
+    <span id="toastMessage"></span>
+    <button id="toastClose">&times;</button>
+  </div>
+
+  <img class="backgroundImage" src="assets/BG.png" alt="Background Img" />
+  <div class="content-container">
+    <section class="stars">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </section>
+
+    <nav class="primary-navigation">
+
+      <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="resume" href="assets/Resume.pdf" target="_blank" title="Resume"><img height="50" width="50"
+              src="assets/ResumeSVG.svg" alt="Resume"></a></li>
+        <li><img src="assets/Shooting Star.png" id="toggleAnimation" alt="Shooting Star" title="Toggle Animation"
+            onclick="toggleAnimation()" style="opacity: 1;"></li>
+
+
+      </ul>
+      <button class="hamburger">
+        <div class="bar"></div>
+      </button>
+    </nav>
+    <nav class="mobile-nav">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="resume" href="assets/Resume.pdf" target="_blank" title="Resume"><img height="50" width="50"
+          src="assets/ResumeSVG.svg" alt="Resume"></a>
+      <div>
+        <p style="color: #ff6c03; text-align: center;"><span>Toggle Star Animation Icon </span></p><img
+          src="assets/Shooting Star.png" class="toggleAnimation" alt="Shooting Star" title="Toggle Animation"
+          onclick="toggleAnimation()" style="opacity: 1;">
+      </div>
+
+    </nav>
+
     <main>
 
-        <div id="dsapracticeModal" class="modal projectModal" style="display: none;">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h1>DSA Practice</h1>
-                <p class="modal-info">Why this project?
-                <p>To showcase my progress in leetcode.</p>
-                </p>
-                <p class="modal-info">Why the tech stack?
-                <p>
-                    I chose a full-stack framework like Next.js for its built-in routing, API support, and server-side rendering. Pairing it with TypeScript helped catch errors early and kept the codebase maintainable.
-                </p>
-                <p >
-                    Although I had no prior experience with Next.js and only a basic understanding of TypeScript, building this project gave me hands-on experience. I'm still learning, but I now have a strong grasp of how both tools work together and individually.
-                </p>
-                </p>
-                <p class="modal-info">Challenge:
-                <p>Working with @monaco-editor and vm2. The tests were generated by chatgpt and gathered from leetcode, but problems have different parameters and I had to figure out how to spread the parameters correctly.
-                    In short, I overcomplicated it.</p>
-                </p>
-                <p class="modal-info">What I would add:
-                <p>As of right now, I have only completed easy leetcode problems. In the future, I be doing medium and hard problems. This means the tests will need to be categorized accordingly.</p>
-                <p>Another thing I'd like to add is the choice to use a difference language. Languages I want to answer these problems in are Python and C#.</p>
-                </p>
-            </div>
+      <div id="webosModal" class="modal projectModal" style="display: none;">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1>Web OS</h1>
+          <p class="modal-info">Why this project?
+          <p>To get more familiar with searching through a JSON file and improve my react skills.</p>
+          <p>Thought having a virtual filesystem was a fun idea.</p>
+          </p>
+          <p class="modal-info">Why the tech stack?
+          <p>
+            To improve my react and tailwind skills, and quick developement with nodejs+express and redis.
+          </p>
+          </p>
+          <p class="modal-info">Challenge:
+          <p>Using mobile features effectively. For example, checking if the user is going from right to left, or left
+            to right, then swipe the desktop page and not have that interfere with other features.</p>
+          </p>
+          <p class="modal-info">What I would add:
+          <p>User login system so the filesystem can stay with the user. Add either postgres or mysql to store the data.
+          </p>
+          <p>Add more features within each app. For example, add more commands to the CMD app, enhance collaborative
+            feature in notepad and paint, etc.</p>
+          <p>Add more apps in general, like singleplayer/multiplayer games. Possibly add an emulator.</p>
+          </p>
+        </div>
+      </div>
+
+      <div id="dsapracticeModal" class="modal projectModal" style="display: none;">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1>DSA Practice</h1>
+          <p class="modal-info">Why this project?
+          <p>To showcase my progress in leetcode.</p>
+          </p>
+          <p class="modal-info">Why the tech stack?
+          <p>
+            I chose a full-stack framework like Next.js for its built-in routing, API support, and server-side
+            rendering. Pairing it with TypeScript helped catch errors early and kept the codebase maintainable.
+          </p>
+          <p>
+            Although I had no prior experience with Next.js and only a basic understanding of TypeScript, building this
+            project gave me hands-on experience. I'm still learning, but I now have a strong grasp of how both tools
+            work together and individually.
+          </p>
+          </p>
+          <p class="modal-info">Challenge:
+          <p>Working with @monaco-editor and vm2. The tests were generated by chatgpt and gathered from leetcode, but
+            problems have different parameters and I had to figure out how to spread the parameters correctly.
+            In short, I overcomplicated it.</p>
+          </p>
+          <p class="modal-info">What I would add:
+          <p>As of right now, I have only completed easy leetcode problems. In the future, I be doing medium and hard
+            problems. This means the tests will need to be categorized accordingly.</p>
+          <p>Another thing I'd like to add is the choice to use a difference language. Languages I want to answer these
+            problems in are Python and C#.</p>
+          </p>
+        </div>
+      </div>
+
+      <div id="invoicegeneratorModal" class="modal projectModal" style="display: none;">
+
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1>Invoice Generator</h1>
+          <p class="modal-info">Why this project?
+          <p>My brother started his electrician company and wanted his own invoice generator.</p>
+          </p>
+          <p class="modal-info">Why the tech stack?
+          <p>My brother plans on having employees in the future, where they could have android or ios phones. React
+            Native deploys to both, and I'm also comfortable using React already.</p>
+          </p>
+          <p class="modal-info">Challenge:
+          <p>Learning react native at a deeper level as I only learned the superficial layer of it in school. As well as
+            using a UI library and several 3rd party dependencies.</p>
+          </p>
+          <p class="modal-info">What I would add:
+          <p>Job scheduler, different tiers of quotes, an improved website for the client to view the quotes, role based
+            auth as his employees should only have access to certain endpoints.</p>
+          </p>
+        </div>
+      </div>
+
+      <div id="portfolioModal" class="modal projectModal" style="display: none;">
+
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1>Portfolio</h1>
+          <p class="modal-info">Why this project?
+          <p>To showcase my experise and skills in what I've learned in and outside of school.</p>
+          </p>
+          <p class="modal-info">Why the tech stack?
+          <p>Faster initial load time, no external dependencies, to deepen my knowledge in web developement
+            fundamentals, and to have full control.</p>
+          </p>
+          <p class="modal-info">Challenge:
+          <p>Adding in animations with css and javascript. Learning more about canvas usage was really fun.</p>
+          </p>
+          <p class="modal-info">What I would add:
+          <p>My next project is to create a 3d portfolio, but allow the user to toggle between 2d and 3d.</p>
+          </p>
+        </div>
+      </div>
+
+      <div id="multichessModal" class="modal projectModal" style="display: none;">
+
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1>Multiplayer Chess Game</h1>
+          <p class="modal-info">Why this project?
+          <p>To learn more about how web sockets work and harden my skills in MySQL</p>
+          </p>
+          <p class="modal-info">Why the tech stack?
+          <p>To harden my knowledge in the stack while using the socket.io library.</p>
+          </p>
+          <p class="modal-info">Challenge:
+          <p>How to store and use web sockets effectively. </p>
+          </p>
+          <p class="modal-info">What I would add:
+          <p>A better bot system and a better structure chess system to make the development of the "AI bot" algorithm
+            easier/advanced.</p>
+          </p>
         </div>
 
-        <div id="invoicegeneratorModal" class="modal projectModal" style="display: none;">
-        
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h1>Invoice Generator</h1>
-                <p class="modal-info">Why this project?
-                <p>My brother started his electrician company and wanted his own invoice generator.</p>
-                </p>
-                <p class="modal-info">Why the tech stack?
-                <p>My brother plans on having employees in the future, where they could have android or ios phones. React Native deploys to both, and I'm also comfortable using React already.</p>
-                </p>
-                <p class="modal-info">Challenge:
-                <p>Learning react native at a deeper level as I only learned the superficial layer of it in school. As well as using a UI library and several 3rd party dependencies.</p>
-                </p>
-                <p class="modal-info">What I would add:
-                <p>Job scheduler, different tiers of quotes, an improved website for the client to view the quotes, role based auth as his employees should only have access to certain endpoints.</p>
-                </p>
-            </div>
+      </div>
+      <div id="socialnetworkingModal" class="modal projectModal" style="display: none;">
+
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1>Social Networking</h1>
+          <p class="modal-info">Why this project?
+          <p>To prepare myself for the upcoming school term.</p>
+          </p>
+          <p class="modal-info">Why the tech stack?
+          <p>In my upcoming school term, we were going to use this stack.</p>
+          </p>
+          <p class="modal-info">Challenge:
+          <p>Since every language was new to me, it was learning all of them individually and also how they work
+            together. After playing with each language,
+            they all became one of my favourite for its use (React:Front-end, Node.js:Backend)</p>
+          </p>
+          <p class="modal-info">What I would add:
+          <p>Socket.io, so the users can message/chat with other users.</p>
+          </p>
         </div>
 
-        <div id="portfolioModal" class="modal projectModal" style="display: none;">
-        
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h1>Portfolio</h1>
-                <p class="modal-info">Why this project?
-                <p>To showcase my experise and skills in what I've learned in and outside of school.</p>
-                </p>
-                <p class="modal-info">Why the tech stack?
-                <p>Faster initial load time, no external dependencies, to deepen my knowledge in web developement fundamentals, and to have full control.</p>
-                </p>
-                <p class="modal-info">Challenge:
-                <p>Adding in animations with css and javascript. Learning more about canvas usage was really fun.</p>
-                </p>
-                <p class="modal-info">What I would add:
-                <p>My next project is to create a 3d portfolio, but allow the user to toggle between 2d and 3d.</p>
-                </p>
-            </div>
+      </div>
+      <div id="sortingalgorithmModal" class="modal projectModal" style="display: none;">
+
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1>Sorting Algorithm Visualizer</h1>
+          <p class="modal-info">Why this project?
+          <p>To improve my data structure and algorithm knowledge. Was also a gateway into my next project so I can
+            improve best move calculation speed.</p>
+          </p>
+          <p class="modal-info">Why the tech stack?
+          <p>After spending time with the Social Networking project, I was familar with react. I grew a liking to the
+            framework and wanted to apply what I learned.</p>
+          </p>
+          <p class="modal-info">Challenges
+          <p>Learning new algorithms, as well as timing the intervals with each interval. The biggest challenge was
+            displaying the sorting in a timely matter.
+            This allowed me to learn more about the inner workings of the algorithms.</p>
+          </p>
+          <p class="modal-info">What I would add
+          <p>Colour any bar that the algorithm is looking at and colour the bars that are already sorted. As well as
+            being able to sort other data sets than just integers.</p>
+          </p>
         </div>
 
-        <div id="mutliplayerChessModal" class="modal projectModal" style="display: none;">
-        
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h1>Multiplayer Chess Game</h1>
-                <p class="modal-info">Why this project?
-                <p>To learn more about how web sockets work and harden my skills in MySQL</p>
-                </p>
-                <p class="modal-info">Why the tech stack?
-                <p>To harden my knowledge in the stack while using the socket.io library.</p>
-                </p>
-                <p class="modal-info">Challenge:
-                <p>How to store and use web sockets effectively. </p>
-                </p>
-                <p class="modal-info">What I would add:
-                <p>A better bot system and a better structure chess system to make the development of the "AI bot" algorithm easier/advanced.</p>
-                </p>
-            </div>
-        
+      </div>
+      <div id="chessgameModal" class="modal projectModal" style="display: none;">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1>Chess Game</h1>
+          <p class="modal-info">Why this project?
+          <p>At first, it was to test my vanilla javascript skills and make a game at the same time. Quickly into making
+            the project, I thought about adding socket.io for players to play against eachother,
+            as well as an AI the player can play against in either easy,medium, or hard mode. Found out very quickly I
+            suck at chess.
+          </p>
+          </p>
+          <p class="modal-info">Why the tech stack?
+          <p>To test my vanilla javascript knowledge since my previous two projects were written with React.</p>
+          </p>
+          <p class="modal-info">Challenges
+          <p>Learning chess. The more I learned about chess the more complex the project became.</p>
+          </p>
+          <p class="modal-info">What I would add
+          <p>Socket.io so two players can play against eachother. As well as a system that allows the user to gain
+            points with each match they play, so they can earn enough points to purchase
+            a chess set that they can play with. There are currently four chess sets for both black and white.
+          </p>
+          </p>
         </div>
-        <div id="socialNetworkModal" class="modal projectModal" style="display: none;">
-        
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h1 >Social Networking</h1>
-                <p class="modal-info">Why this project? <p>To prepare myself for the upcoming school term.</p></p>
-                <p class="modal-info">Why the tech stack? <p>In my upcoming school term, we were going to use this stack.</p></p>
-                <p class="modal-info">Challenge: <p>Since every language was new to me, it was learning all of them individually and also how they work together. After playing with each language, 
-                    they all became one of my favourite for its use (React:Front-end, Node.js:Backend)</p></p>  
-                <p class="modal-info">What I would add: <p>Socket.io, so the users can message/chat with other users.</p></p>
+
+      </div>
+      <section id="home" class="padding-block-600 surface-neutral-900 text-primary-200">
+        <div id="home-container">
+          <div class="home-title-container">
+            <span class="home-miniTitle">Hi, I'm</span>
+            <p class="home-title">Matt Levere</p>
+            <p class="home-subTitle">Computer and Programming Analysis graduate</p>
+            <div id="toggleInput-container">
+              <div id="dot-button-container">
+                <p>Fireflies are clickable!</p>
+                <button id="generateDots">Generate Fireflies</button>
+              </div>
+
+              <div id="toggleInput" style="display: none;">
+                <label for="rangeInput" class="text-primary-400">Generate Fireflies 75-2,500</label>
+                <input type="range" id="rangeInput" name="rangeInput" min="75" max="2,500" value="150">
+                <span id="rangeValue" class="text-primary-400">150</span>
+                <button onclick="resetDots()" id="resetDots">Reset Firefly Count</button>
+              </div>
             </div>
-        
+
+
+            <p class="home-subText">Hobby: <br />Skilled, dare I say <span
+                style="font-weight: bold; font-style:italic;">savy</span>, in lifting weights up and down.</p>
+            <br />
+            <p class="home-subText"><b>No templates used; All projects are made from scratch. No school projects
+                included.</b></p>
+          </div>
+
+          <div class="techStack">
+            <div class="techStack-title">Tech Stack</div>
+            <div class="languages">
+              <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React"
+                  width="50" height="50" title="React" /></a>
+              <a href="https://reactnative.dev" target="_blank"><img src="assets/LanguageIcon/react-native.svg"
+                  alt="React Native" width="50" height="50" title="React Native" /></a>
+              <a href="https://www.javascript.com/" target="_blank"><img src="assets/LanguageIcon/js.svg"
+                  alt="Javascript" width="50" height="50" title="Javascript" /></a>
+              <a href="https://nextjs.org/" target="_blank"><img src="assets/LanguageIcon/nextjs.svg" alt="Next"
+                  width="50" height="50" title="Next" class="icon" /></a>
+              <a href="https://www.typescriptlang.org/" target="_blank"><img src="assets/LanguageIcon/Typescript.png"
+                  alt="Typescript" width="50" height="50" title="Typescript" /></a>
+              <a href="https://daisyui.com/" target="_blank"><img src="assets/LanguageIcon/daisyui.png" alt="DaisyUI"
+                  width="50" height="50" title="DaisyUI" /></a>
+              <a href="https://mui.com/material-ui/" target="_blank"><img src="assets/LanguageIcon/material-ui.svg"
+                  alt="Material UI" width="50" height="50" title="Material UI" /></a>
+              <a href="https://dotnet.microsoft.com/en-us/" target="_blank"><img src="assets/LanguageIcon/dotnet.svg"
+                  alt="DotNet" width="50" height="50" title="Dot Net Core" /></a>
+              <a href="https://expressjs.com/" target="_blank"><img src="assets/LanguageIcon/expressjs-icon.svg"
+                  alt="Express" width="50" height="50" class="icon" title="Express" /></a>
+              <a href="https://nodejs.org/en" target="_blank"><img src="assets/LanguageIcon/nodejs-icon.svg"
+                  alt="Node.js" width="50" height="50" title="Nodejs" /></a>
+              <a href="https://www.mongodb.com/" target="_blank"><img src="assets/LanguageIcon/mongodb-icon.svg"
+                  alt="MongoDB" width="50" height="50" title="Mongo Db" /></a>
+              <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg" alt="MySql"
+                  width="50" height="50" title="MySQL" class="icon" /></a>
+              <a href="https://cloud.redis.io/" target="_blank"><img src="assets/LanguageIcon/redis.svg" alt="MySql"
+                  width="50" height="50" title="Redis" /></a>
+            </div>
+          </div>
         </div>
-        <div id="sortingAlgorithmModal" class="modal projectModal" style="display: none;">
-        
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h1>Sorting Algorithm Visualizer</h1>
-                <p class="modal-info">Why this project? <p>To improve my data structure and algorithm knowledge. Was also a gateway into my next project so I can improve best move calculation speed.</p></p>
-                <p class="modal-info">Why the tech stack? <p>After spending time with the Social Networking project, I was familar with react. I grew a liking to the framework and wanted to apply what I learned.</p></p>
-                <p class="modal-info">Challenges <p>Learning new algorithms, as well as timing the intervals with each interval. The biggest challenge was displaying the sorting in a timely matter. 
-                    This allowed me to learn more about the inner workings of the algorithms.</p></p>
-                <p class="modal-info">What I would add <p>Colour any bar that the algorithm is looking at and colour the bars that are already sorted. As well as being able to sort other data sets than just integers.</p></p>
+      </section>
+      <section id="projects" class="padding-block-400 text-primary-200">
+        <div class="projectContainer flow">
+          <h2 class="fs-800 projectHeader">Projects</h2>
+
+          <div class="projects-grid">
+
+            <div id="windowos" class="project">
+              <div class="projectTitle">
+                <h3>Web OS</h3>
+              </div>
+              <div class="projectImg">
+                <img src="assets/WindowsOS.png" alt="Web OS Img" />
+              </div>
+              <div class="projectDescription">
+                <p>A virtual filesystem in the web</p>
+                <ul>
+                  <li>Filesystem is read from a JSON file.</li>
+                  <li>Working command line and file explorer</li>
+                  <li>Uses web sockets for some apps to connect to others in real time using socket.io</li>
+                  <li>Uses Redis for an in-memory database to keep track of sockets and data within the apps.</li>
+                  <li>Swipable pages on mobile</li>
+                  <li>Context menu depending on where you held down or right clicked (mobile/pc)</li>
+                  <li>Swipable pages on mobile</li>
+                </ul>
+              </div>
+              <div class="languages p-2">
+                <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React"
+                    width="50" height="50" title="React" /></a>
+                <a href="https://nodejs.org/en" target="_blank"><img src="assets/LanguageIcon/nodejs-icon.svg"
+                    alt="Node.js" width="50" height="50" title="Nodejs" /></a>
+                <a href="https://expressjs.com/" target="_blank"><img src="assets/LanguageIcon/expressjs-icon.svg"
+                    alt="Express" width="50" height="50" style="background-color: white; padding: 5px"
+                    title="Express" /></a>
+                <img src="assets/LanguageIcon/redis.svg" alt="Icon Description" width="50" height="50"
+                  title="MySQL" /></a>
+              </div>
+              <div class="projectView">
+                <a href="https://levereos.vercel.app/" target="_blank">Live</a>
+                <a href="VideoDemo/webOS.html" target="_blank">Video Demo</a>
+              </div>
+              <button id="storyBehindWebOS" class="storyBehindProject" title="The Story Behind The Project">Story
+                Behind</button>
             </div>
-        
+
+            <div id="dsaPractice" class="project">
+              <div class="projectTitle">
+                <h3>DSA Practice</h3>
+              </div>
+              <div class="projectImg">
+                <img src="assets/DSA-Screenshot.png" alt="DSA Practice Img" />
+              </div>
+              <div class="projectDescription">
+                <p>A website that has all the Leetcode problems I've completed, plus alternative solutions for further
+                  study.</p>
+                <ul>
+                  <li>Uses @monaco-editor that executes JS code via vm2</li>
+                  <li>Runs 3 Leetcode test cases + 47 ChatGPT-generated ones</li>
+                  <li>Displays multiple solutions for deeper learning</li>
+                  <li>Reads tests from Redis or falls back to local JSON file</li>
+                </ul>
+              </div>
+              <div class="languages p-2">
+                <a href="https://nextjs.org/" target="_blank"><img src="assets/LanguageIcon/nextjs.svg" alt="Next"
+                    width="50" height="50" title="Next" class="icon" /></a>
+                <a href="https://www.typescriptlang.org/" target="_blank"><img src="assets/LanguageIcon/Typescript.png"
+                    alt="Typescript" width="50" height="50" title="Typescript" /></a>
+                <a href="https://daisyui.com/" target="_blank"><img src="assets/LanguageIcon/daisyui.png" alt="DaisyUI"
+                    width="50" height="50" title="DaisyUI" /></a>
+                <a href="https://cloud.redis.io/" target="_blank"><img src="assets/LanguageIcon/redis.svg" alt="MySql"
+                    width="50" height="50" title="Redis" /></a>
+              </div>
+              <div class="projectView">
+                <a href="https://dsa-visualizer-livid-eta.vercel.app/" target="_blank">Live</a>
+                <a href="VideoDemo/dsaPractice.html" target="_blank">Video Demo</a>
+              </div>
+              <button id="storyBehindDsaPractice" class="storyBehindProject" title="The Story Behind The Project">Story
+                Behind</button>
+            </div>
+
+            <div id="invoiceGenerator" class="project">
+              <div class="projectTitle">
+                <h3>Invoice & Estimate Generator</h3>
+              </div>
+              <div class="projectImg">
+                <img src="assets/Invoice_Generator.png" alt="Invoice Generator Img" />
+              </div>
+              <div class="projectDescription">
+                <p>InvoiceFly clone: build and send invoices/estimates with PDF support, email delivery, and optional
+                  client signature.</p>
+                <ul>
+                  <li>Login/Register with JWT auth</li>
+                  <li>Create/edit clients, service items, invoices/estimates</li>
+                  <li>PDF generation using QuestPDF + Azure Blob Storage</li>
+                  <li>Email system sends PDFs + quote link; clients can approve/decline estimates</li>
+                </ul>
+              </div>
+              <div class="languages">
+                <a href="https://reactnative.dev" target="_blank"><img src="assets/LanguageIcon/react-native.svg"
+                    alt="React Native" width="50" height="50" title="React Native" /></a>
+                <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React"
+                    width="50" height="50" title="React" /></a>
+                <a href="https://dotnet.microsoft.com/en-us/" target="_blank"><img src="assets/LanguageIcon/dotnet.svg"
+                    alt="DotNet" width="50" height="50" title="Dot Net" /></a>
+                <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg"
+                    alt="Icon Description" width="50" height="50" title="MySQL" /></a>
+                <a href="https://azure.microsoft.com/en-us/products/storage/blobs" target="_blank"><img
+                    src="assets/azure-blob-storage.svg" alt="Azure Blob Storage" width="50" height="50"
+                    title="Azure Blob Storage" /></a>
+              </div>
+              <div class="projectView">
+                <a href="https://app.invoicefly.com/" target="_blank">InvoiceFly (Company)</a>
+                <a href="VideoDemo/invoiceGenerator.html" target="_blank">Video Demo</a>
+              </div>
+              <button id="storyBehindInvoiceGenerator" class="storyBehindProject"
+                title="The Story Behind The Project">Story Behind</button>
+            </div>
+
+            <div id="SocialNetworking" class="project">
+              <div class="projectTitle">
+                <h3>Social Networking</h3>
+              </div>
+              <div class="projectImg">
+                <img src="assets/SocialNetworking.png" alt="Social Networking Img" />
+              </div>
+              <div class="projectDescription">
+                <p>A full-stack social media app with posts, comments, friends, and real-time chat.</p>
+                <ul>
+                  <li>Register/Login with profile page</li>
+                  <li>Create posts, comment, like, reply, upload images</li>
+                  <li>Add/Delete friends</li>
+                </ul>
+              </div>
+              <div class="projectSkills">
+                <div class="languages">
+                  <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React"
+                      width="50" height="50" title="React" /></a>
+                  <a href="https://nodejs.org/en" target="_blank"><img src="assets/LanguageIcon/nodejs-icon.svg"
+                      alt="Node.js" width="50" height="50" title="Nodejs" /></a>
+                  <a href="https://expressjs.com/" target="_blank"><img src="assets/LanguageIcon/expressjs-icon.svg"
+                      alt="Express" width="50" height="50" style="background-color: white; padding: 5px"
+                      title="Express" /></a>
+                  <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg"
+                      alt="Icon Description" width="50" height="50" title="MySQL" /></a>
+                </div>
+              </div>
+              <div class="projectView">
+                <a href="https://matt-socialnetworking-frontend.onrender.com/" target="_blank">Live</a>
+                <a href="VideoDemo/socialNetworkingDemo.html" target="_blank">Video Demo</a>
+              </div>
+              <button id="storyBehindSocialNetworking" class="storyBehindProject"
+                title="The Story Behind The Project">Story Behind</button>
+            </div>
+
+            <div id="SortingAlgorithm" class="project">
+              <div class="projectTitle">
+                <h3>Sorting Algorithm Visualizer</h3>
+              </div>
+              <div class="projectImg">
+                <img src="assets/SortingAlgorithmVisualizer.png" alt="Sorting Visualizer Img" />
+              </div>
+              <div class="projectDescription">
+                <p>Visualize sorting algorithms in action with adjustable speed and algorithm types.</p>
+                <ul>
+                  <li>Sorts 150 values ranging 5-300</li>
+                  <li>Supports multiple algorithm types</li>
+                  <li>Visual animation with speed control</li>
+                </ul>
+              </div>
+              <div class="projectSkills">
+                <div class="languages">
+                  <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React"
+                      width="50" height="50" title="React" /></a>
+                  <a href="#"><img src="assets/LanguageIcon/css-3.svg" alt="CSS" width="50" height="50"
+                      title="CSS" /></a>
+
+                </div>
+              </div>
+              <div class="projectView">
+                <a href="https://sorting-algorithm.onrender.com/" target="_blank">Live</a>
+                <a href="VideoDemo/sortingAlgorithmVisualizer.html" target="_blank">Video Demo</a>
+              </div>
+              <button id="storyBehindSortingAlgorithm" class="storyBehindProject"
+                title="The Story Behind The Project">Story Behind</button>
+            </div>
+
+            <div id="multiChess" class="project">
+              <div class="projectTitle">
+                <h3>Multiplayer Chess Game</h3>
+              </div>
+              <div class="projectImg">
+                <img src="assets/MultiChess.png" alt="Multiplayer Chess Img" />
+              </div>
+              <div class="projectDescription">
+                <p>Play real-time multiplayer chess via room codes or against a bot.</p>
+                <ul>
+                  <li>Join/Create rooms with aliases</li>
+                  <li>Chat with your opponent</li>
+                  <li>Play against a bot with random valid moves</li>
+                  <li>Move history shown during game</li>
+                </ul>
+              </div>
+              <div class="projectSkills">
+                <div class="languages">
+                  <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React"
+                      width="50" height="50" title="React" /></a>
+                  <a href="https://nodejs.org/en" target="_blank"><img src="assets/LanguageIcon/nodejs-icon.svg"
+                      alt="Node.js" width="50" height="50" title="Nodejs" /></a>
+                  <a href="https://expressjs.com/" target="_blank"><img src="assets/LanguageIcon/expressjs-icon.svg"
+                      alt="Express" width="50" height="50" style="background-color: white; padding: 5px"
+                      title="Express" /></a>
+                  <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg"
+                      alt="Icon Description" width="50" height="50" title="MySQL" /></a>
+                </div>
+              </div>
+              <div class="projectView">
+                <a href="https://multi-chess-client.onrender.com/" target="_blank">Live</a>
+                <a href="VideoDemo/multiChessGameDemo.html" target="_blank">Video Demo</a>
+              </div>
+              <button id="storyBehindMultiChess" class="storyBehindProject" title="The Story Behind The Project">Story
+                Behind</button>
+            </div>
+
+            <div id="ChessGame" class="project">
+              <div class="projectTitle">
+                <h3>Chess Game</h3>
+              </div>
+              <div class="projectImg">
+                <img src="assets/ChessGame.png" alt="Chess Game Img" />
+              </div>
+              <div class="projectDescription">
+                <p>Classic chess game with sound, validation, and restart-on-checkmate.</p>
+                <ul>
+                  <li>Select chess set before game</li>
+                  <li>Move validation and capture sounds</li>
+                  <li>Game resets when king is taken</li>
+                </ul>
+              </div>
+              <div class="projectSkills">
+                <div class="languages">
+                  <a href="https://www.w3schools.com/html/" target="_blank"><img src="assets/LanguageIcon/html-5.svg"
+                      alt="HTML5" width="50" height="50" title="HTML" style="background-color: white;" /></a>
+                  <a href="https://www.w3schools.com/css/" target="_blank"><img src="assets/LanguageIcon/css-3.svg"
+                      alt="CSS" width="50" height="50" style="background-color: white;" title="CSS" /></a>
+                  <a href="https://www.javascript.com/" target="_blank"><img src="assets/LanguageIcon/js.svg"
+                      alt="Javascript" width="50" height="50" title="Javascript" /></a>
+
+                </div>
+              </div>
+              <div class="projectView">
+                <a href="https://chess-board-game.onrender.com/" target="_blank">Live</a>
+                <a href="VideoDemo/chessGameDemo.html" target="_blank">Video Demo</a>
+              </div>
+              <button id="storyBehindChessGame" class="storyBehindProject" title="The Story Behind The Project">Story
+                Behind</button>
+            </div>
+            <div id="portfolio" class="project">
+              <div class="projectTitle">
+                <h3>Portfolio</h3>
+              </div>
+              <div class="projectImg">
+                <img src="assets/Portfolio.png" alt="Portfolio Img" />
+              </div>
+              <div class="projectDescription">
+                <p>This portfolio site itself, built to showcase my projects, skills, and experience.</p>
+              </div>
+              <div class="languages">
+                <a href="https://www.w3schools.com/html/" target="_blank"><img src="assets/LanguageIcon/html-5.svg"
+                    alt="HTML5" width="50" height="50" title="HTML" style="background-color: white;" /></a>
+                <a href="https://www.w3schools.com/css/" target="_blank"><img src="assets/LanguageIcon/css-3.svg"
+                    alt="CSS" width="50" height="50" style="background-color: white;" title="CSS" /></a>
+                <a href="https://www.w3schools.com/js/" target="_blank"><img src="assets/LanguageIcon/js.svg"
+                    alt="Javascript" width="50" height="50" title="Javascript" /></a>
+              </div>
+              <div class="projectView"><button id="storyBehindPortfolio" class="storyBehindProject"
+                  title="The Story Behind The Project">Story
+                  Behind</button></div>
+
+            </div>
+          </div>
         </div>
-        <div id="chessGameModal" class="modal projectModal" style="display: none;">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h1>Chess Game</h1>
-                <p class="modal-info">Why this project?<p>At first, it was to test my vanilla javascript skills and make a game at the same time. Quickly into making the project, I thought about adding socket.io for players to play against eachother,
-                    as well as an AI the player can play against in either easy,medium, or hard mode. Found out very quickly I suck at chess.
-                </p></p>
-                <p class="modal-info">Why the tech stack?<p>To test my vanilla javascript knowledge since my previous two projects were written with React.</p></p>
-                <p class="modal-info">Challenges<p>Learning chess. The more I learned about chess the more complex the project became.</p></p>
-                <p class="modal-info" >What I would add<p>Socket.io so two players can play against eachother. As well as a system that allows the user to gain points with each match they play, so they can earn enough points to purchase
-                     a chess set that they can play with. There are currently four chess sets for both black and white.
-                </p></p>
-            </div>
-        
+      </section>
+
+      <section id="about" class="padding-block-600 surface-neutral-900 text-primary-200">
+        <div class="container flow">
+          <h2 class="fs-800">About Me</h2>
+          <p id="about-content">This sounds cliché, but my journey started when I first printed "Hello, World!" to a
+            screen. I'm someone
+            who is obsessed with anything that is endlessly progressive. Whether in video games, sports, or real life,
+            if there is a way to progress without limit, I'm game. When I watched "Hello World!" print on my screen, I
+            imagined a
+            virtually limitless world, that was when I knew this profession is for me. <br /><br />My hobbies include
+            coding, gaming, working out, and thinking about project ideas that never start.
+            I tinker with robotics, Arduino in particular, as I also see a limitless journey in the world of robotics.
+          </p>
         </div>
-        <section id="home" class="padding-block-600 surface-neutral-900 text-primary-200">
-            <div id="home-container">
-                <div class="home-title-container">
-                    <span class="home-miniTitle">Hi, I'm</span>
-                    <p class="home-title">Matt Levere</p>
-                    <p class="home-subTitle">Computer and Programming Analysis graduate</p>
-                    <div id="toggleInput-container">
-                        <div id="dot-button-container">
-                            <p>Fireflies are clickable!</p>
-                            <button id="generateDots">Generate Fireflies</button>
-                        </div>
-                        
-                        <div id="toggleInput" style="display: none;">
-                            <label for="rangeInput" class="text-primary-400">Generate Fireflies 75-2,500</label>
-                            <input type="range" id="rangeInput" name="rangeInput" min="75" max="2,500" value="150">
-                            <span id="rangeValue" class="text-primary-400">150</span>
-                            <button onclick="resetDots()" id="resetDots">Reset Firefly Count</button>
-                        </div>
-                    </div>
-                    
-                        
-                    <p class="home-subText">Hobby: <br />Skilled, dare I say <span style="font-weight: bold; font-style:italic;">savy</span>, in lifting weights up and down.</p>
-                    <br />
-                    <p class="home-subText"><b>No templates used; All projects are made from scratch. No school projects included.</b></p>
-                </div>
-                
-                <div class="techStack" >
-                    <div class="techStack-title">Tech Stack</div>
-                    <div class="languages">
-                        <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React" width="50" height="50" title="React"/></a>
-                        <a href="https://reactnative.dev" target="_blank"><img src="assets/LanguageIcon/react-native.svg" alt="React Native" width="50" height="50" title="React Native" /></a>
-                        <a href="https://www.javascript.com/" target="_blank"><img src="assets/LanguageIcon/js.svg" alt="Javascript" width="50" height="50" title="Javascript" /></a>
-                        <a href="https://nextjs.org/" target="_blank"><img src="assets/LanguageIcon/nextjs.svg" alt="Next" width="50" height="50" title="Next" class="icon"/></a>
-                        <a href="https://www.typescriptlang.org/" target="_blank"><img src="assets/LanguageIcon/Typescript.png" alt="Typescript" width="50" height="50" title="Typescript" /></a>
-                        <a href="https://daisyui.com/" target="_blank"><img src="assets/LanguageIcon/daisyui.png" alt="DaisyUI" width="50" height="50" title="DaisyUI"/></a>
-                        <a href="https://mui.com/material-ui/" target="_blank"><img src="assets/LanguageIcon/material-ui.svg" alt="Material UI" width="50" height="50" title="Material UI" /></a>
-                        <a href="https://dotnet.microsoft.com/en-us/" target="_blank"><img src="assets/LanguageIcon/dotnet.svg" alt="DotNet" width="50" height="50" title="Dot Net Core" /></a>
-                        <a href="https://expressjs.com/" target="_blank"><img src="assets/LanguageIcon/expressjs-icon.svg" alt="Express" width="50" height="50" class="icon" title="Express" /></a>
-                        <a href="https://nodejs.org/en" target="_blank"><img src="assets/LanguageIcon/nodejs-icon.svg" alt="Node.js" width="50" height="50" title="Nodejs" /></a>
-                        <a href="https://www.mongodb.com/" target="_blank"><img src="assets/LanguageIcon/mongodb-icon.svg" alt="MongoDB" width="50" height="50" title="Mongo Db" /></a>
-                        <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg" alt="MySql" width="50" height="50" title="MySQL" class="icon"/></a>
-                        <a href="https://cloud.redis.io/" target="_blank"><img src="assets/LanguageIcon/redis.svg" alt="MySql" width="50" height="50" title="Redis"/></a>
-                    </div>  
-                </div>
-            </div>
-        </section>
-        <section id="projects" class="padding-block-400 text-primary-200">
-            <div class="container flow">
-                <h2 class="fs-800">Projects</h2>
+      </section>
+      <section id="contact" class="padding-block-600 text-primary-200">
+        <div class="container">
+          <h2 class="fs-800">Contact</h2>
 
-                <div id="dsaPractice" class="project">
-                    <p class="dsa-title">Project will grow as I complete more leetcode problems.</p>
-                    <p>DSA Practice
-                        <p style="font-size: medium; color:#775d9c;">A website that has all the leetcode problems I've completed. As well as finding alternatives to the problem for more practice.</p>
-                    </p>
-                    <img class="projectImg" src="assets/DSA-Screenshot.png" alt="DSA Practice Img"/>
-                    <div class="techStack projectTechStack">
-                        <div class="languages">
-                            <a href="https://nextjs.org/" target="_blank"><img src="assets/LanguageIcon/nextjs.svg" alt="Next" width="50" height="50" title="Next" class="icon"/></a>
-                            <a href="https://www.typescriptlang.org/" target="_blank"><img src="assets/LanguageIcon/Typescript.png" alt="Typescript" width="50" height="50" title="Typescript" /></a>
-                            <a href="https://daisyui.com/" target="_blank"><img src="assets/LanguageIcon/daisyui.png" alt="DaisyUI" width="50" height="50" title="DaisyUI"/></a>
-                            <a href="https://cloud.redis.io/" target="_blank"><img src="assets/LanguageIcon/redis.svg" alt="MySql" width="50" height="50" title="Redis"/></a>
-                        </div>
-                    </div>
-                    <button id="storyBehindDsaPractice" class="storyBehindProject" title="The Story Behind The Project">Story
-                        Behind</button>
+          <a href="mailto:mattlevere@hotmail.com?cc=m_levere@fanshaweonline.ca"
+            style="padding: 5px; border-radius: 5px; text-decoration: none; background-color: white; color: black">Contact
+            Me</a>
 
-                        <div class="projectDescription">
-                            <br />
-                            <ul>
-                                <li>Uses @monaco-editor that executes javascript code using the vm2 dependency</li>
-                                <li>Can run against 3 test cases leetcode gave for the given problem</li>
-                                <li>Can run against 50 tests total. 3 are from leetcode, 47 are chatgpt generated based on the problem, code, and the 3 tests given.</li>
-                                <li>Answers to leetcode questions I have done</li>
-                                <li>Some problem have more than one answer as I have looked more into alternatives to the same problem to further study how it's done and why it's more/less efficient.</li>
-                                <li>Tests will be read from either a JSON file or redis; Tests will be read from file if nothing was pulled from Redis, which will return with Redis being populated from file.</li>
-                            </ul>
-                        </div>
-                        <div class="viewProject">
-                            <a href="https://dsa-visualizer-livid-eta.vercel.app/" target="_blank" class="viewLive">View Live</a>
-                            <a href="VideoDemo/dsaPractice.html" target="_blank">View Video Demo</a>
-                        </div>
-                </div>
+        </div>
 
-                <div id="invoiceGenerator" class="project">
-                    <p>Invoice Generator
-                        <p style="font-size: medium; color:#775d9c;">Invoice Fly clone, fully functional</p>
-                        <a href="https://app.invoicefly.com/" target="_blank" >Invoice Fly website</a>
-                    </p>
-                    <img src="assets/Invoice_Generator.png" class="projectImg invoiceGenImg" alt="Invoice Generator Img" />
-                    <div class="techStack projectTechStack">
-                        <div class="languages">
-                            <a href="https://reactnative.dev" target="_blank"><img src="assets/LanguageIcon/react-native.svg" alt="React Native" width="50" height="50" title="React Native" /></a>
-                            <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React" width="50" height="50" title="React"/></a>
-                            <a href="https://dotnet.microsoft.com/en-us/" target="_blank"><img src="assets/LanguageIcon/dotnet.svg" alt="DotNet" width="50" height="50" title="Dot Net" /></a>
-                            <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg" alt="Icon Description" width="50" height="50" title="MySQL" /></a>
-                            <a href="https://azure.microsoft.com/en-us/products/storage/blobs" target="_blank"><img src="assets/azure-blob-storage.svg" alt="Azure Blob Storage" width="50" height="50" title="Azure Blob Storage" /></a>
-                        </div>
-                    </div>
-                    <button id="storyBehindInvoiceGenerator" class="storyBehindProject" title="The Story Behind The Project">Story
-                        Behind</button>
+      </section>
 
-                        <div class="projectDescription">
-                            <br />
-                            <ul>
-                                <li>Login/Register</li>
-                                <li>JWT Authentication</li>
-                                <li>Invoice and Estimate creation <span style="color: lightgray;">(option to edit after created)</span></li>
-                                <li>Client creation <span style="color: lightgray;">(option to edit after created)</span></li>
-                                <li>Service Items creation <span style="color: lightgray;">(option to edit after created)</span></li>
-                                <li>Pdf generation using QuestPDF in backend and stored in cloud with azure blob storage <span style="color: lightgray;">(option to edit after created)</span></li>
-                                <li>Email service - When the quote is sent to the clients email, attached is the PDF as well as a link to a react website to view the quote. Only estimate require clients to "Approve" or "Decline" the quote.</li>
-                            </ul>
-                        </div>
-                        <div class="viewProject">
-                            <a href="VideoDemo/invoiceGenerator.html" target="_blank">View Video Demo</a>
-                        </div>
-                </div>
+    </main>
+  </div>
 
-                <div id="SocialNetworking" class="project">
-                    <p>Portfolio
-                        <p style="font-size: medium; color:#775d9c;">The portfolio you're seeing right now</p>
-                    </p>
-                    <img src="assets/Portfolio.png" class="projectImg" alt="Portfolio Img" />
-                    <div class="techStack projectTechStack">
-                        <div class="languages">
-                            <a href="https://www.w3schools.com/html/" target="_blank"><img src="assets/LanguageIcon/html-5.svg" alt="HTML5"
-                                    width="50" height="50" title="HTML" style="background-color: white;" /></a>
-                            <a href="https://www.w3schools.com/css/" target="_blank"><img src="assets/LanguageIcon/css-3.svg" alt="CSS"
-                                    width="50" height="50" style="background-color: white;" title="CSS" /></a>
-                            <a href="https://www.w3schools.com/js/" target="_blank"><img src="assets/LanguageIcon/js.svg" alt="Javascript" width="50"
-                                    height="50" title="Javascript" /></a>
-                        </div>
-                    </div>
-                    <button id="storyBehindPortfolio" class="storyBehindProject" title="The Story Behind The Project">Story
-                        Behind</button>
-                </div>
-
-                <div id="SocialNetworking" class="project">
-                    <p>Multiplayer Chess Game
-                        <p style="font-size: medium; color:#775d9c;">Play random players by entering room name or against a bot using socket.io<br />Shown in the video demo.</p>
-                    </p>
-                    <img src="assets/MultiChess.png" class="projectImg" alt="Multiplater Chess Img" />
-                    <div class="techStack projectTechStack">
-                        <div class="languages">
-                            <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React" width="50"
-                                    height="50" title="React" /></a>
-                            <a href="https://nodejs.org/en" target="_blank"><img src="assets/LanguageIcon/nodejs-icon.svg" alt="Node.js"
-                                    width="50" height="50" title="Nodejs" /></a>
-                            <a href="https://expressjs.com/" target="_blank"><img src="assets/LanguageIcon/expressjs-icon.svg" alt="Express"
-                                    width="50" height="50" style="background-color: white; padding: 5px" title="Express" /></a>
-                            <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg"
-                                    alt="Icon Description" width="50" height="50" title="MySQL" /></a>
-                        </div>
-                    </div>
-                    <button id="storyBehindMultiChess" class="storyBehindProject" title="The Story Behind The Project">Story
-                        Behind</button>
-                
-                    <div class="projectDescription">
-                        <br />
-                        <ul>
-                            <li>Create/Join rooms with an alias</li>
-                            <li>Chat with the opponent via chat box</li>
-                            <li>Play against a bot that picks valid moves at random</li>
-                            <li>See what moves were made in the Chess Moves section</li>
-                        </ul>
-                    </div>
-                    <div class="viewProject">
-                        <a href="https://multi-chess-client.onrender.com/" target="_blank" class="viewLive">View Live </a>
-                        <a href="VideoDemo/multiChessGameDemo.html" target="_blank">View Video Demo</a>
-                    </div>
-                </div>
-                <div id="SocialNetworking" class="project">
-                    <p>Social Networking <p style="font-size: medium; color:#775d9c;">Can Register with random user info.<br/>Shown in the video demo.</p>    </p>
-                    <img src="assets/SocialNetworking.png" class="projectImg" alt="SocialNetworking Img" />
-                    <div class="techStack projectTechStack">
-                        <!-- <div class="writtenIn">Written In</div> -->
-                        <div class="languages">
-                            <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg"  alt="React" width="50" height="50"
-                                    title="React" /></a>
-                           
-                            <a href="https://mui.com/material-ui/" target="_blank"><img src="assets/LanguageIcon/material-ui.svg" alt="Material UI"
-                                    width="50" height="50" title="Material UI" /></a>
-                                    <a href="https://nodejs.org/en" target="_blank"><img src="assets/LanguageIcon/nodejs-icon.svg" alt="Node.js" width="50"
-                                            height="50" title="Nodejs" /></a>
-                            <a href="https://expressjs.com/" target="_blank"><img src="assets/LanguageIcon/expressjs-icon.svg" alt="Express"
-                                    width="50" height="50" style="background-color: white; padding: 5px" title="Express" /></a>
-                            <a href="https://www.mongodb.com/" target="_blank"><img src="assets/LanguageIcon/mongodb-icon.svg" alt="Icon Description"
-                                    width="50" height="50" title="Mongo Db" /></a>
-                        </div>
-                        </div> 
-                        <button id="storyBehindSocialNetworking"
-                        class="storyBehindProject" title="The Story Behind The Project">Story Behind</button>
-                        
-                        <div class="projectDescription">
-                            <p>
-                            <ul>
-                                <li>Create Posts</li>
-                                <li>Comment on a post</li>
-                                <li>Reply to a comment/reply</li>
-                                <li>Like any post/comment/reply</li>
-                                <li>Upload Images</li>
-                                <li>Add/Delete Friends</li>
-                                <li>Personal Profile Page</li>
-                                <li>Login/Register</li>
-                            </ul>
-                            </p>
-                        </div>
-                    <div class="viewProject">
-                        <a href="https://matt-socialnetworking-frontend.onrender.com/" target="_blank" class="viewLive">View Live </a>
-                        <a href="VideoDemo/socialNetworkingDemo.html" target="_blank">View Video Demo</a>
-                    </div>
-                </div>
-                
-                <div id="SortingAlgorithm" class="project">
-                    
-                    <p>Sorting Algorithm Visualizer</p><img src="assets/SortingAlgorithmVisualizer.png" class="projectImg" alt="Sorting Algorithm Visualizer Img" />
-                    <div class="techStack projectTechStack">
-                        <!-- <div class="writtenIn">Written In</div> -->
-                        <div class="languages">
-                            <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React" width="50" height="50"
-                                    title="React" /></a>    
-                            <a href="#" ><img src="assets/LanguageIcon/css-3.svg" alt="CSS" width="50"
-                                    height="50" title="CSS" /></a>
-                    
-                        </div>
-                        </div>  
-                        <button id="storyBehindSortingAlgorithm"
-                        class="storyBehindProject" title="The Story Behind The Project">Story Behind</button>
-                        <div class="projectDescription">
-                            <p>
-                            <ul>
-                                <li>Sort a data set of 150 numbers ranging from 5-300</li>
-                                <li>Select different sorting algorithm types</li>
-                                <li>Change sorting speed</li>
-                                <li>Watch the data set sort in real time</li>
-                            </ul>
-                            </p>
-                        </div>
-                        <div class="viewProject">
-                            <a href="https://sorting-algorithm.onrender.com/" target="_blank" class="viewLive">View Live</a>
-                            <a href="VideoDemo/sortingAlgorithmVisualizer.html" target="_blank">View Video Demo</a></div>
-                        </div>
-                <div id="ChessGame" class="project">
-                    
-                    <p>Chess Game</p>
-                    <img src="assets/ChessGame.png" alt="Chess Game Img" class="projectImg"/>
-                        <div class="techStack projectTechStack">
-                            <!-- <div class="writtenIn">Written in</div> -->
-                            <div class="languages">
-                                <a href="https://www.w3schools.com/html/" target="_blank"><img src="assets/LanguageIcon/html-5.svg" alt="HTML5"
-                                    width="50" height="50" title="HTML" style="background-color: white;" /></a>
-                                <a href="https://www.w3schools.com/css/" target="_blank"><img src="assets/LanguageIcon/css-3.svg" alt="CSS"
-                                    width="50" height="50" style="background-color: white;" title="CSS" /></a>
-                                <a href="https://www.javascript.com/" target="_blank"><img src="assets/LanguageIcon/js.svg" alt="Javascript" width="50"
-                                        height="50" title="Javascript" /></a>
-                        
-                            </div>
-                            </div>  
-                            <button id="storyBehindChessGame"
-                            class="storyBehindProject" title="The Story Behind The Project">Story Behind</button>
-                            <div class="projectDescription">
-                                <p>
-                                <ul>
-                                    <li>Select your chess set before the game starts</li>
-                                    <li>Chess piece moves are validated </li>
-                                    <li>Watch out for the sound with each move and when taking another chess piece</li>
-                                    <li>Game will reset when the King is taken</li>
-                                </ul>
-                                </p>
-                            </div>
-                            <div class="viewProject">
-                                <a href="https://chess-board-game.onrender.com/" target="_blank" class="viewLive">View Live</a>
-                                <a href="VideoDemo/chessGameDemo.html" target="_blank">View Video Demo</a>
-                            </div> 
-                </div>
-           
-        </section>
-        <section id="about" class="padding-block-600 surface-neutral-900 text-primary-200">
-            <div class="container flow">
-                <h2 class="fs-800">About Me</h2>
-                <p id="about-content">This sounds cliché, but my journey started when I first printed "Hello,  World!" to a screen. I'm someone 
-                    who is obsessed with anything that is endlessly progressive. Whether in video games, sports, or real life,
-                     if there is a way to progress without limit, I'm game. When I watched "Hello World!" print on my screen, I imagined a 
-                      virtually limitless world, that was when I knew this profession is for me. <br/><br />My hobbies include coding, gaming, working out, and thinking about project ideas that never start.
-                      I tinker with robotics, Arduino in particular, as I also see a limitless journey in the world of robotics.
-                </p>
-            </div>
-        </section>
-         <section id="contact" class="padding-block-600 text-primary-200">
-            <div class="container">
-                <h2 class="fs-800">Contact</h2>
-
-        <a href="mailto:mattlevere@hotmail.com?cc=m_levere@fanshaweonline.ca" style="padding: 5px; border-radius: 5px; text-decoration: none; background-color: white; color: black">Contact Me</a>
-
-            </div>
-           
-        </section> 
-   
-    </main></div>
-    
-<script type="module" src="index.js"></script>
+  <script type="module" src="index.js"></script>
 
 </body>
+
 </html>
