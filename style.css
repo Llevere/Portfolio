@@ -460,7 +460,7 @@ nav .resume img {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 49;
 }
 
 /* 
@@ -1572,6 +1572,7 @@ input[type="range"] {
 
   .hamburger.is-active::before {
     transform: rotate(-45deg) translate(-9px, 6px);
+    
   }
 
   .hamburger.is-active::after {
@@ -1593,6 +1594,7 @@ input[type="range"] {
     background-color: rgba(9, 13, 32, 0.85);
     padding-top: 120px;
     transition: left 0.5s ease;
+
   }
 
   .mobile-nav.is-active {
