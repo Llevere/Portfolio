@@ -22,15 +22,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const rangeInput = document.getElementById("rangeInput");
   const rangeValue = document.getElementById("rangeValue");
   const resetBtn = document.getElementById("resetDots");
+  const closeToggle = document.getElementById("closeToggle");
 
   rangeInput.max = maxFireflies();
-  document.querySelector(
-    "label[for='rangeInput']"
-  ).innerHTML = `Generate Dots 75–${maxFireflies()}`;
 
   generateBtn?.addEventListener("click", () => {
     toggleInput.style.display =
       toggleInput.style.display === "none" ? "flex" : "none";
+  });
+
+  closeToggle?.addEventListener("click", () => {
+    toggleInput.style.display = "none";
   });
 
   rangeInput.value = 150;

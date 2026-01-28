@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Read(//c/Users/mattl/Desktop/Portfolio/**)",
+      "Bash(wc:*)"
+    ]
+  }
+}

@@ -10,12 +10,21 @@
   <meta property="og:url" content="https://www.levere.dev/">
   <meta property="og:title" content="Matt Levere | Portfolio">
   <meta property="og:description" content="Matt Levere's software portfolio.">
-  <meta property="og:image" content="https://www.levere.dev/assets/Portfolio.png"> 
+  <meta property="og:image" content="https://www.levere.dev/assets/Portfolio.webp">
   <title>Matt Levere</title>
+
+  <!-- Preconnect to Google Fonts for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Optimized font loading - only weights 400 and 700 -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&family=Poppins:wght@400;700&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Lato:wght@400;700&family=Poppins:wght@400;700&display=swap">
+
   <link rel="stylesheet" href="style.css">
-  <link rel="preload" href="assets/BG.png" as="image">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="preload" href="assets/BG.webp" as="image">
 </head>
 
 <body>
@@ -25,7 +34,8 @@
     <button id="toastClose">&times;</button>
   </div>
 
-  <img class="backgroundImage" src="assets/BG.png" alt="Background Img" />
+  <img class="backgroundImage" src="assets/BG.webp" alt="Background Img" width="1920" height="1080"
+    fetchpriority="high" />
   <div class="content-container">
     <section class="stars">
       <span></span>
@@ -47,14 +57,12 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a class="resume" href="assets/Resume.pdf" target="_blank" title="Resume"><img height="50" width="50"
-              src="assets/ResumeSVG.svg" alt="Resume"></a></li>
         <li><img src="assets/Shooting Star.png" id="toggleAnimation" alt="Shooting Star" title="Toggle Animation"
-            onclick="toggleAnimation()" style="opacity: 1;"></li>
+            onclick="toggleAnimation()" width="50" height="50" style="opacity: 1;"></li>
 
 
       </ul>
-      <button class="hamburger">
+      <button class="hamburger" aria-label="Toggle navigation menu">
         <div class="bar"></div>
       </button>
     </nav>
@@ -63,12 +71,10 @@
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a class="resume" href="assets/Resume.pdf" target="_blank" title="Resume"><img height="50" width="50"
-          src="assets/ResumeSVG.svg" alt="Resume"></a>
       <div>
-        <p style="color: #ff6c03; text-align: center;"><span>Toggle Star Animation Icon </span></p><img
+        <p style="color: #ff6c03; text-align: center;">Toggle Star Animation Icon</p><img
           src="assets/Shooting Star.png" class="toggleAnimation" alt="Shooting Star" title="Toggle Animation"
-          onclick="toggleAnimation()" style="opacity: 1;">
+          onclick="toggleAnimation()" width="50" height="50" style="opacity: 1;">
       </div>
 
     </nav>
@@ -272,30 +278,41 @@
         </div>
 
       </div>
-      <section id="home" class="padding-block-600 surface-neutral-900 text-primary-200">
+      <section id="home" class="surface-neutral-900 text-primary-200">
         <div id="home-container">
           <div class="home-title-container">
-            <span class="home-miniTitle">Hi, I'm</span>
+            <p class="home-miniTitle">Hi, I'm</p>
             <p class="home-title">Matt Levere</p>
-            <p class="home-subTitle">Computer and Programming Analysis graduate</p>
+            <p class="home-subTitle">Full-stack Software Developer</p>
+            <p class="home-location">Ontario, Canada</p>
+
             <div id="toggleInput-container">
               <div id="dot-button-container">
                 <p>Fireflies are clickable!</p>
-                <button id="generateDots">Generate Fireflies</button>
+                <button id="generateDots">
+                  Generate Fireflies
+                </button>
               </div>
 
               <div id="toggleInput" style="display: none;">
-                <label for="rangeInput" class="text-primary-400">Generate Fireflies 75-2,500</label>
-                <input type="range" id="rangeInput" name="rangeInput" min="75" max="2,500" value="150">
-                <span id="rangeValue" class="text-primary-400">150</span>
-                <button onclick="resetDots()" id="resetDots">Reset Firefly Count</button>
+                <div class="toggle-header">
+                  <span class="toggle-title">Firefly Controls</span>
+                  <button id="closeToggle" class="close-toggle">&times;</button>
+                </div>
+                <div class="toggle-content">
+                  <label for="rangeInput">Count: <span id="rangeValue">150</span></label>
+                  <input type="range" id="rangeInput" name="rangeInput" min="75" max="2500" value="150">
+                  <div class="toggle-range-labels">
+                    <span>75</span>
+                    <span>2,500</span>
+                  </div>
+                  <button onclick="resetDots()" id="resetDots">Reset to Default</button>
+                </div>
               </div>
             </div>
 
-
-            <p class="home-subText">Hobby: <br />Skilled, dare I say <span
-                style="font-weight: bold; font-style:italic;">savy</span>, in lifting weights up and down.</p>
-            <br />
+            <p class="home-subText home-hobby">Hobby: Skilled, dare I say <span
+                style="font-weight: bold; font-style:italic;">savvy</span>, in lifting weights up and down.</p>
             <p class="home-subText"><b>No templates used; All projects are made from scratch. No school projects
                 included.</b></p>
           </div>
@@ -303,32 +320,20 @@
           <div class="techStack">
             <div class="techStack-title">Tech Stack</div>
             <div class="languages">
-              <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React"
-                  width="50" height="50" title="React" /></a>
-              <a href="https://reactnative.dev" target="_blank"><img src="assets/LanguageIcon/react-native.svg"
-                  alt="React Native" width="50" height="50" title="React Native" /></a>
-              <a href="https://www.javascript.com/" target="_blank"><img src="assets/LanguageIcon/js.svg"
-                  alt="Javascript" width="50" height="50" title="Javascript" /></a>
-              <a href="https://nextjs.org/" target="_blank"><img src="assets/LanguageIcon/nextjs.svg" alt="Next"
-                  width="50" height="50" title="Next" class="icon" /></a>
-              <a href="https://www.typescriptlang.org/" target="_blank"><img src="assets/LanguageIcon/Typescript.png"
-                  alt="Typescript" width="50" height="50" title="Typescript" /></a>
-              <a href="https://daisyui.com/" target="_blank"><img src="assets/LanguageIcon/daisyui.png" alt="DaisyUI"
-                  width="50" height="50" title="DaisyUI" /></a>
-              <a href="https://mui.com/material-ui/" target="_blank"><img src="assets/LanguageIcon/material-ui.svg"
-                  alt="Material UI" width="50" height="50" title="Material UI" /></a>
-              <a href="https://dotnet.microsoft.com/en-us/" target="_blank"><img src="assets/LanguageIcon/dotnet.svg"
-                  alt="DotNet" width="50" height="50" title="Dot Net Core" /></a>
-              <a href="https://expressjs.com/" target="_blank"><img src="assets/LanguageIcon/expressjs-icon.svg"
-                  alt="Express" width="50" height="50" class="icon" title="Express" /></a>
-              <a href="https://nodejs.org/en" target="_blank"><img src="assets/LanguageIcon/nodejs-icon.svg"
-                  alt="Node.js" width="50" height="50" title="Nodejs" /></a>
-              <a href="https://www.mongodb.com/" target="_blank"><img src="assets/LanguageIcon/mongodb-icon.svg"
-                  alt="MongoDB" width="50" height="50" title="Mongo Db" /></a>
-              <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg" alt="MySql"
-                  width="50" height="50" title="MySQL" class="icon" /></a>
-              <a href="https://cloud.redis.io/" target="_blank"><img src="assets/LanguageIcon/redis.svg" alt="MySql"
-                  width="50" height="50" title="Redis" /></a>
+              <img src="assets/LanguageIcon/react.svg" alt="React" data-tooltip="React" />
+              <img src="assets/LanguageIcon/Typescript.webp" alt="Typescript" data-tooltip="TypeScript" />
+              <img src="assets/LanguageIcon/dotnet.svg" alt="DotNet" data-tooltip=".NET" />
+              <img src="assets/services/azure-blob-storage.svg" alt="Azure" data-tooltip="Azure" class="icon" />
+              <img src="assets/LanguageIcon/mysql.svg" alt="SQL Server" data-tooltip="SQL Server / MySQL" class="icon" />
+              <img src="assets/LanguageIcon/nextjs.svg" alt="Next" data-tooltip="Next.js" class="icon" />
+              <img src="assets/LanguageIcon/react-native.svg" alt="React Native" data-tooltip="React Native" />
+              <img src="assets/LanguageIcon/js.svg" alt="Javascript" data-tooltip="JavaScript" />
+              <img src="assets/LanguageIcon/nodejs-icon.svg" alt="Node.js" data-tooltip="Node.js" />
+              <img src="assets/LanguageIcon/expressjs-icon.svg" alt="Express" data-tooltip="Express.js" class="icon" />
+              <img src="assets/LanguageIcon/mongodb-icon.svg" alt="MongoDB" data-tooltip="MongoDB" />
+              <img src="assets/LanguageIcon/redis.svg" alt="Redis" data-tooltip="Redis" />
+              <img src="assets/LanguageIcon/daisyui.webp" alt="DaisyUI" data-tooltip="DaisyUI" />
+              <img src="assets/LanguageIcon/material-ui.svg" alt="Material UI" data-tooltip="Material UI" />
             </div>
           </div>
         </div>
@@ -344,7 +349,7 @@
                 <h3>Web OS</h3>
               </div>
               <div class="projectImg">
-                <img src="assets/WindowsOS.png" alt="Web OS Img" />
+                <img src="assets/LevereOS.webp" alt="Web OS Img" width="800" height="450" loading="lazy" />
               </div>
               <div class="projectDescription">
                 <p>A virtual filesystem in the web</p>
@@ -358,15 +363,14 @@
                 </ul>
               </div>
               <div class="languages p-2">
-                <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React"
-                    width="50" height="50" title="React" /></a>
-                <a href="https://nodejs.org/en" target="_blank"><img src="assets/LanguageIcon/nodejs-icon.svg"
-                    alt="Node.js" width="50" height="50" title="Nodejs" /></a>
-                <a href="https://expressjs.com/" target="_blank"><img src="assets/LanguageIcon/expressjs-icon.svg"
+                <img src="assets/LanguageIcon/react.svg" alt="React"
+                    width="50" height="50" title="React" />
+                <img src="assets/LanguageIcon/nodejs-icon.svg"
+                    alt="Node.js" width="50" height="50" title="Nodejs" />
+                <img src="assets/LanguageIcon/expressjs-icon.svg"
                     alt="Express" width="50" height="50" style="background-color: white; padding: 5px"
-                    title="Express" /></a>
-                <img src="assets/LanguageIcon/redis.svg" alt="Icon Description" width="50" height="50"
-                  title="MySQL" /></a>
+                    title="Express" />
+                <img src="assets/LanguageIcon/redis.svg" alt="Redis" width="50" height="50" title="Redis" />
               </div>
               <div class="projectView">
                 <a href="https://levereos.vercel.app/" target="_blank">Live</a>
@@ -381,7 +385,7 @@
                 <h3>DSA Practice</h3>
               </div>
               <div class="projectImg">
-                <img src="assets/DSA-Screenshot.png" alt="DSA Practice Img" />
+                <img src="assets/DSA-Screenshot.webp" alt="DSA Practice Img" width="800" height="450" loading="lazy" />
               </div>
               <div class="projectDescription">
                 <p>A website that has all the Leetcode problems I've completed, plus alternative solutions for further
@@ -394,14 +398,14 @@
                 </ul>
               </div>
               <div class="languages p-2">
-                <a href="https://nextjs.org/" target="_blank"><img src="assets/LanguageIcon/nextjs.svg" alt="Next"
-                    width="50" height="50" title="Next" class="icon" /></a>
-                <a href="https://www.typescriptlang.org/" target="_blank"><img src="assets/LanguageIcon/Typescript.png"
-                    alt="Typescript" width="50" height="50" title="Typescript" /></a>
-                <a href="https://daisyui.com/" target="_blank"><img src="assets/LanguageIcon/daisyui.png" alt="DaisyUI"
-                    width="50" height="50" title="DaisyUI" /></a>
-                <a href="https://cloud.redis.io/" target="_blank"><img src="assets/LanguageIcon/redis.svg" alt="MySql"
-                    width="50" height="50" title="Redis" /></a>
+                <img src="assets/LanguageIcon/nextjs.svg" alt="Next"
+                    width="50" height="50" title="Next" class="icon" />
+                <img src="assets/LanguageIcon/Typescript.webp"
+                    alt="Typescript" width="50" height="50" title="Typescript" />
+                <img src="assets/LanguageIcon/daisyui.webp" alt="DaisyUI"
+                    width="50" height="50" title="DaisyUI" />
+                <img src="assets/LanguageIcon/redis.svg" alt="Redis"
+                    width="50" height="50" title="Redis" />
               </div>
               <div class="projectView">
                 <a href="https://dsa-visualizer-livid-eta.vercel.app/" target="_blank">Live</a>
@@ -416,7 +420,8 @@
                 <h3>Invoice & Estimate Generator</h3>
               </div>
               <div class="projectImg">
-                <img src="assets/Invoice_Generator.png" alt="Invoice Generator Img" />
+                <img src="assets/InvoiceGenerator.webp" alt="Invoice Generator Img" width="800" height="450"
+                  loading="lazy" />
               </div>
               <div class="projectDescription">
                 <p>InvoiceFly clone: build and send invoices/estimates with PDF support, email delivery, and optional
@@ -429,17 +434,17 @@
                 </ul>
               </div>
               <div class="languages">
-                <a href="https://reactnative.dev" target="_blank"><img src="assets/LanguageIcon/react-native.svg"
-                    alt="React Native" width="50" height="50" title="React Native" /></a>
-                <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React"
-                    width="50" height="50" title="React" /></a>
-                <a href="https://dotnet.microsoft.com/en-us/" target="_blank"><img src="assets/LanguageIcon/dotnet.svg"
-                    alt="DotNet" width="50" height="50" title="Dot Net" /></a>
-                <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg"
-                    alt="Icon Description" width="50" height="50" title="MySQL" /></a>
-                <a href="https://azure.microsoft.com/en-us/products/storage/blobs" target="_blank"><img
-                    src="assets/azure-blob-storage.svg" alt="Azure Blob Storage" width="50" height="50"
-                    title="Azure Blob Storage" /></a>
+                <img src="assets/LanguageIcon/react-native.svg"
+                    alt="React Native" width="50" height="50" title="React Native" />
+                <img src="assets/LanguageIcon/react.svg" alt="React"
+                    width="50" height="50" title="React" />
+                <img src="assets/LanguageIcon/dotnet.svg"
+                    alt="DotNet" width="50" height="50" title="Dot Net" />
+                <img src="assets/LanguageIcon/mysql.svg" alt="MySQL"
+                    width="50" height="50" title="MySQL" />
+                <img
+                    src="assets/services/azure-blob-storage.svg" alt="Azure Blob Storage" width="50" height="50"
+                    title="Azure Blob Storage" />
               </div>
               <div class="projectView">
                 <a href="https://invoicefly.com/" target="_blank">InvoiceFly (Company)</a>
@@ -454,7 +459,8 @@
                 <h3>Social Networking</h3>
               </div>
               <div class="projectImg">
-                <img src="assets/SocialNetworking.png" alt="Social Networking Img" />
+                <img src="assets/SocialNetworking.webp" alt="Social Networking Img" width="800" height="450"
+                  loading="lazy" />
               </div>
               <div class="projectDescription">
                 <p>A full-stack social media app with posts, comments, and friends</p>
@@ -473,8 +479,8 @@
                   <a href="https://expressjs.com/" target="_blank"><img src="assets/LanguageIcon/expressjs-icon.svg"
                       alt="Express" width="50" height="50" style="background-color: white; padding: 5px"
                       title="Express" /></a>
-                  <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg"
-                      alt="Icon Description" width="50" height="50" title="MySQL" /></a>
+                  <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg" alt="MySQL"
+                      width="50" height="50" title="MySQL" /></a>
                 </div>
               </div>
               <div class="projectView">
@@ -490,7 +496,8 @@
                 <h3>Sorting Algorithm Visualizer</h3>
               </div>
               <div class="projectImg">
-                <img src="assets/SortingAlgorithmVisualizer.png" alt="Sorting Visualizer Img" />
+                <img src="assets/SortingAlgorithmVisualizer.png" alt="Sorting Visualizer Img" width="800" height="450"
+                  loading="lazy" />
               </div>
               <div class="projectDescription">
                 <p>Visualize sorting algorithms in action with adjustable speed and algorithm types.</p>
@@ -502,10 +509,10 @@
               </div>
               <div class="projectSkills">
                 <div class="languages">
-                  <a href="https://react.dev/" target="_blank"><img src="assets/LanguageIcon/react.svg" alt="React"
-                      width="50" height="50" title="React" /></a>
-                  <a href="#"><img src="assets/LanguageIcon/css-3.svg" alt="CSS" width="50" height="50"
-                      title="CSS" /></a>
+                  <img src="assets/LanguageIcon/react.svg" alt="React"
+                      width="50" height="50" title="React" />
+                  <img src="assets/LanguageIcon/css-3.svg" alt="CSS" width="50" height="50"
+                      title="CSS" />
 
                 </div>
               </div>
@@ -522,7 +529,7 @@
                 <h3>Multiplayer Chess Game</h3>
               </div>
               <div class="projectImg">
-                <img src="assets/MultiChess.png" alt="Multiplayer Chess Img" />
+                <img src="assets/MultiChess.webp" alt="Multiplayer Chess Img" width="800" height="450" loading="lazy" />
               </div>
               <div class="projectDescription">
                 <p>Play real-time multiplayer chess via room codes or against a bot.</p>
@@ -542,8 +549,8 @@
                   <a href="https://expressjs.com/" target="_blank"><img src="assets/LanguageIcon/expressjs-icon.svg"
                       alt="Express" width="50" height="50" style="background-color: white; padding: 5px"
                       title="Express" /></a>
-                  <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg"
-                      alt="Icon Description" width="50" height="50" title="MySQL" /></a>
+                  <a href="https://www.mysql.com/" target="_blank"><img src="assets/LanguageIcon/mysql.svg" alt="MySQL"
+                      width="50" height="50" title="MySQL" /></a>
                 </div>
               </div>
               <div class="projectView">
@@ -559,7 +566,7 @@
                 <h3>Chess Game</h3>
               </div>
               <div class="projectImg">
-                <img src="assets/ChessGame.png" alt="Chess Game Img" />
+                <img src="assets/ChessGame.webp" alt="Chess Game Img" width="800" height="450" loading="lazy" />
               </div>
               <div class="projectDescription">
                 <p>Classic chess game with sound, validation, and restart-on-checkmate.</p>
@@ -587,57 +594,29 @@
               <button id="storyBehindChessGame" class="storyBehindProject" title="The Story Behind The Project">Story
                 Behind</button>
             </div>
-            <div id="portfolio" class="project">
-              <div class="projectTitle">
-                <h3>Portfolio</h3>
-              </div>
-              <div class="projectImg">
-                <img src="assets/Portfolio.png" alt="Portfolio Img" />
-              </div>
-              <div class="projectDescription">
-                <p>This portfolio site itself, built to showcase my projects, skills, and experience.</p>
-              </div>
-              <div class="languages">
-                <a href="https://www.w3schools.com/html/" target="_blank"><img src="assets/LanguageIcon/html-5.svg"
-                    alt="HTML5" width="50" height="50" title="HTML" style="background-color: white;" /></a>
-                <a href="https://www.w3schools.com/css/" target="_blank"><img src="assets/LanguageIcon/css-3.svg"
-                    alt="CSS" width="50" height="50" style="background-color: white;" title="CSS" /></a>
-                <a href="https://www.w3schools.com/js/" target="_blank"><img src="assets/LanguageIcon/js.svg"
-                    alt="Javascript" width="50" height="50" title="Javascript" /></a>
-              </div>
-              <div class="projectView"><button id="storyBehindPortfolio" class="storyBehindProject"
-                  title="The Story Behind The Project">Story
-                  Behind</button></div>
-
-            </div>
           </div>
         </div>
       </section>
 
-      <section id="about" class="padding-block-600 surface-neutral-900 text-primary-200">
-        <div class="container flow">
-          <h2 class="fs-800">About Me</h2>
-          <p id="about-content">This sounds cliché, but my journey started when I first printed "Hello, World!" to a
-            screen. I'm someone
-            who is obsessed with anything that is endlessly progressive. Whether in video games, sports, or real life,
-            if there is a way to progress without limit, I'm game. When I watched "Hello World!" print on my screen, I
-            imagined a
-            virtually limitless world, that was when I knew this profession is for me. <br /><br />My hobbies include
-            coding, gaming, working out, and thinking about project ideas that never start.
-            I tinker with robotics, Arduino in particular, as I also see a limitless journey in the world of robotics.
-          </p>
+      <section id="about" class="padding-block-600 text-primary-200">
+        <div class="section-container">
+          <h2 class="fs-800">About</h2>
+          <p>Computer Programming and Analysis graduate from Fanshawe College (December 2024).</p>
+          <p>Contract Software Engineer with <span class="highlight">8 months</span> of professional experience.</p>
+          <div class="tech-stack-list">
+            <p class="tech-stack-label">Current Stack</p>
+            <p><span>Frontend:</span> React, TypeScript</p>
+            <p><span>Backend:</span> .NET, NUnit, SpecFlow</p>
+            <p><span>Infrastructure:</span> Azure</p>
+          </div>
         </div>
       </section>
+
       <section id="contact" class="padding-block-600 text-primary-200">
-        <div class="container">
+        <div class="section-container">
           <h2 class="fs-800">Contact</h2>
-
-          <a href="mailto:mattlevere@hotmail.com?cc=m_levere@fanshaweonline.ca"
-            style="padding: 5px; border-radius: 5px; text-decoration: none; background-color: white; color: black">Contact
-            Me</a>
-
+          <a href="mailto:mattlevere@hotmail.com?cc=m_levere@fanshaweonline.ca" class="contact-btn">Contact Me</a>
         </div>
-
       </section>
 
     </main>
